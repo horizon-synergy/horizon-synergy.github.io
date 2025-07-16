@@ -1,36 +1,27 @@
-const footerPart = document.getElementById("footer-part");
-const svgWave = document.querySelector(".wave-background svg");
-
+// Toggle between dark and light mode
 function toggleTheme() {
   document.body.classList.toggle('light-mode');
-  footerPart.classList.toggle('light-mode');
-  svgWave.classList.toggle('light-mode');
 }
 
-function showSection(id) {
-  const sections = document.querySelectorAll("main section");
-  sections.forEach(section => {
-    section.style.display = "none";
-    section.classList.remove("fade-in");
+// Toggle mobile menu visibility
+function toggleMobileMenu() {
+  const nav = document.getElementById('sidebar');
+  nav.classList.toggle('show');
+
+  // Add temporary listener to close when clicking outside
+  document.addEventListener('click', function handler(e) {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    if (!nav.contains(e.target) && !toggleBtn.contains(e.target)) {
+      nav.classList.remove('show');
+      document.removeEventListener('click', handler);
+    }
   });
-
-  const active = document.getElementById(id);
-  if (active) {
-    active.style.display = "block";
-    setTimeout(() => {
-      active.classList.add("fade-in");
-    }, 10);
-  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  showSection("about");
-
-  document.querySelectorAll("nav a[href^='#']").forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const id = this.getAttribute("href").substring(1);
-      showSection(id);
-    });
+// Close menu when clicking any nav link
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('show');
   });
 });
+

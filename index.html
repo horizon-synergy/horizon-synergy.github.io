@@ -111,27 +111,6 @@
   </main>
 
   <script src="main.js"></script>
-  <script>
-    function showSectionFromHash() {
-  const hash = window.location.hash || "#about"; // default to About
-  const sections = document.querySelectorAll("main section");
-
-  sections.forEach(section => {
-    if ("#" + section.id === hash) {
-      section.classList.add("fade-in");
-    } else {
-      section.classList.remove("fade-in");
-    }
-  });
-}
-
-// Show section on initial load
-window.addEventListener("load", showSectionFromHash);
-
-// Show section when hash changes (e.g., clicking nav links)
-window.addEventListener("hashchange", showSectionFromHash);
-
-  </script>
   <script src="https://kit.fontawesome.com/c487386ab7.js" crossorigin="anonymous"></script>
 </body>
 </html>

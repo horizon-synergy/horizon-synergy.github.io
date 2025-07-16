@@ -7,59 +7,111 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav>
-    <img src="IMG-20250714-WA0030.jpg" alt="Horizon Synergy Logo">
+  <!-- SVG Background-->
+  <div class="wave-background">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill-opacity="0.1">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+        values="
+          M0,160 C480,300 960,20 1440,160 L1440,320 L0,320 Z;
+          M0,180 C480,100 960,300 1440,180 L1440,320 L0,320 Z;
+          M0,160 C480,300 960,20 1440,160 L1440,320 L0,320 Z" />
+      </path>
+    </svg>
+  </div>
+
+  <!-- Mobile Menu Toggle -->
+  <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-ellipsis"></i></div>
+
+  <nav id="sidebar">
+    <img src="hs-logo.png" alt="Horizon Synergy Logo">
     <h1>Horizon Synergy</h1>
     <a href="#about">About</a>
+    <hr>
     <a href="#mission">Mission</a>
+    <hr>
     <a href="#team">Team</a>
+    <hr>
     <a href="#apps">Games & Apps</a>
+    <hr>
+    <a href="#merch">Our Merch</a>
+    <hr>
     <a href="#contact">Contact</a>
-    <button onclick="toggleTheme()">Toggle Theme</button>
+    <button id="toggle-btn" onclick="toggleTheme()"><i class="fa-solid fa-lightbulb"></i></button>
     <div class="social-links">
-      <a href="https://twitter.com" target="_blank">🐦</a>
-      <a href="https://instagram.com" target="_blank">📸</a>
-      <a href="https://github.com" target="_blank">💻</a>
+      <a href="https://twitter.com" target="_blank" class="x-link"><i class="fa-brands fa-square-x-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank" class="insta-link"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://youtube.com/@horizonsynergy" class="yt-link"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://github.com" class="git-link"><i class="fa-brands fa-github"></i></a>
     </div>
-  </nav>  <main>
+    <div class="footer-part" id="footer-part">
+      <p>&copy; 2025 Horizon Synergy. All rights reserved.</p>
+    </div>
+  </nav>
+
+  <main>
     <section id="about">
       <h2>About Us</h2>
       <p>Horizon Synergy is a youth-led innovation company based in South Africa. We build apps, games, and culture-driven digital experiences rooted in real value and purpose. Tech meets creativity. Code meets community.</p>
-    </section><section id="mission">
-  <h2>Our Mission</h2>
-  <p>To design and deliver tech experiences that are creative, inclusive, and built for impact — while creating space for African youth to lead in tomorrow's digital world.</p>
-</section>
+    </section>
 
-<section id="team">
-  <h2>Meet the Team</h2>
-  <p><strong>Njabulo Cedric Mnisi</strong><br>Co-founder, Creative Lead & Developer</p>
-  <p><strong>Neo Modiba</strong><br>Co-founder & Strategy Lead</p>
-</section>
+    <section id="mission">
+      <h2>Our Mission</h2>
+      <p>To design and deliver tech experiences that are creative, inclusive, and built for impact — while creating space for African youth to lead in tomorrow's digital world.</p>
+    </section>
 
-<section id="apps">
-  <h2>Our Games & Apps</h2>
-  <p><strong>Space Dash</strong> — A sci-fi runner game.<br><a href="#" class="download-link">Download</a></p>
-  <p><strong>TaskPal</strong> — Microtask app for local missions.<br><a href="#" class="download-link">Download</a></p>
-  <p><strong>EcoHive</strong> — Eco-friendly missions for cash (Coming Soon).<br><a href="#" class="download-link">Join Waitlist</a></p>
-</section>
+    <section id="team">
+      <h2>~ Meet the Team ~</h2>
+      <p><strong>Built by Creators. Powered by Youth.</strong>
+        At <i>Horizon Synergy</i>, we’re a tight-knit team with big vision. What we lack in size, we make up for in ideas, execution, and passion.</p>
+      <strong>Njabulo Cedric Mnisi</strong><br>
+      Co-founder, Creative Lead & Developer
+      <p>Visionary behind the code and concepts. Focused on user-centered design, smart tech, and building systems that scale.</p>
+      <strong>Neo Modiba</strong><br>
+      Co-founder & Strategy Lead
+      <p>Handles business ops, partnerships, and long-term strategy. Keeps the vision sharp and future-focused.</p>
+      <div class="images-section">
+        <div class="team-member-developer">
+          <img src="njabulo.jpeg" alt="Njabulo Cedric Mnisi">
+          <p>Njabulo Cedric Mnisi</p>
+        </div>
+        <div class="team-member-strategy">
+          <img src="neo.jpeg" alt="Neo Modiba">
+          <p>Neo Modiba</p>
+        </div>
+      </div>
+    </section>
 
-<section id="contact">
-  <h2>Contact Us</h2>
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+    <section id="apps">
+      <h2>Our Games & Apps</h2>
+      <p><strong>Space Dash</strong> — A sci-fi runner game.<br><a href="https://play.google.com/store/apps/details?id=com.nas.spacedash" class="download-link">Download</a></p>
+    </section>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+    <section id="merch">
+      <h2>Our Merch</h2>
+      <p>Get the best clothing, meant for developers and the youth.</p>
+      <h3> Coming Soon!!</h3>
+    </section>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
 
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
 
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
   </main>
+
   <script src="main.js"></script>
+  <script src="https://kit.fontawesome.com/c487386ab7.js" crossorigin="anonymous"></script>
 </body>
 </html>
+

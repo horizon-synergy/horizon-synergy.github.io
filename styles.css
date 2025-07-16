@@ -48,12 +48,13 @@ nav a {
   color: var(--light-text);
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
 }
 
 nav button {
-  margin-top: 20px;
+  margin-top: 5px;
   padding: 10px;
-  width: 100%;
+  width: 25%;
   font-weight: bold;
   background-color: var(--primary-color);
   border: none;
@@ -82,7 +83,17 @@ main {
 }
 
 section {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
   margin-bottom: 60px;
+}
+
+section.fade-in {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -143,14 +154,40 @@ body.light-mode main {
 }
 
 /* Responsive */
+.mobile-menu-toggle {
+  display: none;
+  font-size: 28px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  color: white;
+  background-color: var(--charcoal);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   nav {
-    width: 100%;
-    height: auto;
-    position: relative;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 75%;
+    background-color: var(--charcoal);
+    flex-direction: column;
+    padding: 30px 20px;
+    z-index: 998;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
   }
 
   main {
@@ -158,3 +195,145 @@ body.light-mode main {
     padding: 20px;
   }
 }
+
+
+#sidebar img{
+  border-radius: 75px;
+  border: 5px solid rgb(0, 0, 0);
+  box-shadow: 2px 2px 7px rgb(0, 0, 0);
+}
+
+hr{
+  width: 75%;
+  background-color: rgb(113, 111, 111);
+  border-radius: 10px 2px;
+  margin: 4px;
+}
+
+hr.light-mode {
+  background-color: var(--dark-text);
+}
+
+
+/* Social Media Icons Properties */
+.insta-link i{
+  color: rgb(255, 0, 115);
+  transition: ease-in-out 0.2s all;
+}
+
+.insta-link i:hover{
+  color: rgb(255, 68, 0);
+  scale: 1.075;
+  transition: ease-in-out 0.2s all;
+}
+
+.yt-link i{
+  color: red;
+  transition: ease-in-out 0.2s all;
+}
+
+.yt-link i:hover{
+  color: rgb(227, 107, 107);
+  scale: 1.075;
+  transition: ease-in-out 0.2s all;
+}
+
+.git-link i{
+  color: rgb(0, 0, 0);
+  transition: ease-in-out 0.2s all;
+}
+
+.git-link i:hover{
+  color: rgb(255, 255, 255);
+  scale: 1.075;
+  transition: ease-in-out 0.2s all;
+}
+
+
+
+/* SVG BG */
+.wave-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -5;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.wave-background svg {
+  width: 100%;
+  height: 100%;
+  animation: waveFloat 20s ease-in-out infinite alternate;
+  fill: rgb(255, 255, 255);
+  z-index: -1;
+  
+}
+
+.wave-background svg.light-mode{
+  fill: rgb(0, 0, 0);
+}
+
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
+/* Images Section Properties */
+.images-section{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.team-member-developer img{
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 100%;
+  padding: 5px;
+  background-color: rgb(0, 102, 255);
+  box-shadow: 2px 2px 7px rgb(0, 0, 0);
+  margin: 10px;
+}
+
+.team-member-strategy img{
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 100%;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 7px rgb(0, 0, 0);
+  margin: 10px;
+}
+
+
+/* Footer Part */
+.footer-part p{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+  padding: 10px;
+  background-color: transparent;
+  color: var(--light-text);
+  font-size: 10pt;
+}
+
+.footer-part p.light-mode {
+  color: var(--dark-text);
+}
+

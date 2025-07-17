@@ -247,10 +247,6 @@ hr{
   width: 50%;
 }
 
-hr .light-mode{
-  background-color: var(--dark-text);
-}
-
 #contact{
   display: flex;
   flex-direction: column;
@@ -305,7 +301,6 @@ form button[type="submit"] {
   cursor: pointer;
   font-weight: bold;
 }
-
 
 .app-icon{
   width: 100px;

@@ -311,3 +311,7 @@ form button[type="submit"] {
   border: 2px solid white;
   box-shadow: 2px 2px 7px black;
 }
+
+div .footer-part.light-mode{
+  color: var(--dark-text);
+}

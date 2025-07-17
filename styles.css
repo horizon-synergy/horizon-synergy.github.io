@@ -247,6 +247,10 @@ hr{
   width: 50%;
 }
 
+hr .light-mode{
+  background-color: var(--dark-text);
+}
+
 #contact{
   display: flex;
   flex-direction: column;
@@ -312,6 +316,3 @@ form button[type="submit"] {
   box-shadow: 2px 2px 7px black;
 }
 
-div .footer-part.light-mode{
-  color: white;
-}

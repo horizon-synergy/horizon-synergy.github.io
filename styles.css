@@ -32,6 +32,10 @@ nav {
   align-items: center;
   z-index: 100;
   transition: transform 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+  scroll-behavior: smooth;
 }
 
 nav.show {

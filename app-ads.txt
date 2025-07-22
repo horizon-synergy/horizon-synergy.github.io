@@ -1,1 +1,39 @@
+# Google AdMob
 google.com, pub-6841184836474681, DIRECT, f08c47fec0942fa0
+
+
+# Unity Ads
+unityads.unity3d.com, 3941, DIRECT, a912452d5de7c3d1
+
+# Yandex Ads
+yandex.ru, YOUR_YANDEX_PUBLISHER_ID, DIRECT
+
+# Unity LevelPlay (ironSource mediation networks)
+applovin.com, 12345, DIRECT, 5b10f4d1b78c7981
+amazon-adsystem.com, 123, DIRECT
+adcolony.com, 12345, DIRECT, aabbccddeeff0011
+vungle.com, 12345, DIRECT, 33e38fb886065174
+chartboost.com, 12345, DIRECT, 9e8e0626d91e6b02
+inmobi.com, 123456789, DIRECT, 0bfd66d529a55807
+pubmatic.com, 156276, DIRECT, 5d62403b186f463a
+rubiconproject.com, 19046, DIRECT, 0bfd66d529a55807
+indexexchange.com, 1804, DIRECT, 50b1c356f2c5c8fc
+smaato.com, 1100010374, DIRECT, 5d62403b186f463a
+spotxchange.com, 231153052, DIRECT, 7842df1d2fe2db34
+spotx.tv, 231153052, DIRECT, 7842df1d2fe2db34
+openx.com, 537100188, DIRECT, 6a698e2ec38604c6
+adform.com, 1234, DIRECT, f5ab79cb980f11d1
+smartadserver.com, 1234, DIRECT, f5ab79cb980f11d1
+triplelift.com, 1234, DIRECT, 0bfd66d529a55807
+freewheel.tv, 123, DIRECT, abc1234567890def
+adyoulike.com, 1234, DIRECT, 2aaedcc2f3e1d3f8
+unrulymedia.com, 123, DIRECT
+yahoo.com, 123, DIRECT
+sonobi.com, 123, DIRECT
+adtelligent.com, 123, DIRECT
+loopme.com, 123, DIRECT
+fyber.com, 123, DIRECT
+mintegral.com, 123, DIRECT, aabbccddeeff0011
+tapjoy.com, 12345, DIRECT
+bytedance.com, 512321, DIRECT
+appnexus.com, 1001, DIRECT, f5ab79cb980f11d1

@@ -311,3 +311,8 @@ form button[type="submit"] {
   box-shadow: 2px 2px 7px black;
 }
 
+/* Iframe Properties */
+iframe{
+  border-radius: 25px;
+  box-shadow: 2px 2px gray;
+}

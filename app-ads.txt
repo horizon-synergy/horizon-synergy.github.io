@@ -1,5 +1,8 @@
 # Google AdMob
+-Personal AdMob
 google.com, pub-6841184836474681, DIRECT, f08c47fec0942fa0
+ -Horizon Synergy AdMob:
+google.com, pub-8634072905917217, DIRECT, f08c47fec0942fa0
 
 
 # Unity Ads

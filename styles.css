@@ -1,6 +1,6 @@
 :root {
   --primary-color: #00c2ff;
-  --accent-yellow: #ffcb00;
+  --accent-color: #00ff84;
   --dark-bg: #0d1b2a;
   --light-bg: #f0f0f0;
   --charcoal: #1a1a1a;
@@ -114,12 +114,16 @@ section.fade-in {
 
 .download-link {
   display: inline-block;
-  background-color: var(--accent-yellow);
-  color: var(--dark-text);
+  background-color: var(--accent-color);
+  color: var(--light-text);
   padding: 8px 16px;
   margin-top: 10px;
   text-decoration: none;
   border-radius: 5px;
+}
+
+.download-link:hover{
+  scale: 1.2rem;
 }
 
 /* Light theme */
@@ -213,34 +217,6 @@ body.light-mode .social-links a {
   }
 }
 
-.images-section {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.team-member-developer img,
-.team-member-strategy img {
-  width: 125px;
-  height: 125px;
-  object-fit: cover;
-  border-radius: 100%;
-  padding: 5px;
-  box-shadow: 2px 2px 7px rgb(0, 0, 0);
-  margin: 10px;
-}
-
-.team-member-developer img {
-  background-color: rgb(0, 102, 255);
-}
-
-.team-member-strategy img {
-  background-color: white;
-}
 
 hr{
   background-color: white;
@@ -311,8 +287,3 @@ form button[type="submit"] {
   box-shadow: 2px 2px 7px black;
 }
 
-/* Iframe Properties */
-iframe{
-  border-radius: 25px;
-  box-shadow: 2px 2px gray;
-}

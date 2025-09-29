@@ -3,8 +3,6 @@ const svgWave = document.querySelector(".wave-background svg");
 
 function toggleTheme() {
   document.body.classList.toggle('light-mode');
-  footerPart.classList.toggle('light-mode');
-  svgWave.classList.toggle('light-mode');
 }
 
 function showSection(id) {
@@ -24,7 +22,7 @@ function showSection(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  showSection("about");
+  showSection("hero");
 
   document.querySelectorAll("nav a[href^='#']").forEach(link => {
     link.addEventListener("click", function (e) {
@@ -32,6 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = this.getAttribute("href").substring(1);
       showSection(id);
       document.getElementById('sidebar').classList.remove('show');
+
+      // Update active state
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
     });
   });
 });
@@ -53,4 +55,3 @@ document.addEventListener('click', (event) => {
     sidebar.classList.remove('show');
   }
 });
-

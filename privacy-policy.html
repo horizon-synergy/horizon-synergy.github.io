@@ -1,168 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Privacy Policy - Horizon Synergy</title>
-<style>
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    color: #222;
-    line-height: 1.6;
-    background: #f9f9f9;
-  }
-  h1, h2 {
-    color: #2c3e50;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  a {
-    color: #2980b9;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  section {
-    margin-bottom: 2rem;
-  }
-  footer {
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;
-    margin-top: 3rem;
-    padding-bottom: 1rem;
-  }
-
-  img, .banner{
-    width: 100%;
-    margin: 0;
-
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Horizon Synergy</title>
   
-</style>
+  <style>
+    :root {
+      --primary-color: #00c2ff;
+      --accent-color: #00ff84;
+      --dark-bg: #000000;
+      --charcoal: #222222;
+      --light-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      line-height: 1.8;
+    }
+
+    .banner {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-bg) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid var(--primary-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 194, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 194, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .banner-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .banner h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .banner p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 30px;
+    }
+
+    .effective-date {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      margin-bottom: 3rem;
+      font-weight: 600;
+    }
+
+    .intro {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(0, 194, 255, 0.05);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 10px;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: var(--accent-color);
+      margin: 1.5rem 0 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+    }
+
+    strong {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    em {
+      color: var(--primary-color);
+      font-style: italic;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(0, 194, 255, 0.1) 0%, rgba(0, 255, 132, 0.1) 100%);
+      border: 1px solid rgba(0, 194, 255, 0.3);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-box {
+      background: var(--charcoal);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border: 1px solid rgba(0, 194, 255, 0.2);
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem;
+      background: var(--charcoal);
+      border-top: 1px solid rgba(0, 194, 255, 0.1);
+      margin-top: 4rem;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px;
+      }
+
+      .banner {
+        height: 200px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p, li {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-   <section class="banner">
-    <div><img src="hs-banner.png" alt="Horizon Synergy Banner"></div>
-  </section>
-  
-  <h1>Privacy Policy</h1>
-  <p><strong>Effective Date:</strong> July 22, 2025</p>
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Privacy Policy</h1>
+      <p>Your privacy matters to us</p>
+    </div>
+  </div>
 
-  <section>
-    <p>At <strong>Horizon Synergy</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information across all our games, apps, and digital services, including but not limited to <strong>Finly</strong>, <strong>Vyra</strong>, <strong>Space Dash</strong>, and any future titles.</p>
-  </section>
+  <div class="container">
+    <p class="effective-date"><strong>Effective Date:</strong> September 29, 2025</p>
 
-  <section>
-    <h2>1. Information We Collect</h2>
-    <p>Depending on the app or game, we may collect:</p>
-    <h3>a. Personal Information</h3>
-    <ul>
-      <li>Email address (for login or communication)</li>
-      <li>Username or nickname</li>
-      <li>Profile/avatar (if applicable)</li>
-    </ul>
+    <div class="intro">
+      <p>At <strong>Horizon Synergy</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information across all our games, apps, and digital services, including but not limited to <strong>Space Dash</strong> and any future titles we develop.</p>
+    </div>
 
-    <h3>b. Usage Data</h3>
-    <ul>
-      <li>Device type, OS version, and app version</li>
-      <li>Gameplay statistics and logs</li>
-      <li>Crash/error logs</li>
-      <li>Session frequency and duration</li>
-    </ul>
+    <section>
+      <h2>1. Information We Collect</h2>
+      <p>Depending on the app or game, we may collect:</p>
+      
+      <h3>a. Personal Information</h3>
+      <ul>
+        <li>Email address (for login or communication)</li>
+        <li>Username or nickname</li>
+        <li>Profile/avatar (if applicable)</li>
+      </ul>
 
-    <h3>c. Advertising ID</h3>
-    <p>Your device's <em>Advertising Identifier</em> (such as Google Ad ID or Apple IDFA), which may be used for analytics or ad personalization.</p>
+      <h3>b. Usage Data</h3>
+      <ul>
+        <li>Device type, OS version, and app version</li>
+        <li>Gameplay statistics and logs</li>
+        <li>Crash/error logs</li>
+        <li>Session frequency and duration</li>
+      </ul>
 
-    <h3>d. Location Data</h3>
-    <p>Optional and permission-based access to your location (for apps like EcoHive or Shuttle).</p>
-  </section>
+      <h3>c. Advertising ID</h3>
+      <p>Your device's <em>Advertising Identifier</em> (such as Google Ad ID or Apple IDFA), which may be used for analytics or ad personalization.</p>
 
-  <section>
-    <h2>2. How We Use Your Data</h2>
-    <p>We may use your data to:</p>
-    <ul>
-      <li>Improve app performance and gameplay</li>
-      <li>Save and sync your progress</li>
-      <li>Provide multiplayer matchmaking or lobby features</li>
-      <li>Send optional updates or notifications</li>
-      <li>Monitor performance and crash issues</li>
-      <li>Support customer service</li>
-    </ul>
-    <p>We do <strong>not</strong> sell your data.</p>
-  </section>
+      <h3>d. Location Data</h3>
+      <p>Optional and permission-based access to your location (only when relevant for specific app features).</p>
+    </section>
 
-  <section>
-    <h2>3. Third-Party Services &amp; Their Privacy Policies</h2>
-    <p>Some of our services integrate with third-party platforms. These may collect anonymized or device-level data according to their own privacy policies:</p>
-    <ul>
-      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
-      <li><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Unity Technologies (Analytics &amp; Ads)</a></li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase by Google</a></li>
-      <li><a href="https://mirror-networking.gitbook.io/docs/" target="_blank" rel="noopener noreferrer">Mirror Networking (Open Source)</a></li>
-      <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Pages (if viewing here)</a></li>
-    </ul>
-    <p>These services are used only to enhance features such as analytics, multiplayer networking, or ads. Data collected by these services is governed by their own privacy policies and may be processed independently of Horizon Synergy. Where possible, you may opt out of personalized ad tracking via your device settings.</p>
-  </section>
+    <section>
+      <h2>2. How We Use Your Data</h2>
+      <p>We may use your data to:</p>
+      <ul>
+        <li>Improve app performance and gameplay experience</li>
+        <li>Save and sync your progress across devices</li>
+        <li>Provide multiplayer matchmaking or lobby features</li>
+        <li>Send optional updates or notifications</li>
+        <li>Monitor performance and fix crash issues</li>
+        <li>Support customer service and technical support</li>
+        <li>Analyze user behavior to enhance our products</li>
+      </ul>
+      <div class="highlight-box">
+        <p><strong>We do NOT sell your data.</strong> Your information is used solely to improve your experience with our products and services.</p>
+      </div>
+    </section>
 
-  <section>
-    <h2>4. Data Storage &amp; Security</h2>
-    <p>We store data:</p>
-    <ul>
-      <li>Securely, using encryption where needed</li>
-      <li>Only as long as necessary for core functions</li>
-      <li>Locally on your device or on trusted platforms (e.g., Firebase)</li>
-    </ul>
-  </section>
+    <section>
+      <h2>3. Third-Party Services & Their Privacy Policies</h2>
+      <p>Some of our services integrate with third-party platforms. These may collect anonymized or device-level data according to their own privacy policies:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+        <li><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Unity Technologies (Analytics & Ads)</a></li>
+        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase by Google</a></li>
+        <li><a href="https://mirror-networking.gitbook.io/docs/" target="_blank" rel="noopener noreferrer">Mirror Networking (Open Source)</a></li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Pages</a></li>
+      </ul>
+      <p>These services are used only to enhance features such as analytics, multiplayer networking, or ads. Data collected by these services is governed by their own privacy policies and may be processed independently of Horizon Synergy. Where possible, you may opt out of personalized ad tracking via your device settings.</p>
+    </section>
 
-  <section>
-    <h2>5. Your Rights</h2>
-    <p>Depending on your region, such as the European Economic Area (EEA) or California, you may have the right to access, correct, or delete your personal data under privacy laws like the GDPR or CCPA.</p>
-    <p>However, please note that most data (including Advertising IDs, analytics data, and crash reports) is collected and processed directly by third-party services such as Unity, Google, Yandex, and Firebase. Horizon Synergy does not directly store or control this data, and we cannot fulfill deletion or access requests on their behalf.</p>
-    <p>We recommend managing your privacy settings directly through your device or by contacting the relevant third-party providers. For example:</p>
-    <ul>
-      <li><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Unity Privacy Policy</a></li>
-      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Privacy</a></li>
-      <li><a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener noreferrer">Yandex Privacy Policy</a></li>
-    </ul>
-    <p>To limit personalized advertising, you may also update your device settings:</p>
-    <ul>
-      <li><strong>Android:</strong> Settings &gt; Google &gt; Ads &gt; Opt out of Ads Personalization</li>
-      <li><strong>iOS:</strong> Settings &gt; Privacy &gt; Tracking</li>
-    </ul>
-    <p>If you have privacy-related questions about our apps, feel free to contact us:</p>
-    <p>📧 Email: <a href="mailto:horizonsynergyx@gmail.com">horizonsynergyx@gmail.com</a></p>
-  </section>
+    <section>
+      <h2>4. Data Storage & Security</h2>
+      <p>We take your data security seriously:</p>
+      <ul>
+        <li><strong>Encryption:</strong> We use industry-standard encryption where needed</li>
+        <li><strong>Retention:</strong> Data is kept only as long as necessary for core functions</li>
+        <li><strong>Storage:</strong> Stored locally on your device or on trusted platforms (e.g., Firebase)</li>
+        <li><strong>Access:</strong> Limited to authorized personnel only</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>6. Children’s Privacy</h2>
-    <p>Our apps are not designed for children under 13. Where a game or app is intended for children, we do not knowingly collect personal data without parental consent.</p>
-  </section>
+    <section>
+      <h2>5. Your Rights</h2>
+      <p>Depending on your region, such as the European Economic Area (EEA) or California, you may have the right to access, correct, or delete your personal data under privacy laws like the <strong>GDPR</strong> or <strong>CCPA</strong>.</p>
+      
+      <div class="highlight-box">
+        <p><strong>Important Note:</strong> Most data (including Advertising IDs, analytics data, and crash reports) is collected and processed directly by third-party services such as Unity, Google, and Firebase. Horizon Synergy does not directly store or control this data, and we cannot fulfill deletion or access requests on their behalf.</p>
+      </div>
 
-  <section>
-    <h2>7. Changes to This Policy</h2>
-    <p>We may update this policy from time to time. Any changes will be posted here.</p>
-    <p>📄 <strong>Latest version always available at:</strong><br />
-      <a href="https://horizon-synergy.github.io/privacy-policy" target="_blank" rel="noopener noreferrer">https://horizon-synergy.github.io/privacy-policy</a> (or GitHub-hosted link)
-    </p>
-  </section>
+      <p>We recommend managing your privacy settings directly through your device or by contacting the relevant third-party providers:</p>
+      <ul>
+        <li><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Unity Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Privacy</a></li>
+      </ul>
 
-  <section>
-    <h2>8. Contact Us</h2>
-    <p><strong>Horizon Synergy</strong><br />
-    📧 Email: <a href="mailto:horizonsynergyx@gmail.com">horizonsynergyx@gmail.com</a><br />
-    🌐 Website: <a href="https://horizon-synergy.github.io" target="_blank" rel="noopener noreferrer">https://horizon-synergy.github.io</a></p>
-  </section>
+      <h3>Limit Personalized Advertising</h3>
+      <p>You can update your device settings to limit personalized ads:</p>
+      <ul>
+        <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalization</li>
+        <li><strong>iOS:</strong> Settings → Privacy → Tracking</li>
+      </ul>
+
+      <p>If you have privacy-related questions about our apps, feel free to contact us at: <a href="mailto:horizonsynergyx@gmail.com">horizonsynergyx@gmail.com</a></p>
+    </section>
+
+    <section>
+      <h2>6. Children's Privacy</h2>
+      <p>Our apps are not designed for children under 13. We do not knowingly collect personal data from children without parental consent. If we become aware that we have collected personal information from a child under 13, we will take steps to delete that information as quickly as possible.</p>
+      <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
+    </section>
+
+    <section>
+      <h2>7. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes, we will update the "Effective Date" at the top of this policy.</p>
+      <p>The latest version is always available at:<br />
+        <a href="https://horizon-synergy.github.io/privacy-policy.html" target="_blank" rel="noopener noreferrer">https://horizon-synergy.github.io/privacy-policy.html</a>
+      </p>
+      <p>We encourage you to review this policy periodically to stay informed about how we protect your information.</p>
+    </section>
+
+    <div class="contact-box">
+      <h2>8. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please reach out to us:</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span>📧</span>
+          <a href="mailto:horizonsynergyx@gmail.com">horizonsynergyx@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>🌐</span>
+          <a href="https://horizon-synergy.github.io" target="_blank" rel="noopener noreferrer">https://horizon-synergy.github.io</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
-    <p>Last updated: July 22, 2025</p>
+    <p><strong>Horizon Synergy</strong> – Creations Of Tomorrow</p>
+    <p>Last updated: September 29, 2025</p>
+    <p><a href="https://horizon-synergy.github.io">Back to Home</a></p>
   </footer>
 </body>
 </html>

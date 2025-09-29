@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-  <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-HGM9RFTK4K"></script>-->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-HGM9RFTK4K');
   </script>
 
@@ -46,28 +44,13 @@
   }
   </script>
 
-  <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/c487386ab7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Google Ad -->
-  <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6841184836474681"
-     crossorigin="anonymous"></script>-->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6841184836474681"
-       data-ad-slot="2420670191"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  
   <!-- SVG Background -->
   <div class="wave-background">
     <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path fill-opacity="0.1">
+      <path>
         <animate attributeName="d" dur="10s" repeatCount="indefinite"
         values="
           M0,160 C480,300 960,20 1440,160 L1440,320 L0,320 Z;
@@ -78,23 +61,42 @@
   </div>
 
   <!-- Mobile Menu Toggle -->
-  <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-ellipsis"></i></div>
+  <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 
   <!-- Sidebar Nav -->
   <nav id="sidebar">
-    <img src="hs-logo.png" alt="Horizon Synergy Logo">
-    <h1>Horizon Synergy – Creations Of Tomorrow</h1>
-    <a href="#about">About Us</a><hr>
-    <a href="#mission">Our Mission</a><hr>
-    <a href="#apps">Our Games & Mobile Apps</a><hr>
+    <div class="logo-section">
+      <img src="hs-logo.png" alt="Horizon Synergy Logo">
+      <h1>Horizon <span class="gradient-text">Synergy</span></h1>
+    </div>
+    
+    <a href="#about">About Us</a>
+    <hr>
+    <a href="#mission">Our Mission</a>
+    <hr>
+    <a href="#products">Products</a>
+    <hr>
     <a href="#contact">Contact Us</a>
-    <button id="toggle-btn" onclick="toggleTheme()"><i class="fa-solid fa-lightbulb"></i></button>
+    
+    <button id="toggle-btn" onclick="toggleTheme()">
+      <i class="fa-solid fa-lightbulb"></i> Toggle Theme
+    </button>
 
     <div class="social-links">
-      <a href="https://x.com/HorizonSynergyX" class="x-link"><i class="fa-brands fa-square-x-twitter"></i></a>
-      <a href= "https://www.instagram.com/hori.zonsynergyx_?igsh=a2dyNWE3bHJwazdn" class="insta-link"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://youtube.com/@horizonsynergy" class="yt-link"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://github.com/horizon-synergy/horizonsynergy/" class="git-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://x.com/HorizonSynergyX" class="x-link" target="_blank">
+        <i class="fa-brands fa-square-x-twitter"></i>
+      </a>
+      <a href="https://www.instagram.com/hori.zonsynergyx_?igsh=a2dyNWE3bHJwazdn" class="insta-link" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://youtube.com/@horizonsynergy" class="yt-link" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a href="https://github.com/horizon-synergy/horizonsynergy/" class="git-link" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
     </div>
 
     <div class="footer-part" id="footer-part">
@@ -104,25 +106,140 @@
   </nav>
 
   <main>
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-tagline">Creations Of Tomorrow</div>
+        <h1>Building The <span class="gradient-text">Future</span> Of Digital Experiences</h1>
+        <p>We create engaging games, apps, and emerging technologies that positively impact everyday life—powered by innovation, driven by purpose, and rooted in eco-consciousness.</p>
+        <a href="#about" class="hero-cta" onclick="event.preventDefault(); showSection('about'); document.getElementById('sidebar').classList.remove('show');">
+          Discover Our Story
+          <span>→</span>
+        </a>
+      </div>
+      <div class="scroll-indicator" onclick="showSection('about')">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
     <section id="about">
       <h2>About Us</h2>
       <h3>Tech Meets Creativity</h3>
-      <p>Horizon Synergy is a youth-led innovation company based in South Africa. We build apps, games, and culture-driven digital experiences rooted in real value and purpose. Tech meets creativity. Code meets community.</p>
+      
+      <div class="location-badge">
+        <span>🇿🇦</span>
+        <span>Proudly South African</span>
+      </div>
+      
+      <p>Horizon Synergy is a <strong>youth-led innovation company</strong> based in <strong>South Africa</strong>, building the future of digital experiences. We create apps, games, and culture-driven technologies rooted in real value and purpose.</p>
+      
+      <p>From the heart of Africa to the world, we're proving that groundbreaking technology and world-class digital products can emerge from anywhere. Tech meets creativity. Code meets community. <strong>Innovation meets opportunity.</strong></p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">2025</div>
+          <div class="label">Founded</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">1+</div>
+          <div class="label">Products Launched</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">∞</div>
+          <div class="label">Ideas In Development</div>
+        </div>
+      </div>
+      
+      <span class="tagline-highlight">Creations Of Tomorrow</span>
     </section>
 
     <section id="mission">
       <h2>Our Mission</h2>
-      <p>To design and deliver tech experiences that are creative, inclusive, and built for impact — while creating space for African youth to lead in tomorrow's digital world.</p>
+      
+      <p class="mission-intro">We are committed to creating engaging digital experiences—through games, apps, and emerging technologies—that positively impact everyday life, while maintaining an unwavering focus on eco-consciousness and sustainability.</p>
+      
+      <p class="mission-intro">We're not just building products. We're building the future. A future where technology empowers, inspires, and connects people across Africa and beyond. <strong>We're here to change the world.</strong></p>
+      
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="icon">🎮</div>
+          <h4>Engage</h4>
+          <p>Creating immersive digital experiences through games and apps that captivate users worldwide. We build products that people love to use, that inspire curiosity, and that make technology feel human.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">🌱</div>
+          <h4>Sustain</h4>
+          <p>Building eco-conscious solutions with environmental responsibility at the core. Every product we create considers its impact on our planet, because innovation should never come at the expense of our future.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">💡</div>
+          <h4>Innovate</h4>
+          <p>Leveraging emerging technologies to teach, inspire, and turn ambitious dreams into reality. We push boundaries, challenge conventions, and prove that the next big thing can come from anywhere.</p>
+        </div>
+      </div>
+
+      <div class="values-section">
+        <h3>What Drives Us</h3>
+        <div class="values-list">
+          <div class="value-item">
+            <div class="value-icon">🚀</div>
+            <div class="value-content">
+              <h5>Youth-Led Innovation</h5>
+              <p>We believe the next generation shouldn't wait for permission to build the future. Young minds bring fresh perspectives, fearless creativity, and the energy to make impossible things possible.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🌍</div>
+            <div class="value-content">
+              <h5>African Excellence</h5>
+              <p>We're proud to be building from South Africa, showcasing that world-class technology and innovation thrives on the African continent. Our roots inspire our vision.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⚡</div>
+            <div class="value-content">
+              <h5>Impact Over Everything</h5>
+              <p>Every line of code we write, every product we launch, every decision we make—it all comes back to one question: does this make the world better? We build with purpose, not just profit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
- 
-
-    <section id="apps">
-      <h2>Our Games & Mobile Apps</h2>
-      <div>
-        <img class="app-icon" alt="Space Dash game app icon – sci-fi runner" src="sdicon.jpeg">
+    <section id="products">
+      <h2>Our Products</h2>
+      
+      <div class="products-intro">
+        <p>We're building experiences that push the boundaries of what's possible. From mobile games to cutting-edge applications, each product is crafted with passion, precision, and a commitment to excellence.</p>
       </div>
-      <p><strong>Space Dash</strong> — A Space Oddessey. Dash through space, dodge asteroids, survive as long as possible while you're being hunted!!<br><a href="https://play.google.com/store/apps/details?id=com.nas.spacedash" class="download-link">Get it on <i class="fa-brands fa-google-play"></i></a></p>
+
+      <div class="app-showcase">
+        <div class="app-icon-container">
+          <img class="app-icon" alt="Space Dash game app icon – sci-fi runner" src="sdicon.jpeg">
+        </div>
+        <div class="app-info">
+          <strong>Space Dash</strong>
+          <span class="app-subtitle">A Space Odyssey</span>
+          <p>Dash through the cosmos in this adrenaline-fueled sci-fi runner. Navigate through asteroid fields, dodge cosmic threats, and test your reflexes as you're being hunted through the depths of space. How long can you survive?</p>
+          
+          <div class="app-features">
+            <span class="feature-badge">🎮 Sci-Fi Runner</span>
+            <span class="feature-badge">📱 Mobile Gaming</span>
+            <span class="feature-badge">⚡ Fast-Paced Action</span>
+            <span class="feature-badge">🌌 Space Adventure</span>
+          </div>
+          
+          <a href="https://play.google.com/store/apps/details?id=com.nas.spacedash" class="download-link" target="_blank">
+            <i class="fa-brands fa-google-play"></i>
+            Get it on Google Play
+          </a>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <h4>🚀 More Coming Soon</h4>
+        <p>We're working on groundbreaking new products that will redefine digital experiences. Stay tuned—the future is closer than you think.</p>
+      </div>
+
       <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -137,17 +254,24 @@
       </script>
     </section>
 
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <script src="https://js-eu1.hsforms.net/forms/embed/146703352.js" defer></script>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="ccd8fa25-03c9-478d-ad32-fbb7ff33620f" data-portal-id="146703352"></div>
-      <script src="main.js"></script>
-
-      <!-- Start of HubSpot Embed Code -->
-      <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146703352.js"></script>
-      <!-- End of HubSpot Embed Code -->
-    </section>
+   <section id="contact">
+  <h2>Get In Touch</h2>
+  
+  <div class="contact-intro">
+    <p>Have a project in mind? Want to partner with us? Curious about what we're building next?</p>
+    <p>We're always excited to connect with fellow innovators, potential partners, and anyone who shares our vision for a better digital future.</p>
+    <p><strong>Let's create something extraordinary together.</strong></p>
+  </div>
+  
+  <div class="hs-form-frame" data-region="eu1" data-form-id="ccd8fa25-03c9-478d-ad32-fbb7ff33620f" data-portal-id="146703352"></div>
+</section>
   </main>
+
+  <!-- Scripts -->
+  <script src="https://js-eu1.hsforms.net/forms/embed/146703352.js" defer></script>
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146703352.js"></script>
+  
+  <script src="main.js">
+  </script>
 </body>
 </html>

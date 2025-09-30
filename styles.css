@@ -186,6 +186,7 @@ nav hr {
   box-shadow: 0 5px 20px rgba(0, 194, 255, 0.4);
 }
 
+/*Social Links*/
 .social-links {
   display: flex;
   gap: 15px;
@@ -215,11 +216,11 @@ nav hr {
 }
 
 .insta-link i {
-  color: #E4405F;
+  color: var(--primary-color);
 }
 
 .yt-link i {
-  color: #FF0000;
+  color: var(--accent-color);
 }
 
 .git-link i {

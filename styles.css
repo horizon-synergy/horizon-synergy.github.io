@@ -75,6 +75,11 @@ body {
   border: 2px solid rgba(0, 194, 255, 0.3);
 }
 
+.mobile-menu-toggle img{
+  width: 50px;
+  border-radius: 50px;
+}
+
 /* Sidebar Nav */
 nav {
   width: 280px;
@@ -353,7 +358,7 @@ section p {
   animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
-#hero p .lightmode{
+#hero p.light-mode{
   color: var(--dark-text);
 }
 

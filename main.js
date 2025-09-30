@@ -1,8 +1,10 @@
 const footerPart = document.getElementById("footer-part");
 const svgWave = document.querySelector(".wave-background svg");
+const heroPara = document.getElementById("hero-p");
 
 function toggleTheme() {
   document.body.classList.toggle('light-mode');
+  heroPara.classList.toggle('light-mode');
 }
 
 function showSection(id) {

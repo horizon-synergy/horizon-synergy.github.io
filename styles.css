@@ -353,6 +353,10 @@ section p {
   animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
+#hero p .lightmode{
+  color: var(--dark-text);
+}
+
 .hero-cta {
   display: inline-flex;
   align-items: center;

@@ -788,10 +788,12 @@ body.light-mode .footer-part {
 
   nav {
     transform: translateX(-100%);
+    overflow-y: auto;
   }
 
   nav.show {
     transform: translateX(0);
+    overflow-y: auto;
   }
 
   main {

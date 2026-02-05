@@ -122,7 +122,7 @@ nav::-webkit-scrollbar-thumb {
 .logo-section img {
   width: 60px;
   height: 60px;
-  border-radius: 15px;
+  border-radius: 30px;
   border: 2px solid var(--primary-color);
   box-shadow: 0 4px 15px rgba(0, 194, 255, 0.3);
 }

@@ -68,6 +68,11 @@ robots.txt/sitemap.xml/ads.txt/app-ads.txt # SEO/ads setup
 1. Open `privacy-policy.html`.
 2. Edit the text as needed.
 
+### F) Adjust the search bar text
+1. Open `index.html`.
+2. Find the search panel (look for `id="site-search"`).
+3. Update the label text or placeholder to match the wording you want.
+
 ## 5) Running the site locally (beginner-friendly)
 
 You do **not** need any build tools. You can preview the site directly in a browser.

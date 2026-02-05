@@ -32,12 +32,44 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = this.getAttribute("href").substring(1);
       showSection(id);
       document.getElementById('sidebar').classList.remove('show');
+      const searchInput = document.getElementById("site-search");
+      if (searchInput) {
+        searchInput.value = "";
+      }
 
       // Update active state
       document.querySelectorAll("nav a").forEach(a => a.classList.remove('active'));
       this.classList.add('active');
     });
   });
+
+  const searchInput = document.getElementById("site-search");
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        showSection("hero");
+        return;
+      }
+
+      const sections = document.querySelectorAll("main section");
+      let hasMatch = false;
+      sections.forEach(section => {
+        const text = section.textContent.toLowerCase();
+        const isMatch = text.includes(query);
+        section.style.display = isMatch ? "block" : "none";
+        section.classList.remove("fade-in");
+        if (isMatch) {
+          hasMatch = true;
+          setTimeout(() => section.classList.add("fade-in"), 10);
+        }
+      });
+
+      if (!hasMatch) {
+        showSection("hero");
+      }
+    });
+  }
 });
 
 function toggleMobileMenu() {

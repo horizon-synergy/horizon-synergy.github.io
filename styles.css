@@ -172,6 +172,52 @@ nav hr {
   margin: 10px 0;
 }
 
+.search-panel {
+  margin: 20px 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-panel label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 194, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.search-input i {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.search-input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--light-text);
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.search-input input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-hint {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
 #toggle-btn {
   margin-top: 20px;
   padding: 12px;
@@ -746,6 +792,27 @@ body.light-mode nav a {
 
 body.light-mode nav a:hover {
   background: rgba(0, 194, 255, 0.1);
+}
+
+body.light-mode .search-panel label {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+body.light-mode .search-input {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 194, 255, 0.4);
+}
+
+body.light-mode .search-input input {
+  color: var(--dark-text);
+}
+
+body.light-mode .search-input input::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+body.light-mode .search-hint {
+  color: rgba(0, 0, 0, 0.55);
 }
 
 body.light-mode section p,

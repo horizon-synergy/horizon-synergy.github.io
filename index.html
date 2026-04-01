@@ -180,11 +180,36 @@
         <p id="hero-p">We create engaging games, apps, and emerging technologies that positively impact everyday life—powered by
           innovation, driven by purpose, and rooted in eco-consciousness.</p>
         <p class="hero-brand-signal">Looking for <strong>Horizon Synergy</strong> or <strong>Horizon Synergy South Africa</strong>? You're in the right place.</p>
-        <a href="#about" class="hero-cta"
-          onclick="event.preventDefault(); showSection('about'); document.getElementById('sidebar').classList.remove('show');">
-          Discover Our Story
-          <span>→</span>
-        </a>
+        <div class="hero-actions">
+          <a href="#products" class="hero-cta primary"
+            onclick="event.preventDefault(); showSection('products'); document.getElementById('sidebar').classList.remove('show');">
+            Explore Products
+            <span>→</span>
+          </a>
+          <a href="#about" class="hero-cta secondary"
+            onclick="event.preventDefault(); showSection('about'); document.getElementById('sidebar').classList.remove('show');">
+            Discover Our Story
+          </a>
+        </div>
+
+        <div class="product-header-strip" aria-label="Featured products">
+          <button class="product-pill" onclick="showSection('products'); document.getElementById('sidebar').classList.remove('show');">
+            <img src="images/SD.png" alt="Space Dash icon">
+            <span>Space Dash</span>
+          </button>
+          <button class="product-pill" onclick="showSection('products'); document.getElementById('sidebar').classList.remove('show');">
+            <img src="images/deathtag.png" alt="Death Tag icon">
+            <span>Death Tag</span>
+          </button>
+          <button class="product-pill" onclick="showSection('products'); document.getElementById('sidebar').classList.remove('show');">
+            <img src="images/artkeep.png" alt="ArtKeep icon">
+            <span>ArtKeep</span>
+          </button>
+          <button class="product-pill" onclick="showSection('products'); document.getElementById('sidebar').classList.remove('show');">
+            <img src="images/pixelor.png" alt="Pixelor icon">
+            <span>Pixelor</span>
+          </button>
+        </div>
         <!--<script async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6841184836474681"
           crossorigin="anonymous"></script>
@@ -307,7 +332,7 @@
     <section id="products">
       <h2>Our Products</h2>
 
-      <div class="products-intro">
+      <div class="products-intro frosted-panel">
         <p>We're building experiences that push the boundaries of what's possible. From mobile games to cutting-edge
           applications, each product is crafted with passion, precision, and a commitment to excellence.</p>
       </div>

@@ -2,6 +2,13 @@ const footerPart = document.getElementById("footer-part");
 const svgWave = document.querySelector(".wave-background svg");
 const heroPara = document.getElementById("hero-p");
 
+function setActiveNav(id) {
+  document.querySelectorAll("nav a[href^='#']").forEach(link => {
+    const linkId = link.getAttribute("href").substring(1);
+    link.classList.toggle("active", linkId === id);
+  });
+}
+
 function toggleTheme() {
   document.body.classList.toggle('light-mode');
   heroPara.classList.toggle('light-mode');
@@ -20,6 +27,7 @@ function showSection(id) {
     setTimeout(() => {
       active.classList.add("fade-in");
     }, 10);
+    setActiveNav(id);
   }
 }
 
@@ -37,9 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.value = "";
       }
 
-      // Update active state
-      document.querySelectorAll("nav a").forEach(a => a.classList.remove('active'));
-      this.classList.add('active');
     });
   });
 

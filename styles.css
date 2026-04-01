@@ -127,6 +127,7 @@ nav::-webkit-scrollbar-thumb {
   box-shadow: 0 4px 15px rgba(0, 194, 255, 0.3);
 }
 
+
 .logo-section h1 {
   font-size: 1.3rem;
   font-weight: 700;
@@ -207,6 +208,10 @@ nav hr {
   color: var(--light-text);
   font-size: 0.95rem;
   width: 100%;
+}
+
+#sidebar h1 {
+  font-family: 'Nazalization', sans-serif;
 }
 
 .search-input input::placeholder {
@@ -645,11 +650,13 @@ section p {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 4rem;
+  
 }
 
 .products-intro p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.7);
+  
 }
 
 .app-showcase {

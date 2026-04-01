@@ -117,23 +117,23 @@
 
   <!-- Mobile Menu Toggle -->
   <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-    <img src="hs-logo.png" alt="Horizon Synergy Logo">
+    <img src="images/hs-logo.png" alt="Horizon Synergy Logo">
   </div>
 
   <!-- Sidebar Nav -->
   <nav id="sidebar">
     <div class="logo-section">
-      <img src="hs-logo.png" alt="Horizon Synergy Logo">
+      <img src="images/hs-logo.png" alt="Horizon Synergy Logo">
       <h1>Horizon <span class="gradient-text">Synergy</span></h1>
     </div>
 
-    <a href="#about">About Us</a>
+    <a href="#about" id="page-links">About Us</a>
     <hr>
-    <a href="#mission">Our Mission</a>
+    <a href="#mission" id="page-links">Our Mission</a>
     <hr>
-    <a href="#products">Products</a>
+    <a href="#products" id="page-links">Products</a>
     <hr>
-    <a href="#contact">Contact Us</a>
+    <a href="#contact" id="page-links">Contact Us</a>
 
     <div class="search-panel">
       <label for="site-search">Search this page</label>
@@ -177,6 +177,7 @@
       <div class="hero-content">
         <div class="hero-tagline">Creations Of Tomorrow</div>
         <h1>Horizon Synergy South Africa: Building The <span class="gradient-text">Future</span> Of Digital Experiences</h1>
+        <h1>Horizon Synergy : Building The <span class="gradient-text">Future</span> Of Digital Experiences</h1>
         <p id="hero-p">We create engaging games, apps, and emerging technologies that positively impact everyday life—powered by
           innovation, driven by purpose, and rooted in eco-consciousness.</p>
         <p class="hero-brand-signal">Looking for <strong>Horizon Synergy</strong> or <strong>Horizon Synergy South Africa</strong>? You're in the right place.</p>
@@ -222,7 +223,7 @@
           <div class="label">Founded</div>
         </div>
         <div class="stat-card">
-          <div class="number">2</div>
+          <div class="number">3</div>
           <div class="label">Products Launched</div>
         </div>
         <div class="stat-card">
@@ -246,19 +247,19 @@
 
       <div class="mission-grid">
         <div class="mission-card">
-          <div class="icon">🎮</div>
+          <div class="icon"><i class="fa-solid fa-gamepad"></i></div>
           <h4>Engage</h4>
           <p>Creating immersive digital experiences through games and apps that captivate users worldwide. We build
             products that people love to use, that inspire curiosity, and that make technology feel human.</p>
         </div>
         <div class="mission-card">
-          <div class="icon">🌱</div>
+          <div class="icon"><i class="fa-solid fa-leaf"></i></div>
           <h4>Sustain</h4>
           <p>Building eco-conscious solutions with environmental responsibility at the core. Every product we create
             considers its impact on our planet, because innovation should never come at the expense of our future.</p>
         </div>
         <div class="mission-card">
-          <div class="icon">💡</div>
+          <div class="icon"><i class="fa-regular fa-lightbulb"></i></div>
           <h4>Innovate</h4>
           <p>Leveraging emerging technologies to teach, inspire, and turn ambitious dreams into reality. We push
             boundaries, challenge conventions, and prove that the next big thing can come from anywhere.</p>
@@ -277,7 +278,7 @@
         <h3>What Drives Us</h3>
         <div class="values-list">
           <div class="value-item">
-            <div class="value-icon">🚀</div>
+            <div class="value-icon"><i class="fa-solid fa-microchip"></i></i></div>
             <div class="value-content">
               <h5>Youth-Led Innovation</h5>
               <p>We believe the next generation shouldn't wait for permission to build the future. Young minds bring
@@ -285,7 +286,7 @@
             </div>
           </div>
           <div class="value-item">
-            <div class="value-icon">🌍</div>
+            <div class="value-icon"><i class="fa-solid fa-earth-africa"></i></div>
             <div class="value-content">
               <h5>African Excellence</h5>
               <p>We're proud to be building from South Africa, showcasing that world-class technology and innovation
@@ -293,7 +294,7 @@
             </div>
           </div>
           <div class="value-item">
-            <div class="value-icon">⚡</div>
+            <div class="value-icon"><i class="fa-solid fa-person-burst"></i></div>
             <div class="value-content">
               <h5>Impact Over Everything</h5>
               <p>Every line of code we write, every product we launch, every decision we make—it all comes back to one
@@ -314,7 +315,7 @@
       <!--Space Dash div-->
       <div class="app-showcase">
         <div class="app-icon-container">
-          <img class="app-icon" alt="Space Dash game app icon – sci-fi runner" src="sdicon.jpeg">
+          <img class="app-icon" alt="Space Dash game app icon – sci-fi runner" src="images/SD.png">
         </div>
         <div class="app-info">
           <strong>Space Dash</strong>
@@ -322,12 +323,14 @@
           <p>Dash through the cosmos in this adrenaline-fueled sci-fi runner. Navigate through asteroid fields, dodge
             cosmic threats, and test your reflexes as you're being hunted through the depths of space. How long can you
             survive?</p>
-
+          <em>v1.7.7</em>
+          <em><i class="fa-brands fa-android"></i></em>
+            
           <div class="app-features">
-            <span class="feature-badge">🎮 Sci-Fi Runner</span>
-            <span class="feature-badge">📱 Mobile Gaming</span>
-            <span class="feature-badge">⚡ Fast-Paced Action</span>
-            <span class="feature-badge">🌌 Space Adventure</span>
+            <span class="feature-badge"><i class="fa-solid fa-gamepad"></i> Sci-Fi Runner</span>
+            <span class="feature-badge"><i class="fa-solid fa-mobile"></i> Mobile Gaming</span>
+            <span class="feature-badge"><i class="fa-solid fa-angles-right"></i> Fast-Paced Action</span>
+            <span class="feature-badge"><i class="fa-solid fa-shuttle-space"></i> Space Adventure</span>
           </div>
 
           <a href="https://play.google.com/store/apps/details?id=com.nas.spacedash" class="download-link"
@@ -340,18 +343,19 @@
         <!--Death Tag div-->
        <div class="app-showcase">
         <div class="app-icon-container">
-          <img class="app-icon" alt="Space Dash game app icon – sci-fi runner" src="deathtag.png">
+          <img class="app-icon" alt="Space Dash game app icon – sci-fi runner" src="images/deathtag.png">
         </div>
         <div class="app-info">
           <strong>Death Tag</strong>
           <span class="app-subtitle">A Laser Tag Inspired Game</span>
           <p>Death Tag is a fast-paced arena game that turns the classic idea of tag into a high-stakes sport of reflex, precision, and control. Simple at first glance, yet deeply competitive at its core — it’s tag or be tagged, and every move matters.</p>
-
+          <em>Prototype Phase</em>
+          <em><i class="fa-brands fa-android"></i></em>
           <div class="app-features">
-            <span class="feature-badge">🎮 Strategy Filled</span>
-            <span class="feature-badge">📱 Mobile Gaming</span>
-            <span class="feature-badge">⚡ Fast-Paced Action</span>
-            <span class="feature-badge">🌌 Shooter Action</span>
+            <span class="feature-badge"><i class="fa-solid fa-gamepad"></i> Strategy Filled</span>
+            <span class="feature-badge"><i class="fa-solid fa-mobile"></i> Mobile Gaming</span>
+            <span class="feature-badge"><i class="fa-solid fa-angles-right"></i> Fast-Paced Action</span>
+            <span class="feature-badge"><i class="fa-solid fa-person-rifle"></i> Shooter Action</span>
           </div>
 
           <a href="https://play.google.com/store/apps/details?id=com.synergy.deathtag" class="download-link"
@@ -362,8 +366,66 @@
         </div>
       </div>
 
+      <!-- ArtKeep Notes App div -->
+       <div class="app-showcase">
+  <div class="app-icon-container">
+    <img class="app-icon" alt="ArtKeep app icon – creative notes platform" src="images/artkeep.png">
+  </div>
+
+  <div class="app-info">
+    <strong>ArtKeep</strong>
+    <span class="app-subtitle">A Creative Notes & Collaboration Platform</span>
+    <p>
+      ArtKeep is a modern note-taking app designed for creators and thinkers.
+      Capture ideas, organise your thoughts, and build projects in a clean,
+      distraction-free workspace. Built for flexibility today, and collaboration tomorrow.
+    </p>
+    <em>Early Access</em>
+    <div class="app-features">
+      <span class="feature-badge"><i class="fa-solid fa-note-sticky"></i> Smart Notes</span>
+      <span class="feature-badge"><i class="fa-solid fa-angles-right"></i> Fast & Minimal</span>
+      <span class="feature-badge"><i class="fa-regular fa-cloud"></i> Cloud Ready (Coming soon)</span>
+      <span class="feature-badge"><i class="fa-solid fa-users"></i> Collaboration (Coming Soon)</span>
+    </div>
+
+    <a href="https://artkeep.netlify.app" class="download-link" target="_blank">
+      <i class="fa-regular fa-window-maximize"></i>
+      Launch ArtKeep
+    </a>
+  </div>
+</div>
+
+      <!-- Pixelor Photo Editor div -->
+<div class="app-showcase">
+  <div class="app-icon-container">
+    <img class="app-icon" alt="Pixelor app icon – minimal photo editor" src="images/pixelor.png">
+  </div>
+
+  <div class="app-info">
+    <strong>Pixelor</strong>
+    <span class="app-subtitle">A Minimal Photo Editing Tool</span>
+    <p>
+      Pixelor is a lightweight, fast, and intuitive photo editor built for simplicity.
+      Resize, crop, adjust, and enhance your images instantly—no clutter, no distractions.
+      Designed for everyday use today, with powerful integrations coming tomorrow.
+    </p>
+    <em>Test Release</em>
+    <div class="app-features">
+      <span class="feature-badge"><i class="fa-solid fa-wand-magic"></i> Image Editing</span>
+      <span class="feature-badge"><i class="fa-solid fa-angles-right"></i> Fast & Minimal</span>
+      <span class="feature-badge"><i class="fa-solid fa-gear"></i> Basic Adjustments</span>
+      <span class="feature-badge"><i class="fa-solid fa-code-merge"></i> Integrations (Coming Soon)</span>
+    </div>
+
+    <a href="https://pixelor.netlify.app" class="download-link" target="_blank">
+      <i class="fa-regular fa-window-maximize"></i>
+      Launch Pixelor
+    </a>
+  </div>
+</div>
+
       <div class="coming-soon">
-        <h4>🚀 More Coming Soon</h4>
+        <h4><i class="fa-solid fa-shuttle-space"></i> More Coming Soon</h4>
         <p>We're working on groundbreaking new products that will redefine digital experiences. Stay tuned—the future is
           closer than you think.</p>
       </div>

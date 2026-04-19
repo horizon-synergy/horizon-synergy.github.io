@@ -252,7 +252,6 @@ nav hr {
 }
 
 .social-links a {
-  color: var(--light-text);
   font-size: 24px;
   padding: 0;
   margin: 0;
@@ -263,12 +262,12 @@ nav hr {
   transform: translateY(-3px) scale(1.1);
 }
 
-.x-link i {
-  color: var(--light-text);
+.mastodon-link i {
+  color: purple;
 }
 
-.x-link:hover i {
-  color: var(--primary-color);
+.mastodon-link:hover i {
+  color: pink;
 }
 
 .insta-link i {
@@ -276,7 +275,7 @@ nav hr {
 }
 
 .yt-link i {
-  color: var(--accent-color);
+  color:red;
 }
 
 .git-link i {
@@ -284,7 +283,7 @@ nav hr {
 }
 
 .git-link:hover i {
-  color: var(--primary-color);
+  color: gray;
 }
 
 .footer-part {

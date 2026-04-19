@@ -239,7 +239,7 @@ nav hr {
 
 #toggle-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0, 194, 255, 0.4);
+  box-shadow: 0 3px 1px rgba(0, 194, 255, 0.4);
 }
 
 /*Social Links*/
@@ -262,16 +262,16 @@ nav hr {
   transform: translateY(-3px) scale(1.1);
 }
 
-.mastodon-link i {
-  color: purple;
+.bluesky-link {
+  color: rgb(0, 115, 255);
 }
 
-.mastodon-link:hover i {
-  color: pink;
+.mastodon-link {
+  color: rgb(255, 0, 255);
 }
 
-.insta-link i {
-  color: var(--primary-color);
+.insta-link {
+  color: rgb(255, 0, 191);
 }
 
 .yt-link i {
@@ -280,10 +280,6 @@ nav hr {
 
 .git-link i {
   color: var(--light-text);
-}
-
-.git-link:hover i {
-  color: gray;
 }
 
 .footer-part {
@@ -304,7 +300,6 @@ nav hr {
 }
 
 .footer-part a:hover {
-  text-decoration: underline;
   transform: none;
 }
 
@@ -913,12 +908,13 @@ body.light-mode .footer-part {
   margin: 0;
   padding: 20px;
   transition: ease-in-out 0.275s;
+  border: none;
 }
 
 #page-links:hover{
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   transition: ease-in-out 0.275s;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.542);
+  border: none;
 }
 /* 2026 Product-centered glass refresh */
 :root {

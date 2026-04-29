@@ -61,11 +61,6 @@ body {
     src: url('https://cdn.jsdelivr.net/gh/cedricarts/font-for-use@main/Nasalization-Regular.woff2') format('woff2');
 }
 
-
-.logo-section h1{
-  font-family:'NASA';
-}
-
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
@@ -140,6 +135,7 @@ nav::-webkit-scrollbar-thumb {
 
 
 .logo-section h1 {
+  font-family:'NASA', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.3;

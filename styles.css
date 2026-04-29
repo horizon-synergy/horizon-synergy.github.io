@@ -1,3 +1,4 @@
+@import url(https://cdn.jsdelivr.net/gh/cedricarts/font-for-use@main/font-style.css)
 :root {
   --primary-color: #00c2ff;
   --accent-color: #00ff84;
@@ -53,6 +54,10 @@ body {
   100% {
     transform: translateY(-15px) scale(1.05);
   }
+}
+
+.logo-section h1{
+  font-family('NASA')
 }
 
 /* Mobile Menu Toggle */

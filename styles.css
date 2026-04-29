@@ -56,6 +56,12 @@ body {
   }
 }
 
+@font-face {
+    font-family: 'NASA';
+    src: url('https://cdn.jsdelivr.net/gh/cedricarts/font-for-use@main/Nasalization-Regular.woff2') format('woff2');
+}
+
+
 .logo-section h1{
   font-family:'NASA';
 }

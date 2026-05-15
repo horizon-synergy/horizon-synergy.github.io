@@ -1,3 +1,4 @@
+@import url('https://cdn.jsdelivr.net/gh/cedricarts/font-for-use@main/font-style.css');
 :root {
   --primary-color: #0099ff;
   --accent-color: #00a976;
@@ -54,6 +55,11 @@ body {
   100% {
     transform: translateY(-15px) scale(1.05);
   }
+}
+
+@font-face {
+    font-family: 'NASA';
+    src: url('https://cdn.jsdelivr.net/gh/cedricarts/font-for-use@main/Nasalization-Regular.woff2') format('woff2');
 }
 
 /* Mobile Menu Toggle */
@@ -128,7 +134,9 @@ nav::-webkit-scrollbar-thumb {
   box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
 }
 
+
 .logo-section h1 {
+  font-family:'NASA', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.3;
@@ -210,6 +218,10 @@ nav hr {
   width: 100%;
 }
 
+#sidebar h1 {
+  font-family: 'Nazalization', sans-serif;
+}
+
 .search-input input::placeholder {
   color: rgba(238, 244, 237, 0.5);
 }
@@ -248,7 +260,6 @@ nav hr {
 }
 
 .social-links a {
-  color: var(--light-text);
   font-size: 24px;
   padding: 0;
   margin: 0;
@@ -259,28 +270,24 @@ nav hr {
   transform: translateY(-3px) scale(1.1);
 }
 
-.x-link i {
-  color: var(--light-text);
+.bluesky-link {
+  color: rgb(0, 115, 255);
 }
 
-.x-link:hover i {
-  color: var(--primary-color);
+.mastodon-link {
+  color: rgb(255, 0, 255);
 }
 
-.insta-link i {
-  color: var(--primary-color);
+.insta-link {
+  color: rgb(255, 0, 191);
 }
 
 .yt-link i {
-  color: var(--accent-color);
+  color:red;
 }
 
 .git-link i {
   color: var(--light-text);
-}
-
-.git-link:hover i {
-  color: var(--primary-color);
 }
 
 .footer-part {
@@ -301,7 +308,6 @@ nav hr {
 }
 
 .footer-part a:hover {
-  text-decoration: underline;
   transform: none;
 }
 
@@ -646,6 +652,7 @@ section p {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 4rem;
+  
 }
 
 .products-intro p {
@@ -908,10 +915,11 @@ body.light-mode .footer-part {
   margin: 0;
   padding: 20px;
   transition: ease-in-out 0.275s;
+  border: none;
 }
 
 #page-links:hover{
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   transition: ease-in-out 0.275s;
   text-shadow: 2px 2px 5px rgba(47, 47, 47, 0.542);
 }

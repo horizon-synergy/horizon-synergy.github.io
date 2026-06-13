@@ -11,7 +11,9 @@ function setActiveNav(id) {
 
 function toggleTheme() {
   document.body.classList.toggle('light-mode');
-  heroPara.classList.toggle('light-mode');
+  if (heroPara) {
+    heroPara.classList.toggle('light-mode');
+  }
 }
 
 function showSection(id) {
@@ -32,7 +34,10 @@ function showSection(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  showSection("hero");
+  if (document.getElementById("hero")) {
+    const initialSection = window.location.hash ? window.location.hash.substring(1) : "hero";
+    showSection(document.getElementById(initialSection) ? initialSection : "hero");
+  }
 
   document.querySelectorAll("nav a[href^='#']").forEach(link => {
     link.addEventListener("click", function (e) {

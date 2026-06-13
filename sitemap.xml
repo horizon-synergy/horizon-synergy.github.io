@@ -7,14 +7,20 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://horizon-synergy.github.io/privacy-policy.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <loc>https://horizon-synergy.github.io/legal/privacy-policy.html</loc>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://horizon-synergy.github.io/return-policy.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <loc>https://horizon-synergy.github.io/legal/terms-and-conditions.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://horizon-synergy.github.io/legal/return-policy.html</loc>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

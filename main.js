@@ -1,6 +1,14 @@
 const footerPart = document.getElementById("footer-part");
 const svgWave = document.querySelector(".wave-background svg");
 const heroPara = document.getElementById("hero-p");
+const storedTheme = localStorage.getItem("theme");
+
+if (storedTheme === "light") {
+  document.body.classList.add("light-mode");
+  if (heroPara) {
+    heroPara.classList.add("light-mode");
+  }
+}
 
 function setActiveNav(id) {
   document.querySelectorAll("nav a[href^='#']").forEach(link => {
@@ -10,9 +18,11 @@ function setActiveNav(id) {
 }
 
 function toggleTheme() {
-  document.body.classList.toggle('light-mode');
+  const isLightMode = document.body.classList.toggle('light-mode');
+  localStorage.setItem("theme", isLightMode ? "light" : "dark");
+
   if (heroPara) {
-    heroPara.classList.toggle('light-mode');
+    heroPara.classList.toggle('light-mode', isLightMode);
   }
 }
 
@@ -92,6 +102,8 @@ document.addEventListener('click', (event) => {
   const toggle = document.querySelector('.mobile-menu-toggle');
 
   if (
+    sidebar &&
+    toggle &&
     sidebar.classList.contains('show') &&
     !sidebar.contains(event.target) &&
     !toggle.contains(event.target)

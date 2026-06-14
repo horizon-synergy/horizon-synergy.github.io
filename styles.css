@@ -1523,6 +1523,9 @@ body.legal-page main.legal-main {
   max-width: 980px;
   margin: 0 auto;
   padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--surface-border);
+  border-radius: clamp(28px, 4vw, 48px);
+  box-shadow: 0 42px 120px rgba(0, 0, 0, 0.36);
 }
 
 .legal-brand-lockup {
@@ -1634,6 +1637,18 @@ body.legal-page main a:hover {
   border-bottom-color: var(--accent-color);
 }
 
+.legal-home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(0, 153, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(0, 153, 255, 0.1);
+  font-weight: 700;
+}
+
 body.legal-page .effective-date {
   text-align: center;
   color: var(--accent-color);
@@ -1679,6 +1694,15 @@ body.light-mode.legal-page section p,
 body.light-mode.legal-page section li,
 body.light-mode.legal-page .legal-footer p {
   color: rgba(0, 0, 0, 0.68);
+}
+
+body.light-mode.legal-page .highlight-box,
+body.light-mode.legal-page .note {
+  background: rgba(0, 169, 118, 0.11);
+}
+
+body.light-mode.legal-page .legal-home-link {
+  background: rgba(0, 153, 255, 0.08);
 }
 
 body.light-mode.legal-page .legal-hero h1 {

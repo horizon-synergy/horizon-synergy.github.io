@@ -1614,7 +1614,8 @@ body.legal-page main section h3 {
   color: var(--accent-color);
 }
 
-body.legal-page main section ul {
+body.legal-page main section ul,
+body.legal-page main section ol {
   margin: 0.8rem 0 0.8rem 1.35rem;
 }
 

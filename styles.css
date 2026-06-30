@@ -1,4 +1,6 @@
 @import url('https://cdn.jsdelivr.net/gh/cedricarts/font-for-use@main/font-style.css');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   --primary-color: #0099ff;
   --accent-color: #00a976;
@@ -270,26 +272,6 @@ nav hr {
   transform: translateY(-3px) scale(1.1);
 }
 
-.bluesky-link {
-  color: rgb(0, 115, 255);
-}
-
-.mastodon-link {
-  color: rgb(255, 0, 255);
-}
-
-.insta-link {
-  color: rgb(255, 0, 191);
-}
-
-.yt-link i {
-  color:red;
-}
-
-.git-link i {
-  color: var(--light-text);
-}
-
 .footer-part {
   text-align: center;
   padding-top: 20px;
@@ -357,6 +339,7 @@ section p {
   line-height: 1.8;
   color: rgba(238, 244, 237, 0.8);
   margin-bottom: 1.5rem;
+  font-family: 'Google Sans', sans-serif;
 }
 
 /* Hero Section */

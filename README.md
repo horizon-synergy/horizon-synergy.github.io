@@ -1,4 +1,4 @@
-# Horizon Synergy — Website
+# Horizon Synergy - Website
 
 This repository powers the main public website for **Horizon Synergy**, a technology and innovation company focused on digital experiences, software solutions, and forward‑thinking systems. The site also includes our Privacy Policy and core company information.
 

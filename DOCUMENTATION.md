@@ -77,10 +77,10 @@ robots.txt/sitemap.xml/ads.txt/app-ads.txt # SEO/ads setup
 
 You do **not** need any build tools. You can preview the site directly in a browser.
 
-### Option 1 — Open the file
+### Option 1 - Open the file
 - Double-click `index.html` to open it in your browser.
 
-### Option 2 — Run a simple local server (recommended)
+### Option 2 - Run a simple local server (recommended)
 From the project folder, run:
 
 ```bash

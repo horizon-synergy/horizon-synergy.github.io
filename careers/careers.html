@@ -158,9 +158,50 @@
 
     footer { padding: 2rem 0 3rem; color: rgba(238, 244, 237, 0.55); text-align: center; }
 
+
+    .role-card { cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; text-align: left; color: inherit; font: inherit; }
+    .role-card:hover, .role-card:focus-visible { transform: translateY(-4px); border-color: rgba(0, 153, 255, 0.58); box-shadow: 0 20px 54px rgba(0, 153, 255, 0.14); outline: none; }
+    .role-card .expand-hint { display: inline-flex; margin-top: 1rem; color: #62ffc9; font-weight: 900; }
+
+    .job-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      padding: 1.25rem;
+      background: rgba(12, 18, 24, 0.78);
+      backdrop-filter: blur(14px);
+      overflow-y: auto;
+    }
+
+    .job-modal.open { display: block; }
+
+    .job-modal-card {
+      width: min(1040px, 100%);
+      margin: 2rem auto;
+      background: linear-gradient(145deg, rgba(47, 47, 47, 0.98), rgba(31, 45, 51, 0.98));
+      border: 1px solid rgba(0, 153, 255, 0.35);
+      border-radius: 32px;
+      box-shadow: 0 34px 120px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+    }
+
+    .job-modal-header { padding: clamp(1.5rem, 4vw, 2.5rem); background: linear-gradient(135deg, rgba(0, 153, 255, 0.18), rgba(0, 169, 118, 0.1)); }
+    .job-modal-topline { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+    .job-modal h2 { font-family: "Inter Tight", sans-serif; font-size: clamp(2rem, 6vw, 4.2rem); line-height: 0.95; letter-spacing: -0.055em; margin: 0.8rem 0 1rem; }
+    .close-modal { border: 1px solid rgba(238, 244, 237, 0.2); background: rgba(238, 244, 237, 0.08); color: var(--text); border-radius: 999px; width: 44px; height: 44px; cursor: pointer; font-size: 1.6rem; line-height: 1; }
+    .modal-back { cursor: pointer; }
+    .job-modal-summary { color: var(--muted); font-size: 1.08rem; line-height: 1.75; max-width: 820px; }
+    .job-modal-body { padding: clamp(1.5rem, 4vw, 2.5rem); display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .job-detail-section { border: 1px solid rgba(238, 244, 237, 0.11); border-radius: 22px; padding: 1.25rem; background: rgba(238, 244, 237, 0.045); }
+    .job-detail-section.full { grid-column: 1 / -1; }
+    .job-detail-section h3 { margin-bottom: 0.85rem; color: var(--primary); }
+    .job-detail-section ul { margin-left: 1.1rem; color: var(--muted); line-height: 1.7; }
+    .job-modal-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; padding: 0 clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.5rem); }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-top: 3rem; }
-      .roles-grid, .perks-grid, .process-grid { grid-template-columns: 1fr 1fr; }
+      .roles-grid, .perks-grid, .process-grid, .job-modal-body { grid-template-columns: 1fr 1fr; }
       .role-card.featured { grid-column: span 1; }
       .section-heading { display: block; }
       .section-heading p { margin-top: 0.75rem; }
@@ -169,7 +210,8 @@
     @media (max-width: 620px) {
       header { align-items: flex-start; flex-direction: column; }
       .nav-actions { justify-content: flex-start; }
-      .roles-grid, .perks-grid, .process-grid { grid-template-columns: 1fr; }
+      .roles-grid, .perks-grid, .process-grid, .job-modal-body { grid-template-columns: 1fr; }
+      .job-detail-section.full { grid-column: auto; }
       .hero-actions .button { width: 100%; text-align: center; }
     }
   </style>
@@ -196,14 +238,14 @@
           <p>Horizon Synergy is assembling a focused, ambitious team to ship games, apps, creative tools, and digital experiences from South Africa to the world. If you like early-stage pace, hands-on problem solving, and work that moves from idea to launch fast, this is your place.</p>
           <div class="hero-actions">
             <a class="button primary" href="#open-roles">See open roles</a>
-            <a class="button" href="mailto:horizonsynergyindustries@gmail.com?subject=Careers%20at%20Horizon%20Synergy">Send your profile</a>
+            <a class="button" href="mailto:horizonsynergyx@gmail.com?subject=Careers%20at%20Horizon%20Synergy">Send your profile</a>
           </div>
         </div>
         <aside class="hero-card" aria-label="Priority hiring spotlight">
           <span class="status-pill">Priority hire</span>
           <h2>Chief Marketing Officer</h2>
           <p>We are currently looking for a CMO to shape the Horizon Synergy story, grow product launches, lead community momentum, and turn our startup energy into a recognizable global brand.</p>
-          <a class="button primary" href="mailto:horizonsynergyindustries@gmail.com?subject=CMO%20Application%20-%20Horizon%20Synergy">Apply for CMO</a>
+          <a class="button primary" href="mailto:horizonsynergyx@gmail.com?subject=CMO%20Application%20-%20Horizon%20Synergy">Apply for CMO</a>
         </aside>
       </section>
 
@@ -213,7 +255,7 @@
           <p>Some roles are active hiring priorities and others are mock startup-stage openings for the kind of talent we expect to need as we grow.</p>
         </div>
         <div class="roles-grid">
-          <article class="role-card featured">
+          <button type="button" class="role-card featured" data-role="cmo">
             <h3>Chief Marketing Officer (CMO)</h3>
             <p>Own the brand, go-to-market strategy, launch playbooks, creator/community partnerships, and growth experiments across Horizon Synergy products.</p>
             <div class="role-meta"><span class="chip">Active search</span><span class="chip">Leadership</span><span class="chip">Remote / Hybrid</span></div>
@@ -222,43 +264,50 @@
               <li>Lead social, content, PR, community, and launch analytics.</li>
               <li>Define positioning that makes Horizon Synergy memorable and trustworthy.</li>
             </ul>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
 
-          <article class="role-card">
+          <button type="button" class="role-card" data-role="fullstack">
             <h3>Founding Full-Stack Engineer</h3>
             <p>Prototype, build, and maintain web platforms, product dashboards, APIs, and experimental tools for a fast-moving product pipeline.</p>
             <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Engineering</span></div>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
 
-          <article class="role-card">
+          <button type="button" class="role-card" data-role="game">
             <h3>Mobile Game Developer</h3>
             <p>Help build polished mobile game loops, monetization-ready experiences, performance improvements, and fun-first gameplay features.</p>
             <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Games</span></div>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
 
-          <article class="role-card">
+          <button type="button" class="role-card" data-role="designer">
             <h3>Product Designer</h3>
             <p>Create clean interfaces, prototypes, icons, flows, and design systems that make our apps feel simple, futuristic, and delightful.</p>
             <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Design</span></div>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
 
-          <article class="role-card">
+          <button type="button" class="role-card" data-role="growth">
             <h3>Growth & Community Lead</h3>
             <p>Turn users into fans through newsletters, Discord/community programs, creator outreach, feedback loops, and launch campaigns.</p>
             <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Marketing</span></div>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
 
-          <article class="role-card">
+          <button type="button" class="role-card" data-role="ai">
             <h3>AI / Automation Engineer</h3>
             <p>Explore AI-assisted product features, internal automation, agent workflows, and prototypes that help the team move faster.</p>
             <div class="role-meta"><span class="chip">Mock role</span><span class="chip">AI</span></div>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
 
-          <article class="role-card">
+          <button type="button" class="role-card" data-role="qa">
             <h3>QA & Release Tester</h3>
             <p>Test builds, catch bugs, document release risks, and help keep app and game launches stable across devices and browsers.</p>
             <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Quality</span></div>
-          </article>
+            <span class="expand-hint">View full listing →</span>
+          </button>
         </div>
       </section>
 
@@ -292,14 +341,116 @@
         <div class="apply-panel">
           <h2 id="apply-title">Ready to shape tomorrow?</h2>
           <p>Email us with the role title, a quick intro, links to your work, and why Horizon Synergy feels like the right startup for you. For the CMO role, include one launch or growth idea you would test in the first 30 days.</p>
-          <a class="button primary" href="mailto:horizonsynergyindustries@gmail.com?subject=Careers%20Application%20-%20Horizon%20Synergy">Apply via email</a>
+          <a class="button primary" href="mailto:horizonsynergyx@gmail.com?subject=Careers%20Application%20-%20Horizon%20Synergy">Apply via email</a>
         </div>
       </section>
     </main>
+
+    <section class="job-modal" id="job-modal" aria-hidden="true" aria-labelledby="modal-title" role="dialog">
+      <div class="job-modal-card" role="document">
+        <div class="job-modal-header">
+          <div class="job-modal-topline">
+            <div id="modal-chips" class="role-meta"></div>
+            <button class="close-modal" type="button" aria-label="Close job listing">×</button>
+          </div>
+          <h2 id="modal-title"></h2>
+          <p id="modal-summary" class="job-modal-summary"></p>
+        </div>
+        <div id="modal-body" class="job-modal-body"></div>
+        <div class="job-modal-actions">
+          <a id="modal-apply" class="button primary" href="mailto:horizonsynergyx@gmail.com">Apply for this role</a>
+          <button class="button modal-back" type="button">Back to roles</button>
+        </div>
+      </div>
+    </section>
 
     <footer>
       <p>&copy; 2025 - 2026 Horizon Synergy. Creations Of Tomorrow.</p>
     </footer>
   </div>
+
+  <script>
+    const jobs = {
+      cmo: {
+        title: "Chief Marketing Officer (CMO)",
+        chips: ["Active search", "Leadership", "Remote / Hybrid", "Startup brand building"],
+        summary: "Lead Horizon Synergy's marketing vision across products, launches, creator/community growth, and brand storytelling. This role is for a builder who can turn a young studio into a trusted, recognizable technology brand.",
+        sections: {
+          Description: ["You will own the full marketing engine: positioning, campaigns, social strategy, launch calendars, community growth, analytics, and partnerships.", "The ideal CMO can move between strategy and execution, creating a clear story for apps, games, and future-facing technology experiences."],
+          Responsibilities: ["Create a 30/60/90-day growth roadmap for the studio and priority products.", "Lead social media, content, email/newsletter, community, PR, and creator partnership experiments.", "Define launch plans, messaging, target audiences, and success metrics for new products.", "Build lightweight reporting around awareness, engagement, acquisition, retention, and campaign performance."],
+          Requirements: ["Strong understanding of brand positioning, digital marketing, and go-to-market planning.", "Comfortable operating in early-stage ambiguity with limited resources.", "Excellent writing, storytelling, and campaign planning skills.", "Portfolio, examples, or case studies showing growth, community, or launch work."],
+          Tools: ["Analytics dashboards", "Canva/Figma or similar creative tools", "Social scheduling tools", "Newsletter/community platforms", "Notion/Trello/Docs"],
+          "Nice to have": ["Experience marketing games, apps, startups, creator brands, or youth-led technology projects.", "Ability to recruit and coordinate freelancers, ambassadors, or community moderators."]
+        }
+      },
+      fullstack: {
+        title: "Founding Full-Stack Engineer", chips: ["Mock role", "Engineering", "Remote / Hybrid"], summary: "Build the web platforms, internal tools, APIs, and product experiments that help Horizon Synergy ship faster.", sections: { Description: ["This role owns end-to-end implementation for lightweight product surfaces, dashboards, landing pages, and integrations."], Responsibilities: ["Develop responsive web experiences and reusable components.", "Create APIs, automation scripts, and deployment workflows.", "Help turn sketches and product notes into working prototypes."], Requirements: ["Solid HTML, CSS, JavaScript, and at least one backend stack.", "Can debug independently and write maintainable code.", "Comfortable with Git and basic deployment workflows."], Tools: ["JavaScript/TypeScript", "HTML/CSS", "Git/GitHub", "Cloudflare/GitHub Pages", "Node or Python"], "Nice to have": ["Experience with analytics, payments, auth, or game-adjacent web tools."] }
+      },
+      game: {
+        title: "Mobile Game Developer", chips: ["Mock role", "Games", "Remote / Hybrid"], summary: "Create fun, performant mobile gameplay experiences that can grow into polished Horizon Synergy releases.", sections: { Description: ["You will help build and tune core loops, UI, levels, performance, and monetization-ready game systems."], Responsibilities: ["Prototype mechanics quickly and refine based on feedback.", "Optimize builds for mobile devices.", "Work with art, sound, and product ideas to create cohesive gameplay."], Requirements: ["Experience with Unity, Godot, Flutter Flame, or another game framework.", "Understands gameplay feel, performance, and mobile constraints.", "Can document bugs and iterate based on player feedback."], Tools: ["Unity/Godot or similar", "Git", "Android testing devices/emulators", "Analytics/crash reporting"], "Nice to have": ["Published game projects or playable prototypes."] }
+      },
+      designer: {
+        title: "Product Designer", chips: ["Mock role", "Design", "Remote / Hybrid"], summary: "Design simple, futuristic interfaces and product flows for apps, games, landing pages, and internal tools.", sections: { Description: ["This role turns ideas into clear wireframes, polished UI, assets, prototypes, and small design systems."], Responsibilities: ["Create user flows, low/high-fidelity mockups, and clickable prototypes.", "Design app screens, icons, product visuals, and launch graphics.", "Collaborate with engineering to keep designs practical and shippable."], Requirements: ["Strong visual taste and UX fundamentals.", "Portfolio showing mobile/web UI or product thinking.", "Comfortable giving and receiving feedback quickly."], Tools: ["Figma", "Canva/Adobe tools", "Design systems", "Prototype tools"], "Nice to have": ["Motion, game UI, icon design, or brand identity experience."] }
+      },
+      growth: {
+        title: "Growth & Community Lead", chips: ["Mock role", "Marketing", "Community"], summary: "Build the relationship between Horizon Synergy and its users through community programs, content, feedback, and launch energy.", sections: { Description: ["This role is hands-on with creators, fans, feedback loops, newsletters, communities, and product launch support."], Responsibilities: ["Run community conversations and collect product feedback.", "Coordinate launch content, challenges, updates, and announcements.", "Build relationships with creators, testers, and early adopters."], Requirements: ["Great communication and organization skills.", "Understands social platforms and online communities.", "Can spot useful feedback and turn it into clear action items."], Tools: ["Discord or community platforms", "Beehiiv/newsletter tools", "Social analytics", "Notion/Sheets"], "Nice to have": ["Experience with student, gaming, creator, or tech communities."] }
+      },
+      ai: {
+        title: "AI / Automation Engineer", chips: ["Mock role", "AI", "Automation"], summary: "Prototype AI-powered features and internal automation that help a small team do more with less.", sections: { Description: ["You will explore practical AI use cases, agent workflows, content automation, and product experiments without overcomplicating the stack."], Responsibilities: ["Build small automation workflows and proof-of-concept AI features.", "Connect APIs, data sources, and internal tools.", "Document safe usage patterns and operational limits."], Requirements: ["Can script in Python or JavaScript.", "Understands APIs, prompts, data handling, and testing.", "Bias toward practical prototypes over hype."], Tools: ["Python/JavaScript", "OpenAI or similar APIs", "n8n/Zapier-style workflows", "Git"], "Nice to have": ["Experience with agents, RAG, analytics, or workflow automation."] }
+      },
+      qa: {
+        title: "QA & Release Tester", chips: ["Mock role", "Quality", "Part-time friendly"], summary: "Keep Horizon Synergy launches stable by testing pages, apps, games, and releases across real user scenarios.", sections: { Description: ["This role catches bugs before users do and helps the team ship with confidence."], Responsibilities: ["Run test passes across devices, browsers, and builds.", "Document bugs with clear steps, screenshots, and expected behavior.", "Verify fixes and maintain release checklists."], Requirements: ["High attention to detail and clear written communication.", "Able to reproduce issues and explain them simply.", "Comfortable testing web/mobile experiences."], Tools: ["Browser devtools", "Android/iOS devices or emulators", "Issue trackers", "Screenshots/screen recording"], "Nice to have": ["Game testing, accessibility testing, or performance testing experience."] }
+      }
+    };
+
+    const modal = document.getElementById("job-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalSummary = document.getElementById("modal-summary");
+    const modalChips = document.getElementById("modal-chips");
+    const modalBody = document.getElementById("modal-body");
+    const modalApply = document.getElementById("modal-apply");
+    let lastFocusedRole = null;
+
+    function renderList(items) {
+      return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+    }
+
+    function openJob(roleKey, trigger) {
+      const job = jobs[roleKey];
+      if (!job) return;
+
+      lastFocusedRole = trigger;
+      modalTitle.textContent = job.title;
+      modalSummary.textContent = job.summary;
+      modalChips.innerHTML = job.chips.map((chip) => `<span class="chip">${chip}</span>`).join("");
+      modalBody.innerHTML = Object.entries(job.sections).map(([heading, items], index) => `
+        <article class="job-detail-section ${index === 0 ? "full" : ""}">
+          <h3>${heading}</h3>
+          ${renderList(items)}
+        </article>
+      `).join("");
+      modalApply.href = `mailto:horizonsynergyx@gmail.com?subject=${encodeURIComponent(job.title + " Application - Horizon Synergy")}`;
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      modal.querySelector(".close-modal").focus();
+    }
+
+    function closeJob() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocusedRole) lastFocusedRole.focus();
+    }
+
+    document.querySelectorAll(".role-card[data-role]").forEach((card) => {
+      card.addEventListener("click", () => openJob(card.dataset.role, card));
+    });
+
+    document.querySelectorAll(".close-modal, .modal-back").forEach((button) => button.addEventListener("click", closeJob));
+    modal.addEventListener("click", (event) => { if (event.target === modal) closeJob(); });
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape" && modal.classList.contains("open")) closeJob(); });
+  </script>
 </body>
 </html>

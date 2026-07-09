@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudX | The Student Marketplace</title>
+    <meta name="description"
+        content="Buy, sell and discover products and opportunities within your student community. StudX is built for students, by students." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles/studx-styles.css" />
+</head>
+
+<body>
+
+    <!-- ========================================================
+     NAVIGATION
+     ======================================================== -->
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <div class="nav-brand">
+                <div class="nav-logo">SX</div>
+                <span class="nav-name">StudX</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#screenshots">App</a></li>
+                <li><a href="#future">Coming Soon</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="https://play.google.com/store/apps/details?id=com.synergy.studx" class="btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                        <path d="M8 12l4-4 4 4M12 8v8" />
+                    </svg>
+                    Download App
+                </a>
+                <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#features" onclick="closeMobileMenu()">Features</a>
+        <a href="#how" onclick="closeMobileMenu()">How It Works</a>
+        <a href="#screenshots" onclick="closeMobileMenu()">App</a>
+        <a href="#future" onclick="closeMobileMenu()">Coming Soon</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="https://play.google.com/store/apps/details?id=com.synergy.studx" class="btn-primary" onclick="closeMobileMenu()">Download App</a>
+    </div>
+
+
+    <!-- ========================================================
+     HERO
+     ======================================================== -->
+    <section class="hero" id="hero">
+        <div class="container hero-inner">
+
+            <!-- Left: copy -->
+            <div class="hero-content">
+                <div class="hero-eyebrow fade-up">
+                    <span class="hero-eyebrow-dot"></span>
+                    Now Available
+                </div>
+
+                <h1 class="hero-title fade-up delay-1">
+                    The Student<br><span>Marketplace.</span>
+                </h1>
+
+                <p class="hero-subtitle fade-up delay-2">
+                    Buy, sell and discover products and opportunities within your student community.
+                    Built by students, for students.
+                </p>
+
+                <div class="hero-actions fade-up delay-3">
+                    <a href="#" class="hero-btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                            <path d="M8 12l4-4 4 4M12 8v8" />
+                        </svg>
+                        Download App
+                    </a>
+                    <a href="#how" class="hero-btn-secondary">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="hero-social-proof fade-up delay-4">
+                    <div class="hero-avatars">
+                        <div class="hero-avatar">S</div>
+                        <div class="hero-avatar">T</div>
+                        <div class="hero-avatar">U</div>
+                        <div class="hero-avatar">D</div>
+                        <div class="hero-avatar">X</div>
+                    </div>
+                    <div class="hero-proof-text">
+                        <strong>Join your campus community</strong><br>
+                        Free to download and use
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: phone mockup -->
+            <div class="hero-visual fade-up delay-2">
+                <div class="phone-glow"></div>
+
+                <!-- Floating cards -->
+                <div class="float-card float-card-a">
+                    <div class="float-card-icon">✅</div>
+                    <div class="float-card-text">
+                        <strong>Order Confirmed</strong>
+                        <span>Textbook - R180</span>
+                    </div>
+                </div>
+
+                <div class="float-card float-card-b">
+                    <div class="float-card-icon">⭐</div>
+                    <div class="float-card-text">
+                        <strong>New Review</strong>
+                        <span>"Fast delivery!"</span>
+                    </div>
+                </div>
+
+                <div class="float-card float-card-c">
+                    <div class="float-card-icon">💬</div>
+                    <div class="float-card-text">
+                        <strong>Message</strong>
+                        <span>Is this still available?</span>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="phone-status-bar">
+                            <span class="phone-time">9:41</span>
+                            <div class="phone-icons">
+                                <span>▲▲▲</span>
+                                <span>WiFi</span>
+                                <span>🔋</span>
+                            </div>
+                        </div>
+
+                        <div class="phone-content">
+                            <div class="phone-header">
+                                <div class="phone-logo-small">
+                                    <div class="phone-logo-mark">SX</div>
+                                    <span class="phone-brand">StudX</span>
+                                </div>
+                                <div class="phone-bell">🔔</div>
+                            </div>
+
+                            <div class="phone-search">🔍 Search listings...</div>
+
+                            <div class="phone-pills">
+                                <div class="phone-pill active">All</div>
+                                <div class="phone-pill">⭐ Featured</div>
+                                <div class="phone-pill">📦 Products</div>
+                                <div class="phone-pill">🛠 Services</div>
+                            </div>
+
+                            <div class="phone-grid">
+                                <div class="phone-card">
+                                    <div class="phone-card-img bg-blue">📚</div>
+                                    <div class="phone-card-body">
+                                        <div class="phone-card-title">Engineering Textbook</div>
+                                        <div class="phone-card-price">R180</div>
+                                    </div>
+                                </div>
+                                <div class="phone-card">
+                                    <div class="phone-card-img bg-purp">💻</div>
+                                    <div class="phone-card-body">
+                                        <div class="phone-card-title">Python Tutoring</div>
+                                        <div class="phone-card-price">R150/hr</div>
+                                    </div>
+                                </div>
+                                <div class="phone-card">
+                                    <div class="phone-card-img bg-rose">🎨</div>
+                                    <div class="phone-card-body">
+                                        <div class="phone-card-title">Design Notes</div>
+                                        <div class="phone-card-price">R60</div>
+                                    </div>
+                                </div>
+                                <div class="phone-card">
+                                    <div class="phone-card-img bg-amber">🎧</div>
+                                    <div class="phone-card-body">
+                                        <div class="phone-card-title">Headphones</div>
+                                        <div class="phone-card-price">R320</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="phone-bottom-nav">
+                            <div class="phone-nav-item active">🏠<span>Home</span></div>
+                            <div class="phone-nav-item">💬</div>
+                            <div class="phone-nav-item">➕</div>
+                            <div class="phone-nav-item">🔔</div>
+                            <div class="phone-nav-item">👤</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     STATS
+     ======================================================== -->
+    <div class="stats-strip" id="stats">
+        <div class="container">
+            <div class="stats-inner">
+                <div class="stat-item fade-up">
+                    <div class="stat-number" data-target="17">0</div>
+                    <div class="stat-label">Student Users</div>
+                </div>
+                <div class="stat-item fade-up delay-1">
+                    <div class="stat-number" data-target="9">0</div>
+                    <div class="stat-label">Active Listings</div>
+                </div>
+                <div class="stat-item fade-up delay-2">
+                    <div class="stat-number" data-target="1">0</div>
+                    <div class="stat-label">Partner Campuses</div>
+                </div>
+                <div class="stat-item fade-up delay-3">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Satisfaction Rate (%)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================
+     FEATURES
+     ======================================================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-header">
+                <div class="section-label fade-up">✦ Features</div>
+                <h2 class="section-title fade-up delay-1">Everything you need to trade on campus</h2>
+                <p class="section-subtitle fade-up delay-2">StudX packs everything student sellers and buyers need into
+                    one clean, fast, mobile-first experience.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-up">
+                    <div class="feature-icon">📦</div>
+                    <h3 class="feature-title">Create Listings</h3>
+                    <p class="feature-desc">Photograph your item, add a price and tags, and go live in under a minute.
+                        Reach every student on your campus instantly.</p>
+                </div>
+                <div class="feature-card fade-up delay-1">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Browse Products</h3>
+                    <p class="feature-desc">Filter by category, search by tag, and discover featured listings. Find
+                        exactly what you need without the noise.</p>
+                </div>
+                <div class="feature-card fade-up delay-2">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Google Sign-In</h3>
+                    <p class="feature-desc">Log in with your student Google account in one tap. No new passwords to
+                        remember, no long sign-up forms.</p>
+                </div>
+                <div class="feature-card fade-up delay-3">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Real-Time Marketplace</h3>
+                    <p class="feature-desc">Listings, messages and order updates arrive instantly via Firestore. The
+                        marketplace is always live and always current.</p>
+                </div>
+                <div class="feature-card fade-up delay-1">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Modern Experience</h3>
+                    <p class="feature-desc">A dark gallery aesthetic, smooth animations and a clean layout make browsing
+                        feel premium, not cluttered.</p>
+                </div>
+                <div class="feature-card fade-up delay-2">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">Student-Focused</h3>
+                    <p class="feature-desc">Coupons, verified sellers, wishlist, reviews and a full order lifecycle
+                        built around how students actually trade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     WHY STUDX
+     ======================================================== -->
+    <section class="why" id="why">
+        <div class="container">
+            <div class="why-inner">
+
+                <div class="why-visual fade-up">
+                    <div class="why-card-stack">
+                        <div class="why-card why-card-back-2"></div>
+                        <div class="why-card why-card-back-1"></div>
+                        <div class="why-card why-card-main">
+                            <div class="why-card-emoji">🎓</div>
+                            <div class="why-card-title">Built for Student Life</div>
+                            <div class="why-card-desc">From selling last year's textbooks to offering tutoring sessions,
+                                StudX fits every part of the student economy.</div>
+                            <div class="why-card-badge">✓ Verified Sellers</div>
+                        </div>
+                        <div class="why-big-card">
+                            <div class="why-big-number" data-counter="true">0</div>
+                            <div class="why-big-label">students trading today</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-content fade-up delay-2">
+                    <div class="section-label">✦ Why StudX</div>
+                    <h2 class="section-title">Your campus economy, finally organised</h2>
+                    <p class="section-subtitle">Generic marketplaces were not built with students in mind. StudX is.
+                        Every feature exists to make buying, selling and connecting within your community easier, safer
+                        and faster.</p>
+
+                    <div class="why-points">
+                        <div class="why-point">
+                            <div class="why-point-icon">🔒</div>
+                            <div>
+                                <div class="why-point-title">Safe and Trustworthy</div>
+                                <div class="why-point-desc">Verified seller badges, mutual trade confirmation and admin
+                                    payment oversight keep every transaction protected.</div>
+                            </div>
+                        </div>
+                        <div class="why-point">
+                            <div class="why-point-icon">💬</div>
+                            <div>
+                                <div class="why-point-title">Direct Communication</div>
+                                <div class="why-point-desc">Message sellers in real time before you commit. Ask
+                                    questions, negotiate prices and agree on handover details.</div>
+                            </div>
+                        </div>
+                        <div class="why-point">
+                            <div class="why-point-icon">📊</div>
+                            <div>
+                                <div class="why-point-title">Transparent Orders</div>
+                                <div class="why-point-desc">Track every step from placement to delivery. Both buyer and
+                                    seller confirm the trade before it closes.</div>
+                            </div>
+                        </div>
+                        <div class="why-point">
+                            <div class="why-point-icon">🆓</div>
+                            <div>
+                                <div class="why-point-title">Free to Use</div>
+                                <div class="why-point-desc">No listing fees, no commission cuts. StudX is free for every
+                                    student on every campus.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     HOW IT WORKS
+     ======================================================== -->
+    <section class="how" id="how">
+        <div class="container">
+            <div class="how-header">
+                <div class="section-label fade-up">✦ How It Works</div>
+                <h2 class="section-title fade-up delay-1">Trading made simple</h2>
+                <p class="section-subtitle fade-up delay-2" style="margin:0 auto;">Four steps from download to done. No
+                    friction, no confusion.</p>
+            </div>
+
+            <div class="how-steps">
+                <div class="how-step fade-up">
+                    <div class="how-step-num">🔑</div>
+                    <h3 class="how-step-title">Sign In</h3>
+                    <p class="how-step-desc">Use your Google account or create a StudX account in seconds.</p>
+                </div>
+                <div class="how-step fade-up delay-1">
+                    <div class="how-step-num">🔍</div>
+                    <h3 class="how-step-title">Browse or List</h3>
+                    <p class="how-step-desc">Find what you need or publish a listing with photos, price and tags.</p>
+                </div>
+                <div class="how-step fade-up delay-2">
+                    <div class="how-step-num">💬</div>
+                    <h3 class="how-step-title">Connect</h3>
+                    <p class="how-step-desc">Message the seller directly, ask questions and agree on the details.</p>
+                </div>
+                <div class="how-step fade-up delay-3">
+                    <div class="how-step-num">✅</div>
+                    <h3 class="how-step-title">Complete the Trade</h3>
+                    <p class="how-step-desc">Place your order and confirm delivery. Both sides close the deal together.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     SCREENSHOTS
+     ======================================================== -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="screenshots-header">
+                <div class="section-label fade-up" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);">✦
+                    The App</div>
+                <h2 class="section-title fade-up delay-1">See StudX in action</h2>
+                <p class="section-subtitle fade-up delay-2">Drag or scroll to explore the app experience.</p>
+            </div>
+        </div>
+
+        <div class="screenshots-track" id="screenshotsTrack">
+
+            <!-- Home -->
+            <div class="screenshot-item">
+                <div class="screenshot-phone">
+                    <div class="screenshot-notch"></div>
+                    <div class="screenshot-screen" style="background:linear-gradient(160deg,#0f0f11,#18181b)">
+                        <div class="ss-home-header">
+                            <div class="ss-logo">StudX</div>
+                            <div class="ss-bell">🔔</div>
+                        </div>
+                        <div class="ss-search"
+                            style="background:rgba(255,255,255,.07);border-radius:10px;padding:8px 12px;font-size:11px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:6px;">
+                            🔍 Search listings...</div>
+                        <div class="ss-pill-row">
+                            <div class="ss-pill on">All</div>
+                            <div class="ss-pill">Products</div>
+                            <div class="ss-pill">Services</div>
+                        </div>
+                        <div class="ss-grid">
+                            <div class="ss-card">
+                                <div class="ss-card-img" style="background:linear-gradient(135deg,#1D4ED8,#3B82F6)">📚
+                                </div>
+                                <div class="ss-card-info">
+                                    <div class="ss-card-name">Textbooks</div>
+                                    <div class="ss-card-price">R180</div>
+                                </div>
+                            </div>
+                            <div class="ss-card">
+                                <div class="ss-card-img" style="background:linear-gradient(135deg,#5B21B6,#8B5CF6)">💻
+                                </div>
+                                <div class="ss-card-info">
+                                    <div class="ss-card-name">Tutoring</div>
+                                    <div class="ss-card-price">R150/hr</div>
+                                </div>
+                            </div>
+                            <div class="ss-card">
+                                <div class="ss-card-img" style="background:linear-gradient(135deg,#9F1239,#F43F5E)">🎨
+                                </div>
+                                <div class="ss-card-info">
+                                    <div class="ss-card-name">Design Notes</div>
+                                    <div class="ss-card-price">R60</div>
+                                </div>
+                            </div>
+                            <div class="ss-card">
+                                <div class="ss-card-img" style="background:linear-gradient(135deg,#92400E,#F59E0B)">🎧
+                                </div>
+                                <div class="ss-card-info">
+                                    <div class="ss-card-name">Headphones</div>
+                                    <div class="ss-card-price">R320</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-label">Home</div>
+            </div>
+
+            <!-- Marketplace -->
+            <div class="screenshot-item">
+                <div class="screenshot-phone">
+                    <div class="screenshot-notch"></div>
+                    <div class="screenshot-screen" style="background:linear-gradient(160deg,#0f0f11,#18181b)">
+                        <div class="ss-title" style="font-size:14px;font-weight:700;color:#f0ede8;margin-bottom:12px;">
+                            Marketplace</div>
+                        <div class="ss-listing"
+                            style="background:#1f1f23;border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+                            <div
+                                style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
+                                📚</div>
+                            <div style="flex:1;">
+                                <div style="font-size:10px;font-weight:600;color:#f0ede8;">Engineering Textbook</div>
+                                <div style="font-size:8px;color:rgba(255,255,255,.4);">Product</div>
+                                <div style="font-size:11px;font-weight:700;color:#4F8EF7;">R180</div>
+                            </div>
+                        </div>
+                        <div class="ss-listing"
+                            style="background:#1f1f23;border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+                            <div
+                                style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#5B21B6,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
+                                💻</div>
+                            <div style="flex:1;">
+                                <div style="font-size:10px;font-weight:600;color:#f0ede8;">Python Tutoring</div>
+                                <div style="font-size:8px;color:rgba(255,255,255,.4);">Service</div>
+                                <div style="font-size:11px;font-weight:700;color:#4F8EF7;">R150/hr</div>
+                            </div>
+                        </div>
+                        <div class="ss-listing"
+                            style="background:#1f1f23;border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+                            <div
+                                style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#92400E,#F59E0B);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
+                                🎧</div>
+                            <div style="flex:1;">
+                                <div style="font-size:10px;font-weight:600;color:#f0ede8;">Sony Headphones</div>
+                                <div style="font-size:8px;color:rgba(255,255,255,.4);">Product</div>
+                                <div style="font-size:11px;font-weight:700;color:#4F8EF7;">R320</div>
+                            </div>
+                        </div>
+                        <div class="ss-listing"
+                            style="background:#1f1f23;border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center;">
+                            <div
+                                style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#9F1239,#F43F5E);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
+                                📐</div>
+                            <div style="flex:1;">
+                                <div style="font-size:10px;font-weight:600;color:#f0ede8;">Maths Notes Bundle</div>
+                                <div style="font-size:8px;color:rgba(255,255,255,.4);">Product</div>
+                                <div style="font-size:11px;font-weight:700;color:#4F8EF7;">R85</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-label">Marketplace</div>
+            </div>
+
+            <!-- Listing Detail -->
+            <div class="screenshot-item">
+                <div class="screenshot-phone">
+                    <div class="screenshot-notch"></div>
+                    <div class="screenshot-screen" style="background:linear-gradient(160deg,#0f0f11,#18181b)">
+                        <div
+                            style="height:100px;border-radius:12px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:12px;">
+                            📚</div>
+                        <div
+                            style="display:inline-block;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(37,99,235,.2);color:#60A5FA;margin-bottom:8px;">
+                            📦 Product</div>
+                        <div style="font-size:13px;font-weight:700;color:#f0ede8;margin-bottom:4px;">Engineering
+                            Textbook 3rd Ed.</div>
+                        <div style="display:flex;gap:4px;margin-bottom:8px;">
+                            <span
+                                style="font-size:8px;padding:2px 6px;background:rgba(255,255,255,.08);border-radius:10px;color:rgba(255,255,255,.5);">#engineering</span>
+                            <span
+                                style="font-size:8px;padding:2px 6px;background:rgba(255,255,255,.08);border-radius:10px;color:rgba(255,255,255,.5);">#textbook</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:4px;margin-bottom:8px;">
+                            <span style="font-size:10px;color:#F59E0B;">★★★★★</span>
+                            <span style="font-size:9px;color:rgba(255,255,255,.4);">4.8 (12)</span>
+                        </div>
+                        <div style="font-size:18px;font-weight:700;color:#4F8EF7;margin-bottom:12px;">R180</div>
+                        <div
+                            style="background:#2563EB;color:#fff;border-radius:20px;padding:10px 14px;font-size:10px;font-weight:600;text-align:center;margin-bottom:6px;">
+                            Add to Cart</div>
+                        <div
+                            style="background:rgba(255,255,255,.06);border:1px solid rgba(37,99,235,.4);color:#60A5FA;border-radius:20px;padding:8px 14px;font-size:10px;font-weight:600;text-align:center;">
+                            💬 Message Seller</div>
+                    </div>
+                </div>
+                <div class="screenshot-label">Listing Details</div>
+            </div>
+
+            <!-- Profile -->
+            <div class="screenshot-item">
+                <div class="screenshot-phone">
+                    <div class="screenshot-notch"></div>
+                    <div class="screenshot-screen" style="background:linear-gradient(160deg,#0f0f11,#18181b)">
+                        <div
+                            style="height:70px;border-radius:12px;background:linear-gradient(135deg,#1e40af,#2563EB);margin-bottom:28px;position:relative;">
+                            <div
+                                style="position:absolute;bottom:-20px;left:14px;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#1e40af,#2563EB);border:2px solid #18181b;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">
+                                T</div>
+                        </div>
+                        <div style="padding:0 2px;">
+                            <div
+                                style="font-size:13px;font-weight:700;color:#f0ede8;display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+                                Tebogo M.
+                                <span
+                                    style="font-size:8px;background:#dcfce7;color:#15803d;padding:2px 6px;border-radius:10px;font-weight:700;">Verified</span>
+                            </div>
+                            <div style="font-size:9px;color:rgba(255,255,255,.4);margin-bottom:12px;">🎓 UCT · BSc
+                                Computer Science</div>
+                            <div
+                                style="display:flex;background:#1f1f23;border-radius:10px;overflow:hidden;margin-bottom:14px;">
+                                <div
+                                    style="flex:1;padding:10px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
+                                    <div style="font-size:16px;font-weight:700;color:#f0ede8;">12</div>
+                                    <div
+                                        style="font-size:7px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">
+                                        Listings</div>
+                                </div>
+                                <div
+                                    style="flex:1;padding:10px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
+                                    <div style="font-size:16px;font-weight:700;color:#f0ede8;">4.9</div>
+                                    <div
+                                        style="font-size:7px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">
+                                        Rating</div>
+                                </div>
+                                <div
+                                    style="flex:1;padding:10px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
+                                    <div style="font-size:16px;font-weight:700;color:#f0ede8;">34</div>
+                                    <div
+                                        style="font-size:7px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">
+                                        Reviews</div>
+                                </div>
+                                <div style="flex:1;padding:10px 6px;text-align:center;">
+                                    <div style="font-size:16px;font-weight:700;color:#15803d;">✓</div>
+                                    <div
+                                        style="font-size:7px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">
+                                        Verified</div>
+                                </div>
+                            </div>
+                            <div
+                                style="font-size:10px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">
+                                My Listings</div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                                <div style="background:#1f1f23;border-radius:10px;overflow:hidden;">
+                                    <div
+                                        style="height:44px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;font-size:16px;">
+                                        📚</div>
+                                    <div style="padding:6px 8px;font-size:8px;font-weight:600;color:#f0ede8;">Textbook
+                                    </div>
+                                </div>
+                                <div style="background:#1f1f23;border-radius:10px;overflow:hidden;">
+                                    <div
+                                        style="height:44px;background:linear-gradient(135deg,#5B21B6,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:16px;">
+                                        💻</div>
+                                    <div style="padding:6px 8px;font-size:8px;font-weight:600;color:#f0ede8;">Tutoring
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-label">Profile</div>
+            </div>
+
+        </div>
+        <p class="screenshots-hint">Drag to explore</p>
+    </section>
+
+
+    <!-- ========================================================
+     FUTURE FEATURES
+     ======================================================== -->
+    <section class="future" id="future">
+        <div class="container">
+            <div class="future-header">
+                <div class="section-label fade-up">✦ Coming Soon</div>
+                <h2 class="section-title fade-up delay-1">What we're building next</h2>
+                <p class="section-subtitle fade-up delay-2" style="margin:0 auto;">StudX is actively growing. Here is
+                    what is on the roadmap for the next release.</p>
+            </div>
+
+            <div class="future-grid">
+                <div class="future-card fade-up">
+                    <div class="future-card-icon">💬</div>
+                    <div>
+                        <div class="future-badge">Coming Soon</div>
+                        <div class="future-card-title">Enhanced Messaging</div>
+                        <div class="future-card-desc">Push notifications for new messages so you never miss a trade
+                            opportunity, even when the app is closed.</div>
+                    </div>
+                </div>
+                <div class="future-card fade-up delay-1">
+                    <div class="future-card-icon">⭐</div>
+                    <div>
+                        <div class="future-badge">Coming Soon</div>
+                        <div class="future-card-title">Ratings and Reviews</div>
+                        <div class="future-card-desc">Build your reputation as a trusted seller. Reviews are already
+                            live on the web app and arriving on mobile next.</div>
+                    </div>
+                </div>
+                <div class="future-card fade-up delay-2">
+                    <div class="future-card-icon">♡</div>
+                    <div>
+                        <div class="future-badge">Coming Soon</div>
+                        <div class="future-card-title">Saved Listings</div>
+                        <div class="future-card-desc">Wishlist any listing with a single tap and revisit it whenever you
+                            are ready to buy.</div>
+                    </div>
+                </div>
+                <div class="future-card fade-up delay-3">
+                    <div class="future-card-icon">🔎</div>
+                    <div>
+                        <div class="future-badge">Planned</div>
+                        <div class="future-card-title">Advanced Search</div>
+                        <div class="future-card-desc">Full-text search powered by Algolia, with price range sliders,
+                            category filters and sorting options.</div>
+                    </div>
+                </div>
+                <div class="future-card fade-up delay-1">
+                    <div class="future-card-icon">🏫</div>
+                    <div>
+                        <div class="future-badge">Planned</div>
+                        <div class="future-card-title">Campus Communities</div>
+                        <div class="future-card-desc">Dedicated spaces for each campus so listings stay relevant to
+                            students on your specific campus.</div>
+                    </div>
+                </div>
+                <div class="future-card fade-up delay-2">
+                    <div class="future-card-icon">📊</div>
+                    <div>
+                        <div class="future-badge">Planned</div>
+                        <div class="future-card-title">Seller Analytics</div>
+                        <div class="future-card-desc">See how many students viewed your listing, where they came from
+                            and how your sales are trending.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     FAQ
+     ======================================================== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq-inner">
+
+                <div class="faq-sticky fade-up">
+                    <div class="section-label">✦ FAQ</div>
+                    <h2 class="section-title">Common questions</h2>
+                    <p class="section-subtitle">Cannot find an answer? Reach us at <a href="mailto:studxsupport@gmail.com"
+                            style="color:var(--blue);">studxsupport@gmail.com</a></p>
+                </div>
+
+                <div class="faq-list fade-up delay-1">
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is StudX safe to use?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                StudX has verified seller badges, mutual trade confirmation and admin payment oversight.
+                                Every transaction requires both parties to confirm completion, so neither side is left
+                                in the dark. We also monitor disputes and review flagged listings.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I create an account?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Download the app and tap Sign In with Google to use your existing student Google
+                                account, or register with any email address. The whole process takes under 30 seconds.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I create a listing?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Tap the + button in the navigation bar. Add up to 5 photos, write a title, set a price,
+                                choose a category, and add tags so buyers can find you. Your listing goes live the
+                                moment you hit Publish.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do payments work?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Buyers and sellers agree on payment terms directly. Once the buyer confirms they have
+                                received the item, the admin releases the payment record. StudX is currently a
+                                coordination and trust layer, not a payment processor. We recommend EFT, cash on
+                                handover or platforms like SnapScan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What kinds of listings are allowed?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Anything a student would legitimately buy or sell: textbooks, notes, electronics,
+                                clothing, tutoring, design services, coding help, and more. Listings for illegal goods,
+                                counterfeit items or anything that violates our terms are removed immediately.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What if something goes wrong with my order?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Either party can raise a dispute from the order detail screen. Once a dispute is raised,
+                                our admin team reviews the case and steps in to resolve it. We take every dispute
+                                seriously and aim to respond within 24 hours.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is StudX free?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Yes. StudX is completely free to download, browse and list on. There are no listing fees
+                                and we don't take a cut of sales in the first month. We believe students deserve a marketplace that does not take
+                                a chunk of their hustle. In the future, we may introduce premium features for power users, but the core marketplace will always be free.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I contact support?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Send us an email at studxsupport@gmail.com. If you are a student with a billing issue or a
+                                safety concern, include your order ID and we will prioritise your case. We also respond
+                                via the in-app chat feature.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     CTA STRIP
+     ======================================================== -->
+    <section class="cta-strip">
+        <div class="container cta-strip-inner">
+            <div class="section-label fade-up"
+                style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);margin-bottom:24px;">✦ Ready to
+                start?</div>
+            <h2 class="cta-title fade-up delay-1">Your campus marketplace awaits.</h2>
+            <p class="cta-subtitle fade-up delay-2">Join students who are already buying, selling and connecting on
+                StudX.</p>
+            <div class="cta-actions fade-up delay-3">
+                <a href="https://play.google.com/store/apps/details?id=com.synergy.studx" class="cta-btn-white">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                        <path d="M8 12l4-4 4 4M12 8v8" />
+                    </svg>
+                    Download StudX
+                </a>
+                <a href="#features" class="cta-btn-outline">
+                    Explore Features
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+     FOOTER
+     ======================================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-mark"><img src="../images/studx.png" alt="StudX Logo" style="border-radius: 12px;"></div>
+                        <span class="footer-logo-name">StudX</span>
+                    </div>
+                    <p class="footer-desc">The student marketplace built for South African university communities. Buy,
+                        sell and connect on campus.</p>
+                    <div class="footer-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        Built by Horizon Synergy
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-title">Product</div>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#screenshots">App Screenshots</a></li>
+                        <li><a href="#future">Coming Soon</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.synergy.studx">Download App</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="https://horizon-synergy.github.io/#about">About</a></li>
+                        <li><a href="https://synergy-network.beehiiv.com/">Blog</a></li>
+                        <li><a href="https://horizon-synergy.github.io/careers/careers.html">Careers</a></li>
+                        <li><a href="https://horizon-synergy.github.io/#contact">Contact</a></li>
+                        <li><a href="https://horizon-synergy.github.io/">Horizon Synergy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-title">Legal</div>
+                    <ul class="footer-links">
+                        <li><a href="https://horizon-synergy.github.io/legal/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                        <li><a href="mailto:studxsupport@gmail.com">support@studx.app</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    &copy; 2025 StudX. A <a href="https://horizon-synergy.github.io/">Horizon Synergy</a> product. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy</a>
+                    <a href="https://horizon-synergy.github.io/legal/terms-and-conditions">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/studx-main.js" type="module"></script>
+
+</body>
+
+</html>

@@ -1,11 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HS | Careers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Horizon Synergy">
+  <meta name="theme-color" content="#2f2f2f">
+  <title>Careers | Horizon Synergy</title>
+  <meta name="description" content="Join Horizon Synergy, a startup-stage digital innovation studio building apps, games, and future-focused technology experiences.">
+  <link rel="canonical" href="https://horizon-synergy.github.io/careers/careers.html">
+  <link rel="icon" href="../images/hs-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter+Tight:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0099ff;
+      --accent: #00a976;
+      --bg: #2f2f2f;
+      --panel: rgba(238, 244, 237, 0.06);
+      --panel-strong: rgba(238, 244, 237, 0.1);
+      --text: #eef4ed;
+      --muted: rgba(238, 244, 237, 0.72);
+      --line: rgba(0, 153, 255, 0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 153, 255, 0.22), transparent 34rem),
+        radial-gradient(circle at 85% 8%, rgba(0, 169, 118, 0.16), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(238, 244, 237, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(238, 244, 237, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 82%);
+    }
+
+    a { color: inherit; }
+
+    .page-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .brand img { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 28px rgba(0, 153, 255, 0.3); }
+
+    .brand span span, .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; justify-content: flex-end; }
+
+    .nav-actions a, .button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.8rem 1.1rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      background: rgba(47, 47, 47, 0.55);
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button.primary, .nav-actions a:hover, .button:hover {
+      border-color: rgba(0, 153, 255, 0.6);
+      box-shadow: 0 12px 36px rgba(0, 153, 255, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .button.primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #17302d; border: none; }
+
+    .hero { padding: 5rem 0 3rem; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2rem; align-items: center; }
+
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 0.22em; font-weight: 900; font-size: 0.9rem; margin-bottom: 1rem; }
+
+    h1 { font-family: "Inter Tight", sans-serif; font-size: clamp(3rem, 8vw, 6.8rem); line-height: 0.92; letter-spacing: -0.07em; margin-bottom: 1.35rem; }
+
+    .hero p { color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.35rem); line-height: 1.75; max-width: 720px; }
+
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(238, 244, 237, 0.1), rgba(238, 244, 237, 0.035));
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 2rem;
+      box-shadow: 0 32px 100px rgba(0, 0, 0, 0.24);
+    }
+
+    .hero-card h2 { font-family: "Inter Tight", sans-serif; font-size: 2rem; margin-bottom: 0.8rem; }
+    .hero-card p { font-size: 1rem; margin-bottom: 1rem; }
+    .status-pill { display: inline-flex; padding: 0.45rem 0.8rem; border-radius: 999px; background: rgba(0, 169, 118, 0.14); color: #62ffc9; font-weight: 900; margin-bottom: 1.2rem; }
+
+    .section { padding: 3.5rem 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
+    .section-heading h2 { font-family: "Inter Tight", sans-serif; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -0.05em; }
+    .section-heading p { color: var(--muted); max-width: 560px; line-height: 1.6; }
+
+    .roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .role-card, .perk-card, .process-step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card.featured { grid-column: span 2; background: linear-gradient(145deg, rgba(0, 153, 255, 0.14), rgba(0, 169, 118, 0.08)); }
+    .role-card::before, .perk-card::before, .process-step::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+    .role-meta { display: flex; gap: 0.55rem; flex-wrap: wrap; margin: 1rem 0; }
+    .chip { font-size: 0.82rem; font-weight: 800; color: var(--text); border: 1px solid rgba(238, 244, 237, 0.16); border-radius: 999px; padding: 0.35rem 0.6rem; background: rgba(47, 47, 47, 0.34); }
+    .role-card h3 { font-family: "Inter Tight", sans-serif; font-size: 1.55rem; margin-bottom: 0.65rem; }
+    .role-card p, .perk-card p, .process-step p { color: var(--muted); line-height: 1.65; }
+    .role-card ul { margin: 1rem 0 0 1.1rem; color: var(--muted); line-height: 1.6; }
+
+    .perks-grid, .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .perk-card h3, .process-step h3 { margin-bottom: 0.55rem; }
+    .icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+
+    .apply-panel { text-align: center; border: 1px solid var(--line); border-radius: 32px; padding: clamp(2rem, 5vw, 4rem); background: linear-gradient(145deg, rgba(0, 153, 255, 0.12), rgba(0, 169, 118, 0.08)); }
+    .apply-panel h2 { font-family: "Inter Tight", sans-serif; font-size: clamp(2.2rem, 6vw, 4rem); letter-spacing: -0.05em; margin-bottom: 1rem; }
+    .apply-panel p { color: var(--muted); max-width: 760px; margin: 0 auto 2rem; line-height: 1.75; }
+
+    footer { padding: 2rem 0 3rem; color: rgba(238, 244, 237, 0.55); text-align: center; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 3rem; }
+      .roles-grid, .perks-grid, .process-grid { grid-template-columns: 1fr 1fr; }
+      .role-card.featured { grid-column: span 1; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 0.75rem; }
+    }
+
+    @media (max-width: 620px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .nav-actions { justify-content: flex-start; }
+      .roles-grid, .perks-grid, .process-grid { grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-    No content here yet. Please check back later.
+  <div class="page-shell">
+    <header>
+      <a class="brand" href="../index.html" aria-label="Horizon Synergy home">
+        <img src="../images/hs-logo.png" alt="Horizon Synergy logo">
+        <span>Horizon <span>Synergy</span></span>
+      </a>
+      <nav class="nav-actions" aria-label="Careers navigation">
+        <a href="../index.html">Home</a>
+        <a href="#open-roles">Open roles</a>
+        <a href="#apply">Apply</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="careers-title">
+        <div>
+          <p class="eyebrow">Startup team • Big ideas • Real ownership</p>
+          <h1 id="careers-title">Build the <span class="gradient-text">next wave</span> with us.</h1>
+          <p>Horizon Synergy is assembling a focused, ambitious team to ship games, apps, creative tools, and digital experiences from South Africa to the world. If you like early-stage pace, hands-on problem solving, and work that moves from idea to launch fast, this is your place.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#open-roles">See open roles</a>
+            <a class="button" href="mailto:horizonsynergyindustries@gmail.com?subject=Careers%20at%20Horizon%20Synergy">Send your profile</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Priority hiring spotlight">
+          <span class="status-pill">Priority hire</span>
+          <h2>Chief Marketing Officer</h2>
+          <p>We are currently looking for a CMO to shape the Horizon Synergy story, grow product launches, lead community momentum, and turn our startup energy into a recognizable global brand.</p>
+          <a class="button primary" href="mailto:horizonsynergyindustries@gmail.com?subject=CMO%20Application%20-%20Horizon%20Synergy">Apply for CMO</a>
+        </aside>
+      </section>
+
+      <section class="section" id="open-roles" aria-labelledby="open-roles-title">
+        <div class="section-heading">
+          <h2 id="open-roles-title">Open roles</h2>
+          <p>Some roles are active hiring priorities and others are mock startup-stage openings for the kind of talent we expect to need as we grow.</p>
+        </div>
+        <div class="roles-grid">
+          <article class="role-card featured">
+            <h3>Chief Marketing Officer (CMO)</h3>
+            <p>Own the brand, go-to-market strategy, launch playbooks, creator/community partnerships, and growth experiments across Horizon Synergy products.</p>
+            <div class="role-meta"><span class="chip">Active search</span><span class="chip">Leadership</span><span class="chip">Remote / Hybrid</span></div>
+            <ul>
+              <li>Build a practical marketing roadmap for games, apps, and studio announcements.</li>
+              <li>Lead social, content, PR, community, and launch analytics.</li>
+              <li>Define positioning that makes Horizon Synergy memorable and trustworthy.</li>
+            </ul>
+          </article>
+
+          <article class="role-card">
+            <h3>Founding Full-Stack Engineer</h3>
+            <p>Prototype, build, and maintain web platforms, product dashboards, APIs, and experimental tools for a fast-moving product pipeline.</p>
+            <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Engineering</span></div>
+          </article>
+
+          <article class="role-card">
+            <h3>Mobile Game Developer</h3>
+            <p>Help build polished mobile game loops, monetization-ready experiences, performance improvements, and fun-first gameplay features.</p>
+            <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Games</span></div>
+          </article>
+
+          <article class="role-card">
+            <h3>Product Designer</h3>
+            <p>Create clean interfaces, prototypes, icons, flows, and design systems that make our apps feel simple, futuristic, and delightful.</p>
+            <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Design</span></div>
+          </article>
+
+          <article class="role-card">
+            <h3>Growth & Community Lead</h3>
+            <p>Turn users into fans through newsletters, Discord/community programs, creator outreach, feedback loops, and launch campaigns.</p>
+            <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Marketing</span></div>
+          </article>
+
+          <article class="role-card">
+            <h3>AI / Automation Engineer</h3>
+            <p>Explore AI-assisted product features, internal automation, agent workflows, and prototypes that help the team move faster.</p>
+            <div class="role-meta"><span class="chip">Mock role</span><span class="chip">AI</span></div>
+          </article>
+
+          <article class="role-card">
+            <h3>QA & Release Tester</h3>
+            <p>Test builds, catch bugs, document release risks, and help keep app and game launches stable across devices and browsers.</p>
+            <div class="role-meta"><span class="chip">Mock role</span><span class="chip">Quality</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="why-title">
+        <div class="section-heading">
+          <h2 id="why-title">Why join now?</h2>
+          <p>Early contributors help define the culture, product quality bar, and the way Horizon Synergy shows up in the market.</p>
+        </div>
+        <div class="perks-grid">
+          <article class="perk-card"><span class="icon">🚀</span><h3>Founder-level impact</h3><p>Work close to strategy and see your decisions influence real products.</p></article>
+          <article class="perk-card"><span class="icon">🧪</span><h3>Room to experiment</h3><p>Test bold ideas, measure what works, and improve quickly.</p></article>
+          <article class="perk-card"><span class="icon">🌍</span><h3>Global mindset</h3><p>Build from South Africa with international users and partners in mind.</p></article>
+          <article class="perk-card"><span class="icon">🎮</span><h3>Creative tech mix</h3><p>Move across apps, games, content, automation, and community experiences.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="process-title">
+        <div class="section-heading">
+          <h2 id="process-title">Hiring process</h2>
+          <p>Lightweight, clear, and designed for startup speed.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step"><h3>1. Intro</h3><p>Send your profile, portfolio, or a short note about what you want to build here.</p></article>
+          <article class="process-step"><h3>2. Fit chat</h3><p>We talk goals, strengths, working style, and the problems you enjoy solving.</p></article>
+          <article class="process-step"><h3>3. Practical task</h3><p>A small real-world exercise or portfolio walkthrough, depending on the role.</p></article>
+          <article class="process-step"><h3>4. Start building</h3><p>Align on scope, expectations, and the first high-impact project.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="apply" aria-labelledby="apply-title">
+        <div class="apply-panel">
+          <h2 id="apply-title">Ready to shape tomorrow?</h2>
+          <p>Email us with the role title, a quick intro, links to your work, and why Horizon Synergy feels like the right startup for you. For the CMO role, include one launch or growth idea you would test in the first 30 days.</p>
+          <a class="button primary" href="mailto:horizonsynergyindustries@gmail.com?subject=Careers%20Application%20-%20Horizon%20Synergy">Apply via email</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 - 2026 Horizon Synergy. Creations Of Tomorrow.</p>
+    </footer>
+  </div>
 </body>
 </html>

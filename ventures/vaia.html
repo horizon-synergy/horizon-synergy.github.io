@@ -1,808 +1,1875 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaia | Your city. Moving smarter.</title>
-  <meta name="description"
-    content="Reliable rides designed around people. Upfront fares, verified drivers, live tracking — Vaia is moving South Africa smarter.">
-  <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F19'/%3E%3Cpath d='M14 16 L32 48 L50 16' fill='none' stroke='%230A5CFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="styles/vaia-styles.css" <link rel="preconnect" href="https://fonts.gstatic.com"
-    crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaia | Your city. Moving smarter.</title>
+<meta name="description" content="Reliable rides designed around people. Upfront fares, verified drivers, live tracking — Vaia is moving South Africa smarter.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F19'/%3E%3Cpath d='M14 16 L32 48 L50 16' fill='none' stroke='%230A5CFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --white:#FFFFFF;
+    --surface:#F6F8FB;
+    --surface-2:#EEF2F7;
+    --ink:#0B0F19;
+    --ink-soft:#475467;
+    --muted:#7C8696;
+    --border:#E2E8F0;
+    --blue:#0A5CFF;
+    --blue-deep:#0037B3;
+    --blue-pale:#E7F0FF;
+    --blue-pale-2:#F1F6FF;
+    --green:#16A34A;
 
-  </style>
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:12px;
+    --radius-pill:999px;
+
+    --shadow-sm:0 1px 2px rgba(11,15,25,0.05);
+    --shadow-md:0 12px 28px rgba(11,15,25,0.08);
+    --shadow-lg:0 30px 70px rgba(10,92,255,0.16);
+    --shadow-dark:0 30px 70px rgba(0,0,0,0.35);
+
+    --ease:cubic-bezier(.16,1,.3,1);
+    --container:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Google Sans Text','Google Sans','Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+  h1,h2,h3,p{margin:0;}
+
+  :focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .container{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    background:var(--ink);
+    color:var(--white);
+    padding:12px 20px;
+    border-radius:0 0 10px 0;
+    z-index:200;
+  }
+  .skip-link:focus{left:0;}
+
+  /* ============ TYPE SCALE ============ */
+  .eyebrow{
+    font-size:0.8125rem;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--blue);
+  }
+  .eyebrow.on-dark{color:#7DA8FF;}
+  h2.section-title{
+    font-size:clamp(2rem,3.1vw,2.75rem);
+    font-weight:700;
+    letter-spacing:-0.02em;
+    line-height:1.12;
+    color:var(--ink);
+    margin-top:14px;
+  }
+  h2.section-title.on-dark{color:var(--white);}
+  .section-lede{
+    font-size:1.0625rem;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin-top:18px;
+    max-width:560px;
+  }
+  .section-lede.on-dark{color:#AAB6C9;}
+  .section-head{
+    max-width:680px;
+  }
+  .section-head.center{margin:0 auto;text-align:center;}
+  .section-head.center .section-lede{margin-inline:auto;}
+
+  /* ============ LAYOUT HELPERS ============ */
+  .section{padding:128px 0;}
+  .section.tight{padding-top:96px;}
+  .surface{background:var(--surface);}
+  .dark{background:var(--ink);color:var(--white);}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  .reveal-stagger > * {transition-delay:calc(var(--i,0) * 90ms);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    padding:18px 0;
+    transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+  }
+  header.nav.scrolled{
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+    box-shadow:0 1px 0 var(--border);
+    padding:12px 0;
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:1.15rem;
+    letter-spacing:-0.01em;
+  }
+  .logo svg{width:30px;height:30px;}
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+  }
+  .nav-links a{
+    font-size:0.9375rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    transition:color .25s var(--ease);
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{
+    display:none;
+    width:40px;height:40px;
+    align-items:center;justify-content:center;
+    border-radius:10px;
+  }
+  .nav-toggle svg{width:20px;height:20px;}
+
+  .mobile-menu{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,0.98);
+    backdrop-filter:blur(10px);
+    z-index:99;
+    padding:100px 32px 40px;
+    flex-direction:column;
+    gap:28px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:1.4rem;font-weight:700;}
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:var(--radius-pill);
+    font-weight:700;
+    font-size:0.9375rem;
+    white-space:nowrap;
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{
+    background:var(--blue);
+    color:var(--white);
+    box-shadow:0 10px 24px rgba(10,92,255,0.28);
+  }
+  .btn-primary:hover{background:var(--blue-deep);box-shadow:0 14px 30px rgba(10,92,255,0.34);transform:translateY(-1px);}
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--border);
+  }
+  .btn-secondary:hover{border-color:var(--ink);}
+  .btn-ghost-light{
+    background:rgba(255,255,255,0.08);
+    color:var(--white);
+    border:1.5px solid rgba(255,255,255,0.22);
+  }
+  .btn-ghost-light:hover{background:rgba(255,255,255,0.16);}
+  .btn-sm{padding:10px 18px;font-size:0.875rem;}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    padding:188px 0 120px;
+    overflow:hidden;
+    background:
+      radial-gradient(800px 480px at 78% 18%, rgba(10,92,255,0.10), transparent 70%);
+  }
+  .hero-grid-bg{
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.5;
+    mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.6) 70%, transparent);
+    -webkit-mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.6) 70%, transparent);
+  }
+  .hero-row{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px 8px 12px;
+    border-radius:var(--radius-pill);
+    background:var(--blue-pale);
+    color:var(--blue-deep);
+    font-size:0.8125rem;
+    font-weight:700;
+  }
+  .hero-pill .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--blue);
+    box-shadow:0 0 0 0 rgba(10,92,255,0.6);
+    animation:pulseDot 2.4s infinite;
+  }
+  @keyframes pulseDot{
+    0%{box-shadow:0 0 0 0 rgba(10,92,255,0.45);}
+    70%{box-shadow:0 0 0 9px rgba(10,92,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(10,92,255,0);}
+  }
+  .hero h1{
+    font-size:clamp(2.9rem,5.4vw,4.4rem);
+    font-weight:800;
+    letter-spacing:-0.025em;
+    line-height:1.04;
+    margin-top:22px;
+    color:var(--ink);
+  }
+  .hero h1 span{color:var(--blue);}
+  .hero-sub{
+    font-size:1.1875rem;
+    color:var(--ink-soft);
+    margin-top:22px;
+    max-width:440px;
+    line-height:1.55;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+  .trust-strip{
+    display:flex;
+    gap:28px;
+    margin-top:54px;
+    flex-wrap:wrap;
+  }
+  .trust-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.8438rem;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .trust-item svg{width:16px;height:16px;color:var(--blue);flex-shrink:0;}
+
+  /* ---- phone mockup ---- */
+  .phone-wrap{
+    position:relative;
+    display:flex;
+    justify-content:center;
+  }
+  .phone-glow{
+    position:absolute;
+    width:380px;height:380px;
+    background:radial-gradient(circle, rgba(10,92,255,0.22), transparent 70%);
+    filter:blur(10px);
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    z-index:0;
+  }
+  .phone{
+    position:relative;
+    z-index:1;
+    width:290px;
+    height:592px;
+    background:var(--ink);
+    border-radius:46px;
+    padding:14px;
+    box-shadow:var(--shadow-lg), var(--shadow-md);
+    animation:floatPhone 6s ease-in-out infinite;
+  }
+  @keyframes floatPhone{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-14px);}
+  }
+  .phone-screen{
+    width:100%;height:100%;
+    background:var(--white);
+    border-radius:34px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .phone-notch{
+    position:absolute;
+    top:8px;left:50%;
+    transform:translateX(-50%);
+    width:108px;height:24px;
+    background:var(--ink);
+    border-radius:14px;
+    z-index:5;
+  }
+  .phone-statusbar{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 22px 4px;
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .phone-map{
+    margin:10px 16px 0;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--surface);
+    flex:1;
+    position:relative;
+  }
+  .eta-badge{
+    position:absolute;
+    top:12px;right:12px;
+    background:var(--ink);
+    color:var(--white);
+    font-size:0.75rem;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:var(--radius-pill);
+  }
+  .phone-bottom{
+    padding:14px 16px 18px;
+    background:var(--white);
+  }
+  .driver-card{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    background:var(--surface);
+    border-radius:16px;
+  }
+  .driver-avatar{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--blue);
+    color:var(--white);
+    font-weight:700;
+    font-size:0.8125rem;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .driver-name{font-size:0.8125rem;font-weight:700;color:var(--ink);}
+  .driver-name b{color:var(--blue-deep);font-weight:700;}
+  .driver-car{font-size:0.7188rem;color:var(--muted);margin-top:2px;}
+  .driver-eta-mini{
+    margin-left:auto;
+    font-size:0.8125rem;
+    font-weight:800;
+    color:var(--ink);
+    text-align:right;
+  }
+  .fare-pill-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:10px;
+    padding:0 4px;
+  }
+  .fare-amount{font-size:1.05rem;font-weight:800;color:var(--ink);}
+  .fare-tag{
+    font-size:0.6875rem;
+    font-weight:700;
+    color:var(--blue-deep);
+    background:var(--blue-pale);
+    padding:4px 10px;
+    border-radius:var(--radius-pill);
+  }
+
+  /* ============ FEATURES ============ */
+  .feature-grid{
+    margin-top:64px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+  }
+  .feature-card{
+    background:var(--white);
+    padding:38px 30px;
+    transition:background .3s var(--ease);
+  }
+  .feature-card:hover{background:var(--blue-pale-2);}
+  .feature-icon{
+    width:46px;height:46px;
+    border-radius:13px;
+    background:var(--blue-pale);
+    color:var(--blue);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;
+  }
+  .feature-icon svg{width:22px;height:22px;}
+  .feature-card h3{
+    font-size:1.0625rem;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+  .feature-card p{
+    font-size:0.9063rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+
+  /* ============ SAFETY (dark) ============ */
+  .safety-row{
+    display:grid;
+    grid-template-columns:0.95fr 1.05fr;
+    gap:72px;
+    align-items:center;
+  }
+  .safety-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    margin-top:46px;
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+  }
+  .safety-item{
+    background:rgba(255,255,255,0.03);
+    padding:28px 26px;
+  }
+  .safety-item .icon{
+    width:38px;height:38px;
+    border-radius:10px;
+    background:rgba(10,92,255,0.18);
+    color:#7DA8FF;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+  }
+  .safety-item .icon svg{width:19px;height:19px;}
+  .safety-item h3{font-size:0.9688rem;font-weight:700;color:var(--white);margin-bottom:6px;}
+  .safety-item p{font-size:0.8438rem;color:#9AA6BA;line-height:1.55;}
+
+  .badge-card{
+    background:linear-gradient(160deg, #11182B, #0B0F19);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:var(--radius-lg);
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .badge-card::before{
+    content:"";
+    position:absolute;
+    width:300px;height:300px;
+    background:radial-gradient(circle, rgba(10,92,255,0.25), transparent 70%);
+    top:-100px;right:-100px;
+  }
+  .verified-shield{
+    width:78px;height:78px;
+    margin-bottom:24px;
+    color:var(--blue);
+  }
+  .badge-card h3{color:var(--white);font-size:1.4rem;font-weight:700;margin-bottom:10px;position:relative;}
+  .badge-card p{color:#9AA6BA;font-size:0.9375rem;line-height:1.6;position:relative;max-width:380px;}
+  .sos-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:30px;
+    padding:16px 18px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:var(--radius-md);
+    position:relative;
+  }
+  .sos-btn{
+    width:44px;height:44px;
+    border-radius:50%;
+    background:#E5484D;
+    color:var(--white);
+    font-weight:800;
+    font-size:0.75rem;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .sos-row p{font-size:0.8125rem;color:#C9D0DD;}
+  .sos-row b{color:var(--white);}
+
+  /* ============ PRICING ============ */
+  .pricing-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:72px;
+    align-items:center;
+  }
+  .fare-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    padding:34px;
+  }
+  .fare-card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+  }
+  .fare-card-head span{
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--blue-deep);
+    background:var(--blue-pale);
+    padding:5px 12px;
+    border-radius:var(--radius-pill);
+  }
+  .fare-route{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.875rem;
+    color:var(--ink-soft);
+    margin-bottom:26px;
+    font-weight:600;
+  }
+  .fare-route svg{width:14px;height:14px;color:var(--blue);}
+  .fare-line{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 0;
+    font-size:0.9375rem;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--surface-2);
+  }
+  .fare-line:last-of-type{border-bottom:none;}
+  .fare-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1.5px solid var(--ink);
+  }
+  .fare-total span:first-child{font-weight:700;color:var(--ink);font-size:1rem;}
+  .fare-total span:last-child{font-weight:800;color:var(--ink);font-size:1.6rem;}
+  .fare-note{
+    margin-top:18px;
+    font-size:0.8125rem;
+    color:var(--muted);
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+  }
+  .fare-note svg{width:15px;height:15px;color:var(--green);flex-shrink:0;margin-top:1px;}
+
+  .pricing-points{margin-top:38px;display:flex;flex-direction:column;gap:18px;}
+  .point{display:flex;gap:14px;align-items:flex-start;}
+  .point .icon{
+    width:34px;height:34px;flex-shrink:0;
+    border-radius:9px;
+    background:var(--blue-pale);
+    color:var(--blue);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .point .icon svg{width:17px;height:17px;}
+  .point h3{font-size:0.9688rem;font-weight:700;margin-bottom:3px;}
+  .point p{font-size:0.875rem;color:var(--ink-soft);line-height:1.5;}
+
+  /* ============ LIVE TRACKING ============ */
+  .tracking-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .map-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    padding:18px;
+    position:relative;
+  }
+  .map-card svg{width:100%;border-radius:18px;background:var(--surface);}
+  .map-eta-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:16px;
+    padding:14px 18px;
+    background:var(--surface);
+    border-radius:14px;
+  }
+  .map-eta-card .left{display:flex;align-items:center;gap:12px;}
+  .map-eta-card .dot{width:10px;height:10px;border-radius:50%;background:var(--blue);}
+  .map-eta-card p{font-size:0.875rem;font-weight:700;}
+  .map-eta-card span{font-size:0.8125rem;color:var(--muted);font-weight:600;}
+
+  /* ============ GOOGLE SIGN IN ============ */
+  .signin-row{
+    display:grid;
+    grid-template-columns:1fr 0.85fr;
+    gap:64px;
+    align-items:center;
+  }
+  .signin-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:40px;
+  }
+  .signin-sheet{
+    background:var(--white);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-md);
+    padding:30px 26px;
+  }
+  .signin-sheet h4{font-size:1.0625rem;font-weight:700;margin-bottom:6px;}
+  .signin-sheet p.sub{font-size:0.8438rem;color:var(--muted);margin-bottom:24px;}
+  .google-btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    padding:13px;
+    border:1.5px solid var(--border);
+    border-radius:var(--radius-pill);
+    font-weight:700;
+    font-size:0.9375rem;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .gdot{width:18px;height:18px;border-radius:50%;background:conic-gradient(var(--blue) 0 25%, #34A853 0 50%, #FBBC05 0 75%, #EA4335 0 100%);flex-shrink:0;}
+  .divider-row{
+    display:flex;align-items:center;gap:10px;
+    margin:18px 0;
+  }
+  .divider-row .line{flex:1;height:1px;background:var(--border);}
+  .divider-row span{font-size:0.75rem;color:var(--muted);font-weight:600;}
+  .phone-input{
+    width:100%;
+    padding:13px 16px;
+    border:1.5px solid var(--border);
+    border-radius:var(--radius-pill);
+    font-size:0.9375rem;
+    color:var(--muted);
+  }
+
+  /* ============ XPRESS ============ */
+  .xpress-card{
+    background:linear-gradient(135deg, #0B0F19 0%, #0A2A75 100%);
+    border-radius:var(--radius-lg);
+    padding:64px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow-dark);
+  }
+  .xpress-streaks{position:absolute;inset:0;opacity:0.5;}
+  .xpress-row{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .xpress-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.18);
+    color:var(--white);
+    font-size:0.8125rem;
+    font-weight:800;
+    letter-spacing:0.05em;
+    padding:8px 16px;
+    border-radius:var(--radius-pill);
+  }
+  .xpress-badge svg{width:14px;height:14px;color:#7DA8FF;}
+  .xpress-card h2{
+    color:var(--white);
+    font-size:clamp(1.9rem,3vw,2.5rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin-top:18px;
+    line-height:1.12;
+  }
+  .xpress-card h2 span{color:#7DA8FF;}
+  .xpress-card .lede{color:#B7C4DD;font-size:1rem;margin-top:16px;max-width:420px;line-height:1.6;}
+  .xpress-list{margin-top:30px;display:flex;flex-direction:column;gap:16px;}
+  .xpress-list li{display:flex;align-items:center;gap:12px;color:#E3E8F0;font-size:0.9375rem;font-weight:600;}
+  .xpress-list svg{width:18px;height:18px;color:#7DA8FF;flex-shrink:0;}
+  .xpress-visual{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--radius-md);
+    padding:28px;
+  }
+  .xpress-compare-row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .xpress-compare-row:last-child{border-bottom:none;}
+  .xpress-compare-row .label{font-size:0.8438rem;color:#9AA6BA;font-weight:600;}
+  .xpress-compare-row .val{font-size:0.875rem;color:var(--white);font-weight:700;}
+  .xpress-compare-row .val.hi{color:#7DA8FF;}
+
+  /* ============ FAQ ============ */
+  .faq-list{margin-top:56px;border-top:1px solid var(--border);}
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:26px 4px;
+    text-align:left;
+    font-size:1.0625rem;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .faq-q .chev{
+    flex-shrink:0;
+    width:20px;height:20px;
+    transition:transform .35s var(--ease);
+    color:var(--muted);
+  }
+  .faq-item.open .faq-q .chev{transform:rotate(45deg);color:var(--blue);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s var(--ease);
+  }
+  .faq-a-inner{
+    padding:0 4px 26px;
+    font-size:0.9688rem;
+    color:var(--ink-soft);
+    line-height:1.65;
+    max-width:680px;
+  }
+
+  /* ============ DOWNLOAD ============ */
+  .download-section{
+    background:var(--ink);
+    color:var(--white);
+    text-align:center;
+    padding:140px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  .download-section::before{
+    content:"";
+    position:absolute;
+    width:600px;height:600px;
+    background:radial-gradient(circle, rgba(10,92,255,0.25), transparent 70%);
+    top:-200px;left:50%;
+    transform:translateX(-50%);
+  }
+  .download-section h2{
+    position:relative;
+    font-size:clamp(2.2rem,4vw,3.4rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  .download-section p{
+    position:relative;
+    color:#AAB6C9;
+    font-size:1.0625rem;
+    margin:18px auto 0;
+    max-width:460px;
+  }
+  .store-row{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin-top:40px;
+    flex-wrap:wrap;
+  }
+  .store-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 24px;
+    background:var(--white);
+    color:var(--ink);
+    border-radius:var(--radius-md);
+    font-weight:700;
+  }
+  .store-btn svg{width:22px;height:22px;}
+  .store-btn .txt small{display:block;font-size:0.6875rem;color:var(--muted);font-weight:600;}
+  .store-btn .txt strong{display:block;font-size:0.9688rem;}
+  .store-btn.outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.25);}
+  .store-btn.outline small{color:#9AA6BA;}
+  .download-note{position:relative;margin-top:30px;font-size:0.8438rem;color:#7C879C;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--white);
+    border-top:1px solid var(--border);
+    padding:56px 0 32px;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .footer-brand p{font-size:0.875rem;color:var(--muted);margin-top:10px;max-width:260px;line-height:1.5;}
+  .footer-cols{display:flex;gap:56px;}
+  .footer-col h4{font-size:0.8125rem;font-weight:700;color:var(--ink);margin-bottom:14px;}
+  .footer-col a{display:block;font-size:0.875rem;color:var(--muted);margin-bottom:10px;}
+  .footer-col a:hover{color:var(--ink);}
+  .footer-bottom{
+    margin-top:48px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    font-size:0.8125rem;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  /* ============ PRICING EXTENDED ============ */
+  .pricing-zone{padding:96px 0;}
+  .pricing-zone.first{padding-top:128px;}
+  .pricing-zone.dark-zone{background:var(--ink);}
+  .pricing-zone.surface-zone{background:var(--surface);}
+
+  /* Hero + grid */
+  .pricing-main-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin-top:64px;
+    align-items:start;
+  }
+
+  /* Estimator */
+  .estimator-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+  }
+  .est-header{
+    background:var(--blue);
+    padding:22px 26px;
+    color:var(--white);
+  }
+  .est-header h3{font-size:1rem;font-weight:700;margin-bottom:3px;}
+  .est-header p{font-size:0.8125rem;opacity:0.8;}
+  .est-body{padding:26px;}
+  .est-label{
+    font-size:0.6875rem;font-weight:700;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+  }
+  .est-input-wrap{position:relative;margin-bottom:14px;}
+  .est-num-input{
+    width:100%;
+    padding:12px 48px 12px 16px;
+    border:1.5px solid var(--border);
+    border-radius:var(--radius-md);
+    font-size:1.0625rem;font-weight:700;color:var(--ink);
+    font-family:inherit;
+    -moz-appearance:textfield;
+    transition:border-color .2s var(--ease);
+  }
+  .est-num-input::-webkit-outer-spin-button,
+  .est-num-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+  .est-num-input:focus{outline:none;border-color:var(--blue);}
+  .est-unit-badge{
+    position:absolute;right:14px;top:50%;
+    transform:translateY(-50%);
+    font-size:0.8125rem;font-weight:700;color:var(--muted);
+    pointer-events:none;
+  }
+  .est-slider{
+    width:100%;accent-color:var(--blue);
+    margin:0 0 6px;cursor:pointer;height:4px;
+  }
+  .est-range-labels{
+    display:flex;justify-content:space-between;
+    font-size:0.75rem;color:var(--muted);font-weight:600;
+    margin-bottom:22px;
+  }
+  .est-result{
+    background:var(--blue-pale-2);
+    border:1.5px solid var(--blue-pale);
+    border-radius:var(--radius-md);
+    padding:16px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .est-result-label{font-size:0.875rem;font-weight:600;color:var(--ink-soft);}
+  .est-result-amount{
+    font-size:1.75rem;font-weight:800;color:var(--blue);
+    letter-spacing:-0.02em;
+    transition:all .15s var(--ease);
+  }
+  .est-disclaimer{
+    margin-top:12px;font-size:0.75rem;color:var(--muted);line-height:1.55;
+  }
+
+  /* Fare Table */
+  .fare-table-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+  }
+  .fare-table-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;border-bottom:1px solid var(--border);
+  }
+  .fare-table-head h3{font-size:1rem;font-weight:700;}
+  .fare-table-head .ftbadge{
+    font-size:0.6875rem;font-weight:700;
+    background:var(--blue-pale);color:var(--blue-deep);
+    padding:4px 12px;border-radius:var(--radius-pill);
+  }
+  .fare-table-colhead{
+    display:grid;grid-template-columns:1fr 1fr;
+    padding:9px 24px;
+    background:var(--surface);border-bottom:1px solid var(--border);
+  }
+  .fare-table-colhead span{font-size:0.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);}
+  .fare-table-colhead span:last-child{text-align:right;}
+  .fare-table-row{
+    display:grid;grid-template-columns:1fr 1fr;
+    padding:13px 24px;border-bottom:1px solid var(--surface-2);
+    transition:background .18s;
+  }
+  .fare-table-row:last-of-type{border-bottom:none;}
+  .fare-table-row:hover{background:var(--blue-pale-2);}
+  .fare-table-row .dist{font-size:0.9375rem;font-weight:600;color:var(--ink-soft);}
+  .fare-table-row .est-val{font-size:0.9375rem;font-weight:700;color:var(--ink);text-align:right;}
+  .fare-table-foot{
+    padding:12px 24px;border-top:1px solid var(--border);
+    background:var(--surface);
+    font-size:0.75rem;color:var(--muted);
+    display:flex;gap:8px;align-items:flex-start;line-height:1.5;
+  }
+  .fare-table-foot svg{width:13px;height:13px;flex-shrink:0;margin-top:1px;color:var(--blue);}
+
+  /* Formula Block */
+  .formula-block{
+    background:linear-gradient(145deg,#0D1324,#0B0F19);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:var(--radius-lg);
+    padding:60px 56px;
+    position:relative;overflow:hidden;
+  }
+  .formula-block::before{
+    content:"";position:absolute;
+    width:500px;height:340px;
+    background:radial-gradient(ellipse,rgba(10,92,255,0.28),transparent 70%);
+    top:-120px;right:-60px;pointer-events:none;
+  }
+  .formula-block::after{
+    content:"";position:absolute;
+    width:300px;height:300px;
+    background:radial-gradient(circle,rgba(10,92,255,0.14),transparent 70%);
+    bottom:-80px;left:40px;pointer-events:none;
+  }
+  .formula-inner{position:relative;}
+  .formula-head{margin-bottom:46px;}
+  .formula-head h2{
+    color:var(--white);
+    font-size:clamp(1.5rem,2.4vw,2rem);
+    font-weight:700;letter-spacing:-0.02em;margin-top:12px;
+  }
+  .formula-head p{color:#9AA6BA;font-size:0.9375rem;margin-top:10px;max-width:480px;line-height:1.55;}
+  .formula-eq{
+    display:flex;align-items:center;flex-wrap:wrap;
+    gap:10px;margin-bottom:36px;
+  }
+  .formula-term{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.11);
+    border-radius:var(--radius-md);
+    padding:18px 20px;text-align:center;
+    flex:1;min-width:108px;
+  }
+  .ft-label{
+    font-size:0.6563rem;font-weight:700;letter-spacing:0.09em;
+    text-transform:uppercase;color:#7DA8FF;margin-bottom:7px;
+  }
+  .ft-value{font-size:0.9375rem;font-weight:700;color:var(--white);}
+  .formula-op{
+    font-size:1.5rem;font-weight:300;
+    color:rgba(255,255,255,0.22);padding:0 3px;flex-shrink:0;
+  }
+  .formula-result-term{
+    background:linear-gradient(135deg,rgba(10,92,255,0.35),rgba(10,92,255,0.14));
+    border:1px solid rgba(10,92,255,0.45);
+    border-radius:var(--radius-md);
+    padding:18px 20px;text-align:center;
+    flex:1;min-width:130px;
+  }
+  .formula-result-term .ft-value{font-size:1rem;font-weight:800;}
+  .formula-note{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:var(--radius-md);
+    padding:18px 22px;
+    font-size:0.875rem;color:#9AA6BA;line-height:1.65;
+  }
+
+  /* Why Grid */
+  .why-grid{
+    margin-top:56px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .why-card{
+    background:var(--white);border:1px solid var(--border);
+    border-radius:var(--radius-md);padding:28px 22px;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  }
+  .why-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .why-num{
+    font-size:2.25rem;font-weight:800;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--blue);
+    letter-spacing:-0.04em;line-height:1;margin-bottom:16px;
+  }
+  .why-card h3{font-size:0.9688rem;font-weight:700;margin-bottom:8px;}
+  .why-card p{font-size:0.875rem;color:var(--ink-soft);line-height:1.55;}
+
+  /* Pricing CTA Band */
+  .pricing-cta-band{
+    background:var(--ink);color:var(--white);
+    text-align:center;padding:100px 32px;
+    position:relative;overflow:hidden;
+  }
+  .pricing-cta-band::before{
+    content:"";position:absolute;
+    width:560px;height:560px;
+    background:radial-gradient(circle,rgba(10,92,255,0.22),transparent 70%);
+    top:-200px;left:50%;transform:translateX(-50%);
+    pointer-events:none;
+  }
+  .pricing-cta-band h2{
+    position:relative;
+    font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-0.02em;
+  }
+  .pricing-cta-band p{
+    position:relative;
+    color:#AAB6C9;font-size:1rem;
+    margin:16px auto 0;max-width:460px;line-height:1.6;
+  }
+  .pricing-cta-band .store-row{position:relative;margin-top:36px;}
+
+  /* Responsive for pricing */
+  @media(max-width:960px){
+    .pricing-main-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .formula-block{padding:44px 36px;}
+  }
+  @media(max-width:600px){
+    .pricing-zone{padding:72px 0;}
+    .pricing-zone.first{padding-top:96px;}
+    .formula-block{padding:30px 22px;}
+    .formula-eq{flex-direction:column;align-items:stretch;}
+    .formula-op{text-align:center;padding:2px 0;}
+    .why-grid{grid-template-columns:1fr;}
+    .pricing-cta-band{padding:80px 22px;}
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1024px){
+    .hero-row, .safety-row, .pricing-row, .tracking-row, .signin-row{grid-template-columns:1fr;}
+    .hero-row{gap:64px;}
+    .phone-wrap{order:-1;}
+    .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .safety-grid{grid-template-columns:1fr 1fr;}
+    .xpress-row{grid-template-columns:1fr;gap:40px;}
+    .xpress-card{padding:48px 36px;}
+    .section{padding:96px 0;}
+  }
+  @media (max-width:640px){
+    .container{padding:0 22px;}
+    .nav-links{display:none;}
+    .nav-toggle{display:flex;}
+    .hero{padding:148px 0 80px;}
+    .hero-ctas{flex-direction:column;align-items:stretch;}
+    .hero-ctas .btn{width:100%;}
+    .trust-strip{gap:16px 22px;}
+    .feature-grid{grid-template-columns:1fr;}
+    .safety-grid{grid-template-columns:1fr;}
+    .phone{width:250px;height:512px;}
+    .badge-card, .xpress-card{padding:32px 24px;}
+    .footer-row{flex-direction:column;}
+    .footer-cols{gap:36px;}
+    .section{padding:80px 0;}
+    .download-section{padding:100px 0 80px;}
+    .nav-cta .btn-secondary{display:none;}
+  }
+</style>
 </head>
-
 <body>
 
-  <a href="#main" class="skip-link">Skip to content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="siteNav">
-    <div class="container nav-row">
-      <a href="#main" class="logo">
-        <svg viewBox="0 0 64 64" fill="none">
-          <rect width="64" height="64" rx="16" fill="#0B0F19" />
-          <path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-        Vaia
-      </a>
-      <nav class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#safety">Safety</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#tracking">Tracking</a>
-        <a href="#xpress">Xpress</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="nav-cta">
-        <a href="#download" class="btn btn-secondary btn-sm">Download App</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
-          aria-controls="mobileMenu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-      </div>
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="container nav-row">
+    <a href="#main" class="logo">
+      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#0B0F19"/><path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Vaia
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#safety">Safety</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#tracking">Tracking</a>
+      <a href="#xpress">Xpress</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#download" class="btn btn-secondary btn-sm">Download App</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#features">Features</a>
-    <a href="#safety">Safety</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#tracking">Tracking</a>
-    <a href="#xpress">Xpress</a>
-    <a href="#faq">FAQ</a>
-    <a href="#download" class="btn btn-primary" style="margin-top:8px;width:fit-content;">Download App</a>
   </div>
+</header>
 
-  <main id="main">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features">Features</a>
+  <a href="#safety">Safety</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#tracking">Tracking</a>
+  <a href="#xpress">Xpress</a>
+  <a href="#faq">FAQ</a>
+  <a href="#download" class="btn btn-primary" style="margin-top:8px;width:fit-content;">Download App</a>
+</div>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="hero-grid-bg"></div>
-      <div class="container hero-row">
-        <div>
-          <span class="hero-pill"><span class="dot"></span>Live in Johannesburg, Cape Town, Durban &amp; Pretoria</span>
-          <h1>Your city.<br>Moving <span>smarter.</span></h1>
-          <p class="hero-sub">Reliable rides designed around people.</p>
-          <div class="hero-ctas">
-            <a href="#download" class="btn btn-primary">Download App</a>
-            <a href="#features" class="btn btn-secondary">Learn More</a>
-          </div>
-          <div class="trust-strip">
-            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5" />
-              </svg>Verified drivers</span>
-            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5" />
-              </svg>Upfront fares</span>
-            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5" />
-              </svg>24/7 support</span>
-          </div>
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container hero-row">
+      <div>
+        <span class="hero-pill"><span class="dot"></span>Live in Johannesburg, Cape Town, Durban &amp; Pretoria</span>
+        <h1>Your city.<br>Moving <span>smarter.</span></h1>
+        <p class="hero-sub">Reliable rides designed around people.</p>
+        <div class="hero-ctas">
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
         </div>
+        <div class="trust-strip">
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Verified drivers</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Upfront fares</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>24/7 support</span>
+        </div>
+      </div>
 
-        <div class="phone-wrap">
-          <div class="phone-glow"></div>
-          <div class="phone">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="phone-statusbar"><span>9:41</span><span>●●●●</span></div>
-              <div class="phone-map">
-                <span class="eta-badge">4 min</span>
-                <svg viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
-                  <g stroke="#E2E8F0" stroke-width="2">
-                    <line x1="0" y1="60" x2="300" y2="60" />
-                    <line x1="0" y1="130" x2="300" y2="130" />
-                    <line x1="0" y1="195" x2="300" y2="195" />
-                    <line x1="70" y1="0" x2="70" y2="250" />
-                    <line x1="170" y1="0" x2="170" y2="250" />
-                    <line x1="240" y1="0" x2="240" y2="250" />
-                  </g>
-                  <path d="M45 195 C 80 195, 70 130, 120 130 S 190 70, 240 65" fill="none" stroke="#0A5CFF"
-                    stroke-width="5" stroke-linecap="round" />
-                  <circle cx="45" cy="195" r="7" fill="#0B0F19" />
-                  <circle cx="45" cy="195" r="12" fill="none" stroke="#0B0F19" stroke-width="2" opacity="0.3" />
-                  <path d="M240 50 c8 0 14 6 14 14 0 10 -14 22 -14 22s-14 -12 -14 -22c0-8 6-14 14-14z" fill="#0A5CFF" />
-                </svg>
+      <div class="phone-wrap">
+        <div class="phone-glow"></div>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>9:41</span><span>●●●●</span></div>
+            <div class="phone-map">
+              <span class="eta-badge">4 min</span>
+              <svg viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#E2E8F0" stroke-width="2">
+                  <line x1="0" y1="60" x2="300" y2="60"/>
+                  <line x1="0" y1="130" x2="300" y2="130"/>
+                  <line x1="0" y1="195" x2="300" y2="195"/>
+                  <line x1="70" y1="0" x2="70" y2="250"/>
+                  <line x1="170" y1="0" x2="170" y2="250"/>
+                  <line x1="240" y1="0" x2="240" y2="250"/>
+                </g>
+                <path d="M45 195 C 80 195, 70 130, 120 130 S 190 70, 240 65" fill="none" stroke="#0A5CFF" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="45" cy="195" r="7" fill="#0B0F19"/>
+                <circle cx="45" cy="195" r="12" fill="none" stroke="#0B0F19" stroke-width="2" opacity="0.3"/>
+                <path d="M240 50 c8 0 14 6 14 14 0 10 -14 22 -14 22s-14 -12 -14 -22c0-8 6-14 14-14z" fill="#0A5CFF"/>
+              </svg>
+            </div>
+            <div class="phone-bottom">
+              <div class="driver-card">
+                <div class="driver-avatar">TM</div>
+                <div>
+                  <p class="driver-name">Thabo M. <b>★ 4.92</b></p>
+                  <p class="driver-car">Toyota Corolla · CA 142 ABC</p>
+                </div>
               </div>
-              <div class="phone-bottom">
-                <div class="driver-card">
-                  <div class="driver-avatar">TM</div>
-                  <div>
-                    <p class="driver-name">Thabo M. <b>★ 4.92</b></p>
-                    <p class="driver-car">Toyota Corolla · CA 142 ABC</p>
-                  </div>
-                </div>
-                <div class="fare-pill-row">
-                  <span class="fare-amount">R 84.50</span>
-                  <span class="fare-tag">Upfront</span>
-                </div>
+              <div class="fare-pill-row">
+                <span class="fare-amount">R 84.50</span>
+                <span class="fare-tag">Upfront</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ FEATURES ============ -->
-    <section class="section" id="features">
+  <!-- ============ FEATURES ============ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Features</span>
+        <h2 class="section-title">Built for how you actually move.</h2>
+        <p class="section-lede">Every part of Vaia is designed around one question: what would make this ride less stressful than the last one?</p>
+      </div>
+
+      <div class="feature-grid reveal-stagger">
+        <div class="feature-card reveal" style="--i:0">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6l3-9 3 18 3-9h3"/></svg></div>
+          <h3>Smart routing</h3>
+          <p>Vaia recalculates your route in real time, adjusting for traffic before you even notice the slowdown.</p>
+        </div>
+        <div class="feature-card reveal" style="--i:1">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="7" rx="2"/><path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg></div>
+          <h3>Ride options for every moment</h3>
+          <p>Pick Economy for everyday trips or Xpress when you need the nearest available driver, right now.</p>
+        </div>
+        <div class="feature-card reveal" style="--i:2">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Upfront fares</h3>
+          <p>See your exact fare before you book — not an estimate that quietly changes once you're already inside.</p>
+        </div>
+        <div class="feature-card reveal" style="--i:3">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>A real person, in the app</h3>
+          <p>Reach support from inside the app any time something doesn't feel right — no call centre maze.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAFETY ============ -->
+  <section class="section dark" id="safety">
+    <div class="container safety-row">
+      <div class="reveal">
+        <span class="eyebrow on-dark">Safety</span>
+        <h2 class="section-title on-dark">Safety isn't a feature.<br>It's the foundation.</h2>
+        <p class="section-lede on-dark">Before a driver ever picks someone up on Vaia, they've already cleared every check that matters.</p>
+
+        <div class="safety-grid">
+          <div class="safety-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Verified drivers</h3>
+            <p>ID-checked, background-checked, and vehicle-verified before approval.</p>
+          </div>
+          <div class="safety-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg></div>
+            <h3>Live trip sharing</h3>
+            <p>Share your route and location with someone you trust, updated in real time.</p>
+          </div>
+          <div class="safety-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg></div>
+            <h3>In-ride SOS</h3>
+            <p>One tap connects you to emergency support and shares your exact location.</p>
+          </div>
+          <div class="safety-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 6.2 6.7.6-5.1 4.4 1.6 6.6L12 16.6 6.2 19.8l1.6-6.6-5.1-4.4 6.7-.6z"/></svg></div>
+            <h3>Two-way ratings</h3>
+            <p>Every ride is rated, so accountability never lags behind a bad trip.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="badge-card">
+          <svg class="verified-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/><path d="M9 12l2 2 4-4" stroke-width="2"/></svg>
+          <h3>Every driver, fully verified.</h3>
+          <p>Vaia checks identity documents, criminal background, vehicle registration, and licence validity before a single ride is ever offered.</p>
+          <div class="sos-row">
+            <div class="sos-btn">SOS</div>
+            <p><b>Help, instantly.</b><br>Press and hold for 3 seconds to alert support and trusted contacts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing">
+
+    <!-- Zone 1: Hero + Estimator + Table -->
+    <div class="pricing-zone first">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">Features</span>
-          <h2 class="section-title">Built for how you actually move.</h2>
-          <p class="section-lede">Every part of Vaia is designed around one question: what would make this ride less
-            stressful than the last one?</p>
+          <span class="eyebrow">Transparent Pricing</span>
+          <h2 class="section-title">Know approximately what you'll pay.<br>Before you request.</h2>
+          <p class="section-lede">No hidden fees. No surprise pricing. Simple, fair and predictable.</p>
         </div>
 
-        <div class="feature-grid reveal-stagger">
-          <div class="feature-card reveal" style="--i:0">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12h6l3-9 3 18 3-9h3" />
-              </svg></div>
-            <h3>Smart routing</h3>
-            <p>Vaia recalculates your route in real time, adjusting for traffic before you even notice the slowdown.</p>
-          </div>
-          <div class="feature-card reveal" style="--i:1">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="7" rx="2" />
-                <path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
-                <circle cx="7.5" cy="18" r="1.5" />
-                <circle cx="16.5" cy="18" r="1.5" />
-              </svg></div>
-            <h3>Ride options for every moment</h3>
-            <p>Pick Economy for everyday trips or Xpress when you need the nearest available driver, right now.</p>
-          </div>
-          <div class="feature-card reveal" style="--i:2">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 3" />
-              </svg></div>
-            <h3>Upfront fares</h3>
-            <p>See your exact fare before you book — not an estimate that quietly changes once you're already inside.
-            </p>
-          </div>
-          <div class="feature-card reveal" style="--i:3">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg></div>
-            <h3>A real person, in the app</h3>
-            <p>Reach support from inside the app any time something doesn't feel right — no call centre maze.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="pricing-main-grid">
 
-    <!-- ============ SAFETY ============ -->
-    <section class="section dark" id="safety">
-      <div class="container safety-row">
-        <div class="reveal">
-          <span class="eyebrow on-dark">Safety</span>
-          <h2 class="section-title on-dark">Safety isn't a feature.<br>It's the foundation.</h2>
-          <p class="section-lede on-dark">Before a driver ever picks someone up on Vaia, they've already cleared every
-            check that matters.</p>
-
-          <div class="safety-grid">
-            <div class="safety-item">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg></div>
-              <h3>Verified drivers</h3>
-              <p>ID-checked, background-checked, and vehicle-verified before approval.</p>
+          <!-- Fare Estimator -->
+          <div class="estimator-card reveal">
+            <div class="est-header">
+              <h3>Fare Estimator</h3>
+              <p>Move the slider or type a distance to estimate your fare.</p>
             </div>
-            <div class="safety-item">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z" />
-                </svg></div>
-              <h3>Live trip sharing</h3>
-              <p>Share your route and location with someone you trust, updated in real time.</p>
-            </div>
-            <div class="safety-item">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 8v5l3 2" />
-                </svg></div>
-              <h3>In-ride SOS</h3>
-              <p>One tap connects you to emergency support and shares your exact location.</p>
-            </div>
-            <div class="safety-item">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2l2.6 6.2 6.7.6-5.1 4.4 1.6 6.6L12 16.6 6.2 19.8l1.6-6.6-5.1-4.4 6.7-.6z" />
-                </svg></div>
-              <h3>Two-way ratings</h3>
-              <p>Every ride is rated, so accountability never lags behind a bad trip.</p>
+            <div class="est-body">
+              <div class="est-label">Estimated Distance</div>
+              <div class="est-input-wrap">
+                <input type="number" class="est-num-input" id="estKmInput" value="5" min="1" max="50" step="0.5" aria-label="Distance in kilometres">
+                <span class="est-unit-badge">km</span>
+              </div>
+              <input type="range" class="est-slider" id="estSlider" min="1" max="50" value="5" step="0.5" aria-label="Slide to set distance">
+              <div class="est-range-labels"><span>1 km</span><span>25 km</span><span>50 km</span></div>
+              <div class="est-result">
+                <span class="est-result-label">Approximate fare</span>
+                <span class="est-result-amount" id="estOutput" aria-live="polite">R XX</span>
+              </div>
+              <p class="est-disclaimer">* Estimate only — based on placeholder rates. Final fare depends on actual route and conditions. Replace <code>VAIA_RATES</code> in the script to go live.</p>
             </div>
           </div>
-        </div>
 
-        <div class="reveal">
-          <div class="badge-card">
-            <svg class="verified-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z" />
-              <path d="M9 12l2 2 4-4" stroke-width="2" />
-            </svg>
-            <h3>Every driver, fully verified.</h3>
-            <p>Vaia checks identity documents, criminal background, vehicle registration, and licence validity before a
-              single ride is ever offered.</p>
-            <div class="sos-row">
-              <div class="sos-btn">SOS</div>
-              <p><b>Help, instantly.</b><br>Press and hold for 3 seconds to alert support and trusted contacts.</p>
+          <!-- Pricing Table -->
+          <div class="fare-table-card reveal">
+            <div class="fare-table-head">
+              <h3>Estimated Fares</h3>
+              <span class="ftbadge">Distance guide</span>
+            </div>
+            <div class="fare-table-colhead">
+              <span>Distance</span><span>Estimated Fare</span>
+            </div>
+            <div class="fare-table-row"><span class="dist">2 km</span><span class="est-val" data-km="2">R XX</span></div>
+            <div class="fare-table-row"><span class="dist">4 km</span><span class="est-val" data-km="4">R XX</span></div>
+            <div class="fare-table-row"><span class="dist">6 km</span><span class="est-val" data-km="6">R XX</span></div>
+            <div class="fare-table-row"><span class="dist">8 km</span><span class="est-val" data-km="8">R XX</span></div>
+            <div class="fare-table-row"><span class="dist">10 km</span><span class="est-val" data-km="10">R XX</span></div>
+            <div class="fare-table-row"><span class="dist">15 km</span><span class="est-val" data-km="15">R XX</span></div>
+            <div class="fare-table-row"><span class="dist">20 km</span><span class="est-val" data-km="20">R XX</span></div>
+            <div class="fare-table-foot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              All fares are estimates using placeholder rates. Confirmed fare is shown in the app at the time of booking.
             </div>
           </div>
+
         </div>
       </div>
-    </section>
+    </div><!-- /Zone 1 -->
 
-    <!-- ============ PRICING ============ -->
-    <section id="pricing">
-
-      <!-- Zone 1: Hero + Estimator + Table -->
-      <div class="pricing-zone first">
-        <div class="container">
-          <div class="section-head reveal">
-            <span class="eyebrow">Transparent Pricing</span>
-            <h2 class="section-title">Know approximately what you'll pay.<br>Before you request.</h2>
-            <p class="section-lede">No hidden fees. No surprise pricing. Simple, fair and predictable.</p>
-          </div>
-
-          <div class="pricing-main-grid">
-
-            <!-- Fare Estimator -->
-            <div class="estimator-card reveal">
-              <div class="est-header">
-                <h3>Fare Estimator</h3>
-                <p>Move the slider or type a distance to estimate your fare.</p>
-              </div>
-              <div class="est-body">
-                <div class="est-label">Estimated Distance</div>
-                <div class="est-input-wrap">
-                  <input type="number" class="est-num-input" id="estKmInput" value="5" min="1" max="50" step="0.5"
-                    aria-label="Distance in kilometres">
-                  <span class="est-unit-badge">km</span>
-                </div>
-                <input type="range" class="est-slider" id="estSlider" min="1" max="50" value="5" step="0.5"
-                  aria-label="Slide to set distance">
-                <div class="est-range-labels"><span>1 km</span><span>25 km</span><span>50 km</span></div>
-                <div class="est-result">
-                  <span class="est-result-label">Approximate fare</span>
-                  <span class="est-result-amount" id="estOutput" aria-live="polite">R XX</span>
-                </div>
-                <p class="est-disclaimer">* Estimate only — based on placeholder rates. Final fare depends on actual
-                  route and conditions. Replace <code>VAIA_RATES</code> in the script to go live.</p>
-              </div>
-            </div>
-
-            <!-- Pricing Table -->
-            <div class="fare-table-card reveal">
-              <div class="fare-table-head">
-                <h3>Estimated Fares</h3>
-                <span class="ftbadge">Distance guide</span>
-              </div>
-              <div class="fare-table-colhead">
-                <span>Distance</span><span>Estimated Fare</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">2 km</span><span class="est-val" data-km="2">R XX</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">4 km</span><span class="est-val" data-km="4">R XX</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">6 km</span><span class="est-val" data-km="6">R XX</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">8 km</span><span class="est-val" data-km="8">R XX</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">10 km</span><span class="est-val" data-km="10">R XX</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">15 km</span><span class="est-val" data-km="15">R XX</span>
-              </div>
-              <div class="fare-table-row"><span class="dist">20 km</span><span class="est-val" data-km="20">R XX</span>
-              </div>
-              <div class="fare-table-foot">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
-                All fares are estimates using placeholder rates. Confirmed fare is shown in the app at the time of
-                booking.
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- /Zone 1 -->
-
-      <!-- Zone 2: Formula — dark -->
-      <div class="pricing-zone dark-zone">
-        <div class="container">
-          <div class="formula-block reveal">
-            <div class="formula-inner">
-              <div class="formula-head">
-                <span class="eyebrow on-dark">How Vaia Calculates Fares</span>
-                <h2>The formula is simple.<br>And it doesn't change on you.</h2>
-                <p>No black box. Vaia uses a straightforward calculation you can verify before every trip.</p>
-              </div>
-              <div class="formula-eq">
-                <div class="formula-term">
-                  <div class="ft-label">Base Fare</div>
-                  <div class="ft-value">Fixed rate</div>
-                </div>
-                <span class="formula-op">+</span>
-                <div class="formula-term">
-                  <div class="ft-label">Distance</div>
-                  <div class="ft-value">Rate × km</div>
-                </div>
-                <span class="formula-op">+</span>
-                <div class="formula-term">
-                  <div class="ft-label">Waiting Time</div>
-                  <div class="ft-value">If applicable</div>
-                </div>
-                <span class="formula-op">=</span>
-                <div class="formula-result-term">
-                  <div class="ft-label">Your Fare</div>
-                  <div class="ft-value">Locked at booking</div>
-                </div>
-              </div>
-              <div class="formula-note">
-                Your fare is calculated at the time of booking based on the estimated route. The final charge may differ
-                slightly if your actual trip varies, but Vaia avoids unexpected surge pricing wherever possible — so
-                what you see is very close to what you pay.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /Zone 2 -->
-
-      <!-- Zone 3: Why Transparent Pricing — surface -->
-      <div class="pricing-zone surface-zone">
-        <div class="container">
-          <div class="section-head center reveal">
-            <span class="eyebrow">Why Transparent Pricing?</span>
-            <h2 class="section-title">Because trust is built before you get in the car.</h2>
-            <p class="section-lede">The industry norm is to show you a price estimate only after you've downloaded an
-              app. Vaia thinks that's backwards.</p>
-          </div>
-          <div class="why-grid reveal-stagger">
-            <div class="why-card reveal" style="--i:0">
-              <div class="why-num">01</div>
-              <h3>Know before you download</h3>
-              <p>Estimate your fare from this page. No app, no sign-up, no commitment — just clear information upfront.
-              </p>
-            </div>
-            <div class="why-card reveal" style="--i:1">
-              <div class="why-num">02</div>
-              <h3>Fair and predictable, always</h3>
-              <p>Pricing that follows consistent rules — not an algorithm that adjusts when you're most likely to accept
-                it.</p>
-            </div>
-            <div class="why-card reveal" style="--i:2">
-              <div class="why-num">03</div>
-              <h3>No unnecessary surprises</h3>
-              <p>The fare you're quoted at booking is the fare you pay. No detour fees, no silent peak-hour multipliers
-                mid-trip.</p>
-            </div>
-            <div class="why-card reveal" style="--i:3">
-              <div class="why-num">04</div>
-              <h3>Built around trust</h3>
-              <p>Customers who feel respected by pricing are customers who come back. That's the Vaia philosophy — not a
-                marketing line.</p>
-            </div>
-          </div>
-        </div>
-      </div><!-- /Zone 3 -->
-
-      <!-- Zone 4: Pricing FAQ — white -->
-      <div class="pricing-zone">
-        <div class="container">
-          <div class="section-head center reveal">
-            <span class="eyebrow">Pricing FAQ</span>
-            <h2 class="section-title">Pricing questions, answered plainly.</h2>
-          </div>
-          <div class="faq-list reveal" style="max-width:760px;margin-inline:auto;">
-            <div class="faq-item">
-              <button class="faq-q" aria-expanded="false">Does Vaia use surge pricing?<svg class="chev"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></button>
-              <div class="faq-a">
-                <div class="faq-a-inner">Vaia avoids unexpected surge pricing wherever possible. During periods of high
-                  demand, any demand-based adjustment is shown to you transparently before you confirm — never applied
-                  after you've already agreed to a fare.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q" aria-expanded="false">How accurate are estimated fares?<svg class="chev"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></button>
-              <div class="faq-a">
-                <div class="faq-a-inner">The estimator on this page uses distance as a guide and is meant to give you a
-                  general ballpark before you even open the app. The fare quoted in-app at booking is more precise —
-                  based on your exact pickup, destination, and current conditions — and that is the fare you pay.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q" aria-expanded="false">Are toll fees included in the fare?<svg class="chev"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></button>
-              <div class="faq-a">
-                <div class="faq-a-inner">Where a route requires toll roads, the applicable toll fees are shown as a
-                  separate line item in your fare breakdown before you confirm. You'll always know what toll costs are
-                  being added and why — nothing is rolled silently into the total.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q" aria-expanded="false">What happens if traffic increases my travel time?<svg
-                  class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></button>
-              <div class="faq-a">
-                <div class="faq-a-inner">Your fare is locked at the time of booking based on the estimated route. If
-                  traffic is unexpectedly heavy, you won't be charged extra for additional time beyond what was already
-                  factored into your quote when you confirmed.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-q" aria-expanded="false">Can I book rides in advance?<svg class="chev"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></button>
-              <div class="faq-a">
-                <div class="faq-a-inner">Yes. Vaia lets you schedule a ride up to 7 days in advance. Your fare is
-                  estimated at booking and confirmed when the driver is dispatched — you'll receive a notification if
-                  anything changes before pickup, so there are no last-minute surprises.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /Zone 4 -->
-
-      <!-- Zone 5: Ready to Ride CTA -->
-      <div class="pricing-cta-band">
-        <h2>Ready to ride?</h2>
-        <p>Download Vaia and experience transparent pricing built around trust, safety and convenience.</p>
-        <div class="store-row">
-          <a href="#download" class="store-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z" />
-            </svg>
-            <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-          </a>
-          <a href="#" class="store-btn outline">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z" />
-              <path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7" />
-              <path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85" />
-              <path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55" />
-            </svg>
-            <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
-          </a>
-        </div>
-      </div><!-- /Zone 5 -->
-
-    </section>
-
-    <!-- ============ LIVE TRACKING ============ -->
-    <section class="section surface" id="tracking">
-      <div class="container tracking-row">
-        <div class="reveal">
-          <span class="eyebrow">Live Tracking</span>
-          <h2 class="section-title">Know exactly where your ride is. Always.</h2>
-          <p class="section-lede">From the moment you book to the moment you arrive, Vaia shows precisely where your
-            driver is for pickup — and where you are along the way.</p>
-          <div class="pricing-points" style="margin-top:34px;">
-            <div class="point">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0" />
-                </svg></div>
-              <div>
-                <h3>Pickup, tracked in real time</h3>
-                <p>Watch your driver approach on the map, with an ETA that updates as traffic changes.</p>
-              </div>
-            </div>
-            <div class="point">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z" />
-                </svg></div>
-              <div>
-                <h3>Shareable with anyone you choose</h3>
-                <p>Send a live link to a friend or family member so they can follow your trip too.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="map-card">
-            <svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" id="trackingMap">
-              <g stroke="#E2E8F0" stroke-width="2">
-                <line x1="0" y1="70" x2="560" y2="70" />
-                <line x1="0" y1="150" x2="560" y2="150" />
-                <line x1="0" y1="230" x2="560" y2="230" />
-                <line x1="0" y1="310" x2="560" y2="310" />
-                <line x1="100" y1="0" x2="100" y2="380" />
-                <line x1="240" y1="0" x2="240" y2="380" />
-                <line x1="380" y1="0" x2="380" y2="380" />
-                <line x1="480" y1="0" x2="480" y2="380" />
-              </g>
-              <path id="routePath" d="M70 300 C 140 300, 130 230, 200 230 S 300 150, 320 150 S 420 90, 480 80"
-                fill="none" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round" />
-              <circle cx="70" cy="300" r="9" fill="#0B0F19" />
-              <path d="M480 65 c10 0 18 8 18 18 0 13-18 28-18 28s-18-15-18-28c0-10 8-18 18-18z" fill="#0A5CFF" />
-              <circle id="carDot" cx="70" cy="300" r="9" fill="#FFFFFF" stroke="#0A5CFF" stroke-width="4" />
-            </svg>
-            <div class="map-eta-card">
-              <div class="left"><span class="dot"></span>
-                <p>Driver arriving</p>
-              </div>
-              <span>6 min · 2.1 km away</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ GOOGLE SIGN IN ============ -->
-    <section class="section" id="signin">
-      <div class="container signin-row">
-        <div class="reveal">
-          <span class="eyebrow">Google Sign In</span>
-          <h2 class="section-title">One tap. You're in.</h2>
-          <p class="section-lede">Sign in with the Google account you already use. No new password to invent, no
-            verification code to wait for — just open the app and book.</p>
-          <div class="pricing-points" style="margin-top:34px;">
-            <div class="point">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="10" rx="2" />
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                </svg></div>
-              <div>
-                <h3>Nothing new to remember</h3>
-                <p>One identity, already secured by Google's own account protection.</p>
-              </div>
-            </div>
-            <div class="point">
-              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M13 2 3 14h7l-1 8 11-12h-7z" />
-                </svg></div>
-              <div>
-                <h3>From download to first ride in under a minute</h3>
-                <p>Skip the signup form entirely. Sign in, confirm your number, book.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="signin-card">
-            <div class="signin-sheet">
-              <h4>Sign in to Vaia</h4>
-              <p class="sub">Continue with the account you already trust.</p>
-              <button class="google-btn"><span class="gdot"></span>Continue with Google</button>
-              <div class="divider-row"><span class="line"></span><span>or</span><span class="line"></span></div>
-              <input class="phone-input" type="text" placeholder="Continue with phone number" disabled>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ VAIA XPRESS ============ -->
-    <section class="section surface" id="xpress">
+    <!-- Zone 2: Formula — dark -->
+    <div class="pricing-zone dark-zone">
       <div class="container">
-        <div class="xpress-card reveal">
-          <div class="xpress-row">
-            <div>
-              <span class="xpress-badge"><svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M13 2 3 14h7l-1 8 11-12h-7z" />
-                </svg>VAIA XPRESS</span>
-              <h2>When every minute counts, <span>go Xpress.</span></h2>
-              <p class="lede">Priority matching with the nearest available driver and a faster pickup window — for the
-                rides that can't wait.</p>
-              <ul class="xpress-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>Matched with the nearest driver first</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>Average pickup under 4 minutes</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>Dedicated queue, even during peak hours</li>
-              </ul>
+        <div class="formula-block reveal">
+          <div class="formula-inner">
+            <div class="formula-head">
+              <span class="eyebrow on-dark">How Vaia Calculates Fares</span>
+              <h2>The formula is simple.<br>And it doesn't change on you.</h2>
+              <p>No black box. Vaia uses a straightforward calculation you can verify before every trip.</p>
             </div>
-            <div class="xpress-visual">
-              <div class="xpress-compare-row"><span class="label">Standard pickup</span><span class="val">9–12
-                  min</span></div>
-              <div class="xpress-compare-row"><span class="label">Xpress pickup</span><span class="val hi">3–4
-                  min</span></div>
-              <div class="xpress-compare-row"><span class="label">Driver priority</span><span class="val hi">Nearest
-                  available</span></div>
-              <div class="xpress-compare-row"><span class="label">Peak-hour queue</span><span
-                  class="val hi">Dedicated</span></div>
+            <div class="formula-eq">
+              <div class="formula-term">
+                <div class="ft-label">Base Fare</div>
+                <div class="ft-value">Fixed rate</div>
+              </div>
+              <span class="formula-op">+</span>
+              <div class="formula-term">
+                <div class="ft-label">Distance</div>
+                <div class="ft-value">Rate × km</div>
+              </div>
+              <span class="formula-op">+</span>
+              <div class="formula-term">
+                <div class="ft-label">Waiting Time</div>
+                <div class="ft-value">If applicable</div>
+              </div>
+              <span class="formula-op">=</span>
+              <div class="formula-result-term">
+                <div class="ft-label">Your Fare</div>
+                <div class="ft-value">Locked at booking</div>
+              </div>
+            </div>
+            <div class="formula-note">
+              Your fare is calculated at the time of booking based on the estimated route. The final charge may differ slightly if your actual trip varies, but Vaia avoids unexpected surge pricing wherever possible — so what you see is very close to what you pay.
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div><!-- /Zone 2 -->
 
-    <!-- ============ FAQ ============ -->
-    <section class="section" id="faq">
+    <!-- Zone 3: Why Transparent Pricing — surface -->
+    <div class="pricing-zone surface-zone">
       <div class="container">
         <div class="section-head center reveal">
-          <span class="eyebrow">FAQ</span>
-          <h2 class="section-title">Questions, answered plainly.</h2>
+          <span class="eyebrow">Why Transparent Pricing?</span>
+          <h2 class="section-title">Because trust is built before you get in the car.</h2>
+          <p class="section-lede">The industry norm is to show you a price estimate only after you've downloaded an app. Vaia thinks that's backwards.</p>
         </div>
+        <div class="why-grid reveal-stagger">
+          <div class="why-card reveal" style="--i:0">
+            <div class="why-num">01</div>
+            <h3>Know before you download</h3>
+            <p>Estimate your fare from this page. No app, no sign-up, no commitment — just clear information upfront.</p>
+          </div>
+          <div class="why-card reveal" style="--i:1">
+            <div class="why-num">02</div>
+            <h3>Fair and predictable, always</h3>
+            <p>Pricing that follows consistent rules — not an algorithm that adjusts when you're most likely to accept it.</p>
+          </div>
+          <div class="why-card reveal" style="--i:2">
+            <div class="why-num">03</div>
+            <h3>No unnecessary surprises</h3>
+            <p>The fare you're quoted at booking is the fare you pay. No detour fees, no silent peak-hour multipliers mid-trip.</p>
+          </div>
+          <div class="why-card reveal" style="--i:3">
+            <div class="why-num">04</div>
+            <h3>Built around trust</h3>
+            <p>Customers who feel respected by pricing are customers who come back. That's the Vaia philosophy — not a marketing line.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /Zone 3 -->
 
+    <!-- Zone 4: Pricing FAQ — white -->
+    <div class="pricing-zone">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Pricing FAQ</span>
+          <h2 class="section-title">Pricing questions, answered plainly.</h2>
+        </div>
         <div class="faq-list reveal" style="max-width:760px;margin-inline:auto;">
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">How do I pay for a ride?<svg class="chev" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg></button>
-            <div class="faq-a">
-              <div class="faq-a-inner">Add a card once when you set up your account. Your fare is charged automatically
-                the moment your trip ends — no cash needed, no action required from you.</div>
-            </div>
+            <button class="faq-q" aria-expanded="false">Does Vaia use surge pricing?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Vaia avoids unexpected surge pricing wherever possible. During periods of high demand, any demand-based adjustment is shown to you transparently before you confirm — never applied after you've already agreed to a fare.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">What happens if my driver cancels?<svg class="chev"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg></button>
-            <div class="faq-a">
-              <div class="faq-a-inner">Vaia automatically rematches you with the next available driver nearby. You don't
-                need to rebook or re-enter your destination.</div>
-            </div>
+            <button class="faq-q" aria-expanded="false">How accurate are estimated fares?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">The estimator on this page uses distance as a guide and is meant to give you a general ballpark before you even open the app. The fare quoted in-app at booking is more precise — based on your exact pickup, destination, and current conditions — and that is the fare you pay.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Is my trip information private?<svg class="chev"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg></button>
-            <div class="faq-a">
-              <div class="faq-a-inner">Your trip and location data is only shared with people you explicitly choose to
-                share it with, and is used internally to keep rides safe — never sold to advertisers.</div>
-            </div>
+            <button class="faq-q" aria-expanded="false">Are toll fees included in the fare?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Where a route requires toll roads, the applicable toll fees are shown as a separate line item in your fare breakdown before you confirm. You'll always know what toll costs are being added and why — nothing is rolled silently into the total.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Which cities is Vaia available in?<svg class="chev"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg></button>
-            <div class="faq-a">
-              <div class="faq-a-inner">Vaia currently operates in Johannesburg, Cape Town, Durban, and Pretoria, with
-                more cities being added as driver coverage grows.</div>
-            </div>
+            <button class="faq-q" aria-expanded="false">What happens if traffic increases my travel time?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Your fare is locked at the time of booking based on the estimated route. If traffic is unexpectedly heavy, you won't be charged extra for additional time beyond what was already factored into your quote when you confirmed.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can I schedule a ride in advance?<svg class="chev"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg></button>
-            <div class="faq-a">
-              <div class="faq-a-inner">Yes. Schedule a pickup up to 7 days ahead directly from the app, and you'll get a
-                reminder before your driver is dispatched.</div>
-            </div>
+            <button class="faq-q" aria-expanded="false">Can I book rides in advance?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Yes. Vaia lets you schedule a ride up to 7 days in advance. Your fare is estimated at booking and confirmed when the driver is dispatched — you'll receive a notification if anything changes before pickup, so there are no last-minute surprises.</div></div>
           </div>
         </div>
       </div>
-    </section>
+    </div><!-- /Zone 4 -->
 
-    <!-- ============ DOWNLOAD ============ -->
-    <section class="download-section" id="download">
-      <div class="container">
-        <h2>Get moving.</h2>
-        <p>Free to download. Pay only for the rides you take.</p>
-        <div class="store-row">
-          <a href="#" class="store-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z" />
-            </svg>
-            <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-          </a>
-          <a href="#" class="store-btn outline">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z" />
-              <path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7" />
-              <path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85" />
-              <path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55" />
-            </svg>
-            <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
-          </a>
-        </div>
-        <p class="download-note">Available on iOS 15+ and Android 9+</p>
+    <!-- Zone 5: Ready to Ride CTA -->
+    <div class="pricing-cta-band">
+      <h2>Ready to ride?</h2>
+      <p>Download Vaia and experience transparent pricing built around trust, safety and convenience.</p>
+      <div class="store-row">
+        <a href="#download" class="store-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z"/></svg>
+          <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a href="#" class="store-btn outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z"/><path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7"/><path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85"/><path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55"/></svg>
+          <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
       </div>
-    </section>
+    </div><!-- /Zone 5 -->
 
-  </main>
+  </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-row">
-        <div class="footer-brand">
-          <a href="#main" class="logo">
-            <svg viewBox="0 0 64 64" fill="none">
-              <rect width="64" height="64" rx="16" fill="#0B0F19" />
-              <path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-            Vaia
-          </a>
-          <p>Reliable rides designed around people. Built for South African cities.</p>
-        </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>Product</h4>
-            <a href="#features">Features</a>
-            <a href="#safety">Safety</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#xpress">Xpress</a>
+  <!-- ============ LIVE TRACKING ============ -->
+  <section class="section surface" id="tracking">
+    <div class="container tracking-row">
+      <div class="reveal">
+        <span class="eyebrow">Live Tracking</span>
+        <h2 class="section-title">Know exactly where your ride is. Always.</h2>
+        <p class="section-lede">From the moment you book to the moment you arrive, Vaia shows precisely where your driver is for pickup — and where you are along the way.</p>
+        <div class="pricing-points" style="margin-top:34px;">
+          <div class="point">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0"/></svg></div>
+            <div><h3>Pickup, tracked in real time</h3><p>Watch your driver approach on the map, with an ETA that updates as traffic changes.</p></div>
           </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Contact</a>
+          <div class="point">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg></div>
+            <div><h3>Shareable with anyone you choose</h3><p>Send a live link to a friend or family member so they can follow your trip too.</p></div>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span id="year"></span>
-        <span>Made for moving smarter.</span>
+
+      <div class="reveal">
+        <div class="map-card">
+          <svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" id="trackingMap">
+            <g stroke="#E2E8F0" stroke-width="2">
+              <line x1="0" y1="70" x2="560" y2="70"/>
+              <line x1="0" y1="150" x2="560" y2="150"/>
+              <line x1="0" y1="230" x2="560" y2="230"/>
+              <line x1="0" y1="310" x2="560" y2="310"/>
+              <line x1="100" y1="0" x2="100" y2="380"/>
+              <line x1="240" y1="0" x2="240" y2="380"/>
+              <line x1="380" y1="0" x2="380" y2="380"/>
+              <line x1="480" y1="0" x2="480" y2="380"/>
+            </g>
+            <path id="routePath" d="M70 300 C 140 300, 130 230, 200 230 S 300 150, 320 150 S 420 90, 480 80" fill="none" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="70" cy="300" r="9" fill="#0B0F19"/>
+            <path d="M480 65 c10 0 18 8 18 18 0 13-18 28-18 28s-18-15-18-28c0-10 8-18 18-18z" fill="#0A5CFF"/>
+            <circle id="carDot" cx="70" cy="300" r="9" fill="#FFFFFF" stroke="#0A5CFF" stroke-width="4"/>
+          </svg>
+          <div class="map-eta-card">
+            <div class="left"><span class="dot"></span><p>Driver arriving</p></div>
+            <span>6 min · 2.1 km away</span>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="js/vaia.js"></script>
-  <script>
+  <!-- ============ GOOGLE SIGN IN ============ -->
+  <section class="section" id="signin">
+    <div class="container signin-row">
+      <div class="reveal">
+        <span class="eyebrow">Google Sign In</span>
+        <h2 class="section-title">One tap. You're in.</h2>
+        <p class="section-lede">Sign in with the Google account you already use. No new password to invent, no verification code to wait for — just open the app and book.</p>
+        <div class="pricing-points" style="margin-top:34px;">
+          <div class="point">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div><h3>Nothing new to remember</h3><p>One identity, already secured by Google's own account protection.</p></div>
+          </div>
+          <div class="point">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-12h-7z"/></svg></div>
+            <div><h3>From download to first ride in under a minute</h3><p>Skip the signup form entirely. Sign in, confirm your number, book.</p></div>
+          </div>
+        </div>
+      </div>
 
-  </script>
+      <div class="reveal">
+        <div class="signin-card">
+          <div class="signin-sheet">
+            <h4>Sign in to Vaia</h4>
+            <p class="sub">Continue with the account you already trust.</p>
+            <button class="google-btn"><span class="gdot"></span>Continue with Google</button>
+            <div class="divider-row"><span class="line"></span><span>or</span><span class="line"></span></div>
+            <input class="phone-input" type="text" placeholder="Continue with phone number" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VAIA XPRESS ============ -->
+  <section class="section surface" id="xpress">
+    <div class="container">
+      <div class="xpress-card reveal">
+        <div class="xpress-row">
+          <div>
+            <span class="xpress-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-12h-7z"/></svg>VAIA XPRESS</span>
+            <h2>When every minute counts, <span>go Xpress.</span></h2>
+            <p class="lede">Priority matching with the nearest available driver and a faster pickup window — for the rides that can't wait.</p>
+            <ul class="xpress-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Matched with the nearest driver first</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Average pickup under 4 minutes</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dedicated queue, even during peak hours</li>
+            </ul>
+          </div>
+          <div class="xpress-visual">
+            <div class="xpress-compare-row"><span class="label">Standard pickup</span><span class="val">9–12 min</span></div>
+            <div class="xpress-compare-row"><span class="label">Xpress pickup</span><span class="val hi">3–4 min</span></div>
+            <div class="xpress-compare-row"><span class="label">Driver priority</span><span class="val hi">Nearest available</span></div>
+            <div class="xpress-compare-row"><span class="label">Peak-hour queue</span><span class="val hi">Dedicated</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-title">Questions, answered plainly.</h2>
+      </div>
+
+      <div class="faq-list reveal" style="max-width:760px;margin-inline:auto;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How do I pay for a ride?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Add a card once when you set up your account. Your fare is charged automatically the moment your trip ends — no cash needed, no action required from you.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What happens if my driver cancels?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Vaia automatically rematches you with the next available driver nearby. You don't need to rebook or re-enter your destination.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is my trip information private?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Your trip and location data is only shared with people you explicitly choose to share it with, and is used internally to keep rides safe — never sold to advertisers.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Which cities is Vaia available in?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Vaia currently operates in Johannesburg, Cape Town, Durban, and Pretoria, with more cities being added as driver coverage grows.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I schedule a ride in advance?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. Schedule a pickup up to 7 days ahead directly from the app, and you'll get a reminder before your driver is dispatched.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section class="download-section" id="download">
+    <div class="container">
+      <h2>Get moving.</h2>
+      <p>Free to download. Pay only for the rides you take.</p>
+      <div class="store-row">
+        <a href="#" class="store-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z"/></svg>
+          <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a href="#" class="store-btn outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z"/><path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7"/><path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85"/><path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55"/></svg>
+          <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+      <p class="download-note">Available on iOS 15+ and Android 9+</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <a href="#main" class="logo">
+          <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#0B0F19"/><path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Vaia
+        </a>
+        <p>Reliable rides designed around people. Built for South African cities.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#safety">Safety</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#xpress">Xpress</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="year"></span>
+      <span>Made for moving smarter.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Footer year ----
+  document.getElementById('year').textContent = '© ' + new Date().getFullYear() + ' Vaia. All rights reserved.';
+
+  // ---- Nav scroll state ----
+  var nav = document.getElementById('siteNav');
+  function onScroll(){
+    if(window.scrollY > 12){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---- Mobile menu ----
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ---- Reveal on scroll ----
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        if(openItem !== item){
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-q').setAttribute('aria-expanded','false');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ---- Fare Estimator ----
+  // PLACEHOLDER RATES — replace these values when live pricing is confirmed
+  var VAIA_RATES = {
+    base:   12.00,   // R  Base fare (fixed)
+    perKm:   5.50,   // R  Per kilometre
+    symbol: 'R'
+  };
+
+  function calcEstimate(km){
+    return (VAIA_RATES.base + (parseFloat(km) * VAIA_RATES.perKm)).toFixed(2);
+  }
+
+  // Populate the pricing table
+  document.querySelectorAll('.est-val[data-km]').forEach(function(cell){
+    var km = parseFloat(cell.getAttribute('data-km'));
+    cell.textContent = VAIA_RATES.symbol + ' ' + calcEstimate(km);
+  });
+
+  // Wire up the estimator card
+  var estInput  = document.getElementById('estKmInput');
+  var estSlider = document.getElementById('estSlider');
+  var estOutput = document.getElementById('estOutput');
+
+  function syncEstimator(km){
+    km = Math.max(1, Math.min(50, parseFloat(km) || 1));
+    estInput.value  = km;
+    estSlider.value = km;
+    estOutput.textContent = VAIA_RATES.symbol + ' ' + calcEstimate(km);
+  }
+
+  if(estInput && estSlider && estOutput){
+    // Initial render
+    syncEstimator(estInput.value);
+
+    estInput.addEventListener('input', function(){ syncEstimator(this.value); });
+    estInput.addEventListener('change', function(){ syncEstimator(this.value); });
+    estSlider.addEventListener('input', function(){ syncEstimator(this.value); });
+  }
+
+  // ---- Tracking map: animate car dot along path ----
+  var path = document.getElementById('routePath');
+  var carDot = document.getElementById('carDot');
+  if(path && carDot){
+    var pathLength = path.getTotalLength();
+    if(reduceMotion){
+      var midPoint = path.getPointAtLength(pathLength * 0.5);
+      carDot.setAttribute('cx', midPoint.x);
+      carDot.setAttribute('cy', midPoint.y);
+    } else {
+      var duration = 5200; // ms, one-way
+      var startTime = null;
+      function animateCar(timestamp){
+        if(!startTime) startTime = timestamp;
+        var elapsed = (timestamp - startTime) % (duration * 2);
+        var t = elapsed < duration ? elapsed / duration : (duration * 2 - elapsed) / duration;
+        var point = path.getPointAtLength(pathLength * t);
+        carDot.setAttribute('cx', point.x);
+        carDot.setAttribute('cy', point.y);
+        requestAnimationFrame(animateCar);
+      }
+      requestAnimationFrame(animateCar);
+    }
+  }
+
+})();
+</script>
 
 </body>
-
 </html>

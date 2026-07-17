@@ -1360,6 +1360,7 @@ footer {
   color: var(--ink);
   font-family: inherit;
   -moz-appearance: textfield;
+  appearance: textfield;
   transition: border-color 0.2s var(--ease);
 }
 .est-num-input::-webkit-outer-spin-button,

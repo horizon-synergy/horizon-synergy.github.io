@@ -111,3 +111,48 @@ document.addEventListener('click', (event) => {
     sidebar.classList.remove('show');
   }
 });
+
+function applyCookieConsent(choice) {
+  localStorage.setItem("cookieConsent", choice);
+  const banner = document.getElementById("cookie-banner");
+  if (banner) {
+    banner.remove();
+  }
+}
+
+function resetCookieConsent() {
+  localStorage.removeItem("cookieConsent");
+  showCookieBanner(true);
+}
+
+function showCookieBanner(force = false) {
+  if (!force && localStorage.getItem("cookieConsent")) {
+    return;
+  }
+
+  const existing = document.getElementById("cookie-banner");
+  if (existing) {
+    existing.remove();
+  }
+
+  const banner = document.createElement("div");
+  banner.id = "cookie-banner";
+  banner.className = "cookie-banner";
+  banner.setAttribute("role", "dialog");
+  banner.setAttribute("aria-live", "polite");
+  banner.setAttribute("aria-label", "Cookie consent");
+  banner.innerHTML = `
+    <p><strong>Cookies & privacy:</strong> We use essential storage for preferences and may use analytics, ads, or embedded services. Read our <a href="/legal/cookie-policy.html">Cookie Policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="accept-cookies" type="button">Accept</button>
+      <button class="decline-cookies" type="button">Decline non-essential</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+  banner.querySelector(".accept-cookies").addEventListener("click", () => applyCookieConsent("accepted"));
+  banner.querySelector(".decline-cookies").addEventListener("click", () => applyCookieConsent("declined"));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showCookieBanner();
+});

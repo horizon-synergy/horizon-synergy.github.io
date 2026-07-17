@@ -1684,3 +1684,174 @@ body.light-mode.legal-page .legal-hero h1 {
     border-radius: 26px;
   }
 }
+
+/* Ventures page and cookie consent additions */
+body.ventures-page {
+  display: block;
+  min-height: 100vh;
+}
+
+.ventures-main {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.ventures-main section {
+  display: block;
+  opacity: 1;
+  transform: none;
+  max-width: none;
+}
+
+.ventures-hero {
+  padding: clamp(2rem, 5vw, 5rem);
+  border-radius: clamp(28px, 4vw, 48px);
+  text-align: center;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.045)),
+    radial-gradient(circle at 50% 0%, rgba(0, 194, 255, 0.2), transparent 42%);
+}
+
+.ventures-hero h1 {
+  max-width: 900px;
+  margin: 1rem auto;
+  font-size: clamp(3rem, 7vw, 6.25rem);
+  line-height: 0.96;
+  letter-spacing: -0.07em;
+}
+
+.ventures-hero p:not(.hero-tagline),
+.venture-process p,
+.venture-card p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ventures-section-heading {
+  margin: 4rem 0 1.5rem;
+  text-align: center;
+}
+
+.ventures-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.venture-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.4rem;
+  padding: 1.5rem;
+  border-radius: 30px;
+}
+
+.venture-card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.venture-status {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venture-card h3,
+.venture-process h3 {
+  color: #ffffff;
+}
+
+.venture-process {
+  margin-top: 1.25rem;
+  padding: 2rem;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.process-grid div {
+  padding: 1.2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.process-grid strong {
+  color: var(--primary-color);
+}
+
+.cookie-banner {
+  position: fixed;
+  inset: auto 24px 24px auto;
+  z-index: 2000;
+  width: min(430px, calc(100% - 32px));
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(12, 12, 16, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+
+.cookie-banner p {
+  margin: 0 0 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+}
+
+.cookie-banner a {
+  color: var(--primary-color);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.cookie-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cookie-actions .accept-cookies {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: #000;
+}
+
+.cookie-actions .decline-cookies {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+@media (max-width: 820px) {
+  .ventures-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venture-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-banner {
+    inset: auto 16px 16px 16px;
+    width: auto;
+  }
+}

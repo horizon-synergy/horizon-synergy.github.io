@@ -1,580 +1,808 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vaia | Your city. Moving smarter.</title>
-<meta name="description" content="Reliable rides designed around people. Upfront fares, verified drivers, live tracking — Vaia is moving South Africa smarter.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F19'/%3E%3Cpath d='M14 16 L32 48 L50 16' fill='none' stroke='%230A5CFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="styles/vaia-styles.css"
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaia | Your city. Moving smarter.</title>
+  <meta name="description"
+    content="Reliable rides designed around people. Upfront fares, verified drivers, live tracking — Vaia is moving South Africa smarter.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F19'/%3E%3Cpath d='M14 16 L32 48 L50 16' fill='none' stroke='%230A5CFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles/vaia-styles.css" <link rel="preconnect" href="https://fonts.gstatic.com"
+    crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+
+  </style>
 </head>
+
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-<!-- ============ NAV ============ -->
-<header class="nav" id="siteNav">
-  <div class="container nav-row">
-    <a href="#main" class="logo">
-      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#0B0F19"/><path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Vaia
-    </a>
-    <nav class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#safety">Safety</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#tracking">Tracking</a>
-      <a href="#xpress">Xpress</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="#download" class="btn btn-secondary btn-sm">Download App</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#features">Features</a>
-  <a href="#safety">Safety</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#tracking">Tracking</a>
-  <a href="#xpress">Xpress</a>
-  <a href="#faq">FAQ</a>
-  <a href="#download" class="btn btn-primary" style="margin-top:8px;width:fit-content;">Download App</a>
-</div>
-
-<main id="main">
-
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="container hero-row">
-      <div>
-        <span class="hero-pill"><span class="dot"></span>Live in Johannesburg, Cape Town, Durban &amp; Pretoria</span>
-        <h1>Your city.<br>Moving <span>smarter.</span></h1>
-        <p class="hero-sub">Reliable rides designed around people.</p>
-        <div class="hero-ctas">
-          <a href="#download" class="btn btn-primary">Download App</a>
-          <a href="#features" class="btn btn-secondary">Learn More</a>
-        </div>
-        <div class="trust-strip">
-          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Verified drivers</span>
-          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Upfront fares</span>
-          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>24/7 support</span>
-        </div>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="siteNav">
+    <div class="container nav-row">
+      <a href="#main" class="logo">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="16" fill="#0B0F19" />
+          <path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        Vaia
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#safety">Safety</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#tracking">Tracking</a>
+        <a href="#xpress">Xpress</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#download" class="btn btn-secondary btn-sm">Download App</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
       </div>
+    </div>
+  </header>
 
-      <div class="phone-wrap">
-        <div class="phone-glow"></div>
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-statusbar"><span>9:41</span><span>●●●●</span></div>
-            <div class="phone-map">
-              <span class="eta-badge">4 min</span>
-              <svg viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#E2E8F0" stroke-width="2">
-                  <line x1="0" y1="60" x2="300" y2="60"/>
-                  <line x1="0" y1="130" x2="300" y2="130"/>
-                  <line x1="0" y1="195" x2="300" y2="195"/>
-                  <line x1="70" y1="0" x2="70" y2="250"/>
-                  <line x1="170" y1="0" x2="170" y2="250"/>
-                  <line x1="240" y1="0" x2="240" y2="250"/>
-                </g>
-                <path d="M45 195 C 80 195, 70 130, 120 130 S 190 70, 240 65" fill="none" stroke="#0A5CFF" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="45" cy="195" r="7" fill="#0B0F19"/>
-                <circle cx="45" cy="195" r="12" fill="none" stroke="#0B0F19" stroke-width="2" opacity="0.3"/>
-                <path d="M240 50 c8 0 14 6 14 14 0 10 -14 22 -14 22s-14 -12 -14 -22c0-8 6-14 14-14z" fill="#0A5CFF"/>
-              </svg>
-            </div>
-            <div class="phone-bottom">
-              <div class="driver-card">
-                <div class="driver-avatar">TM</div>
-                <div>
-                  <p class="driver-name">Thabo M. <b>★ 4.92</b></p>
-                  <p class="driver-car">Toyota Corolla · CA 142 ABC</p>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#safety">Safety</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#tracking">Tracking</a>
+    <a href="#xpress">Xpress</a>
+    <a href="#faq">FAQ</a>
+    <a href="#download" class="btn btn-primary" style="margin-top:8px;width:fit-content;">Download App</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="container hero-row">
+        <div>
+          <span class="hero-pill"><span class="dot"></span>Live in Johannesburg, Cape Town, Durban &amp; Pretoria</span>
+          <h1>Your city.<br>Moving <span>smarter.</span></h1>
+          <p class="hero-sub">Reliable rides designed around people.</p>
+          <div class="hero-ctas">
+            <a href="#download" class="btn btn-primary">Download App</a>
+            <a href="#features" class="btn btn-secondary">Learn More</a>
+          </div>
+          <div class="trust-strip">
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Verified drivers</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Upfront fares</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>24/7 support</span>
+          </div>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone-glow"></div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="phone-statusbar"><span>9:41</span><span>●●●●</span></div>
+              <div class="phone-map">
+                <span class="eta-badge">4 min</span>
+                <svg viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#E2E8F0" stroke-width="2">
+                    <line x1="0" y1="60" x2="300" y2="60" />
+                    <line x1="0" y1="130" x2="300" y2="130" />
+                    <line x1="0" y1="195" x2="300" y2="195" />
+                    <line x1="70" y1="0" x2="70" y2="250" />
+                    <line x1="170" y1="0" x2="170" y2="250" />
+                    <line x1="240" y1="0" x2="240" y2="250" />
+                  </g>
+                  <path d="M45 195 C 80 195, 70 130, 120 130 S 190 70, 240 65" fill="none" stroke="#0A5CFF"
+                    stroke-width="5" stroke-linecap="round" />
+                  <circle cx="45" cy="195" r="7" fill="#0B0F19" />
+                  <circle cx="45" cy="195" r="12" fill="none" stroke="#0B0F19" stroke-width="2" opacity="0.3" />
+                  <path d="M240 50 c8 0 14 6 14 14 0 10 -14 22 -14 22s-14 -12 -14 -22c0-8 6-14 14-14z" fill="#0A5CFF" />
+                </svg>
+              </div>
+              <div class="phone-bottom">
+                <div class="driver-card">
+                  <div class="driver-avatar">TM</div>
+                  <div>
+                    <p class="driver-name">Thabo M. <b>★ 4.92</b></p>
+                    <p class="driver-car">Toyota Corolla · CA 142 ABC</p>
+                  </div>
+                </div>
+                <div class="fare-pill-row">
+                  <span class="fare-amount">R 84.50</span>
+                  <span class="fare-tag">Upfront</span>
                 </div>
               </div>
-              <div class="fare-pill-row">
-                <span class="fare-amount">R 84.50</span>
-                <span class="fare-tag">Upfront</span>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ FEATURES ============ -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Features</span>
-        <h2 class="section-title">Built for how you actually move.</h2>
-        <p class="section-lede">Every part of Vaia is designed around one question: what would make this ride less stressful than the last one?</p>
-      </div>
-
-      <div class="feature-grid reveal-stagger">
-        <div class="feature-card reveal" style="--i:0">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6l3-9 3 18 3-9h3"/></svg></div>
-          <h3>Smart routing</h3>
-          <p>Vaia recalculates your route in real time, adjusting for traffic before you even notice the slowdown.</p>
-        </div>
-        <div class="feature-card reveal" style="--i:1">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="7" rx="2"/><path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg></div>
-          <h3>Ride options for every moment</h3>
-          <p>Pick Economy for everyday trips or Xpress when you need the nearest available driver, right now.</p>
-        </div>
-        <div class="feature-card reveal" style="--i:2">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <h3>Upfront fares</h3>
-          <p>See your exact fare before you book — not an estimate that quietly changes once you're already inside.</p>
-        </div>
-        <div class="feature-card reveal" style="--i:3">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3>A real person, in the app</h3>
-          <p>Reach support from inside the app any time something doesn't feel right — no call centre maze.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SAFETY ============ -->
-  <section class="section dark" id="safety">
-    <div class="container safety-row">
-      <div class="reveal">
-        <span class="eyebrow on-dark">Safety</span>
-        <h2 class="section-title on-dark">Safety isn't a feature.<br>It's the foundation.</h2>
-        <p class="section-lede on-dark">Before a driver ever picks someone up on Vaia, they've already cleared every check that matters.</p>
-
-        <div class="safety-grid">
-          <div class="safety-item">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-            <h3>Verified drivers</h3>
-            <p>ID-checked, background-checked, and vehicle-verified before approval.</p>
-          </div>
-          <div class="safety-item">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg></div>
-            <h3>Live trip sharing</h3>
-            <p>Share your route and location with someone you trust, updated in real time.</p>
-          </div>
-          <div class="safety-item">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg></div>
-            <h3>In-ride SOS</h3>
-            <p>One tap connects you to emergency support and shares your exact location.</p>
-          </div>
-          <div class="safety-item">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 6.2 6.7.6-5.1 4.4 1.6 6.6L12 16.6 6.2 19.8l1.6-6.6-5.1-4.4 6.7-.6z"/></svg></div>
-            <h3>Two-way ratings</h3>
-            <p>Every ride is rated, so accountability never lags behind a bad trip.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="badge-card">
-          <svg class="verified-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/><path d="M9 12l2 2 4-4" stroke-width="2"/></svg>
-          <h3>Every driver, fully verified.</h3>
-          <p>Vaia checks identity documents, criminal background, vehicle registration, and licence validity before a single ride is ever offered.</p>
-          <div class="sos-row">
-            <div class="sos-btn">SOS</div>
-            <p><b>Help, instantly.</b><br>Press and hold for 3 seconds to alert support and trusted contacts.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PRICING ============ -->
-  <section id="pricing">
-
-    <!-- Zone 1: Hero + Estimator + Table -->
-    <div class="pricing-zone first">
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">Transparent Pricing</span>
-          <h2 class="section-title">Know approximately what you'll pay.<br>Before you request.</h2>
-          <p class="section-lede">No hidden fees. No surprise pricing. Simple, fair and predictable.</p>
+          <span class="eyebrow">Features</span>
+          <h2 class="section-title">Built for how you actually move.</h2>
+          <p class="section-lede">Every part of Vaia is designed around one question: what would make this ride less
+            stressful than the last one?</p>
         </div>
 
-        <div class="pricing-main-grid">
-
-          <!-- Fare Estimator -->
-          <div class="estimator-card reveal">
-            <div class="est-header">
-              <h3>Fare Estimator</h3>
-              <p>Move the slider or type a distance to estimate your fare.</p>
-            </div>
-            <div class="est-body">
-              <div class="est-label">Estimated Distance</div>
-              <div class="est-input-wrap">
-                <input type="number" class="est-num-input" id="estKmInput" value="5" min="1" max="50" step="0.5" aria-label="Distance in kilometres">
-                <span class="est-unit-badge">km</span>
-              </div>
-              <input type="range" class="est-slider" id="estSlider" min="1" max="50" value="5" step="0.5" aria-label="Slide to set distance">
-              <div class="est-range-labels"><span>1 km</span><span>25 km</span><span>50 km</span></div>
-              <div class="est-result">
-                <span class="est-result-label">Approximate fare</span>
-                <span class="est-result-amount" id="estOutput" aria-live="polite">R XX</span>
-              </div>
-              <p class="est-disclaimer">* Estimate only — based on placeholder rates. Final fare depends on actual route and conditions. Replace <code>VAIA_RATES</code> in the script to go live.</p>
-            </div>
+        <div class="feature-grid reveal-stagger">
+          <div class="feature-card reveal" style="--i:0">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12h6l3-9 3 18 3-9h3" />
+              </svg></div>
+            <h3>Smart routing</h3>
+            <p>Vaia recalculates your route in real time, adjusting for traffic before you even notice the slowdown.</p>
           </div>
-
-          <!-- Pricing Table -->
-          <div class="fare-table-card reveal">
-            <div class="fare-table-head">
-              <h3>Estimated Fares</h3>
-              <span class="ftbadge">Distance guide</span>
-            </div>
-            <div class="fare-table-colhead">
-              <span>Distance</span><span>Estimated Fare</span>
-            </div>
-            <div class="fare-table-row"><span class="dist">2 km</span><span class="est-val" data-km="2">R XX</span></div>
-            <div class="fare-table-row"><span class="dist">4 km</span><span class="est-val" data-km="4">R XX</span></div>
-            <div class="fare-table-row"><span class="dist">6 km</span><span class="est-val" data-km="6">R XX</span></div>
-            <div class="fare-table-row"><span class="dist">8 km</span><span class="est-val" data-km="8">R XX</span></div>
-            <div class="fare-table-row"><span class="dist">10 km</span><span class="est-val" data-km="10">R XX</span></div>
-            <div class="fare-table-row"><span class="dist">15 km</span><span class="est-val" data-km="15">R XX</span></div>
-            <div class="fare-table-row"><span class="dist">20 km</span><span class="est-val" data-km="20">R XX</span></div>
-            <div class="fare-table-foot">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              All fares are estimates using placeholder rates. Confirmed fare is shown in the app at the time of booking.
-            </div>
+          <div class="feature-card reveal" style="--i:1">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="7" rx="2" />
+                <path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
+                <circle cx="7.5" cy="18" r="1.5" />
+                <circle cx="16.5" cy="18" r="1.5" />
+              </svg></div>
+            <h3>Ride options for every moment</h3>
+            <p>Pick Economy for everyday trips or Xpress when you need the nearest available driver, right now.</p>
           </div>
-
+          <div class="feature-card reveal" style="--i:2">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg></div>
+            <h3>Upfront fares</h3>
+            <p>See your exact fare before you book — not an estimate that quietly changes once you're already inside.
+            </p>
+          </div>
+          <div class="feature-card reveal" style="--i:3">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg></div>
+            <h3>A real person, in the app</h3>
+            <p>Reach support from inside the app any time something doesn't feel right — no call centre maze.</p>
+          </div>
         </div>
       </div>
-    </div><!-- /Zone 1 -->
+    </section>
 
-    <!-- Zone 2: Formula — dark -->
-    <div class="pricing-zone dark-zone">
+    <!-- ============ SAFETY ============ -->
+    <section class="section dark" id="safety">
+      <div class="container safety-row">
+        <div class="reveal">
+          <span class="eyebrow on-dark">Safety</span>
+          <h2 class="section-title on-dark">Safety isn't a feature.<br>It's the foundation.</h2>
+          <p class="section-lede on-dark">Before a driver ever picks someone up on Vaia, they've already cleared every
+            check that matters.</p>
+
+          <div class="safety-grid">
+            <div class="safety-item">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg></div>
+              <h3>Verified drivers</h3>
+              <p>ID-checked, background-checked, and vehicle-verified before approval.</p>
+            </div>
+            <div class="safety-item">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z" />
+                </svg></div>
+              <h3>Live trip sharing</h3>
+              <p>Share your route and location with someone you trust, updated in real time.</p>
+            </div>
+            <div class="safety-item">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 8v5l3 2" />
+                </svg></div>
+              <h3>In-ride SOS</h3>
+              <p>One tap connects you to emergency support and shares your exact location.</p>
+            </div>
+            <div class="safety-item">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2l2.6 6.2 6.7.6-5.1 4.4 1.6 6.6L12 16.6 6.2 19.8l1.6-6.6-5.1-4.4 6.7-.6z" />
+                </svg></div>
+              <h3>Two-way ratings</h3>
+              <p>Every ride is rated, so accountability never lags behind a bad trip.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="badge-card">
+            <svg class="verified-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z" />
+              <path d="M9 12l2 2 4-4" stroke-width="2" />
+            </svg>
+            <h3>Every driver, fully verified.</h3>
+            <p>Vaia checks identity documents, criminal background, vehicle registration, and licence validity before a
+              single ride is ever offered.</p>
+            <div class="sos-row">
+              <div class="sos-btn">SOS</div>
+              <p><b>Help, instantly.</b><br>Press and hold for 3 seconds to alert support and trusted contacts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section id="pricing">
+
+      <!-- Zone 1: Hero + Estimator + Table -->
+      <div class="pricing-zone first">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Transparent Pricing</span>
+            <h2 class="section-title">Know approximately what you'll pay.<br>Before you request.</h2>
+            <p class="section-lede">No hidden fees. No surprise pricing. Simple, fair and predictable.</p>
+          </div>
+
+          <div class="pricing-main-grid">
+
+            <!-- Fare Estimator -->
+            <div class="estimator-card reveal">
+              <div class="est-header">
+                <h3>Fare Estimator</h3>
+                <p>Move the slider or type a distance to estimate your fare.</p>
+              </div>
+              <div class="est-body">
+                <div class="est-label">Estimated Distance</div>
+                <div class="est-input-wrap">
+                  <input type="number" class="est-num-input" id="estKmInput" value="5" min="1" max="50" step="0.5"
+                    aria-label="Distance in kilometres">
+                  <span class="est-unit-badge">km</span>
+                </div>
+                <input type="range" class="est-slider" id="estSlider" min="1" max="50" value="5" step="0.5"
+                  aria-label="Slide to set distance">
+                <div class="est-range-labels"><span>1 km</span><span>25 km</span><span>50 km</span></div>
+                <div class="est-result">
+                  <span class="est-result-label">Approximate fare</span>
+                  <span class="est-result-amount" id="estOutput" aria-live="polite">R XX</span>
+                </div>
+                <p class="est-disclaimer">* Estimate only — based on placeholder rates. Final fare depends on actual
+                  route and conditions. Replace <code>VAIA_RATES</code> in the script to go live.</p>
+              </div>
+            </div>
+
+            <!-- Pricing Table -->
+            <div class="fare-table-card reveal">
+              <div class="fare-table-head">
+                <h3>Estimated Fares</h3>
+                <span class="ftbadge">Distance guide</span>
+              </div>
+              <div class="fare-table-colhead">
+                <span>Distance</span><span>Estimated Fare</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">2 km</span><span class="est-val" data-km="2">R XX</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">4 km</span><span class="est-val" data-km="4">R XX</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">6 km</span><span class="est-val" data-km="6">R XX</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">8 km</span><span class="est-val" data-km="8">R XX</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">10 km</span><span class="est-val" data-km="10">R XX</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">15 km</span><span class="est-val" data-km="15">R XX</span>
+              </div>
+              <div class="fare-table-row"><span class="dist">20 km</span><span class="est-val" data-km="20">R XX</span>
+              </div>
+              <div class="fare-table-foot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                All fares are estimates using placeholder rates. Confirmed fare is shown in the app at the time of
+                booking.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /Zone 1 -->
+
+      <!-- Zone 2: Formula — dark -->
+      <div class="pricing-zone dark-zone">
+        <div class="container">
+          <div class="formula-block reveal">
+            <div class="formula-inner">
+              <div class="formula-head">
+                <span class="eyebrow on-dark">How Vaia Calculates Fares</span>
+                <h2>The formula is simple.<br>And it doesn't change on you.</h2>
+                <p>No black box. Vaia uses a straightforward calculation you can verify before every trip.</p>
+              </div>
+              <div class="formula-eq">
+                <div class="formula-term">
+                  <div class="ft-label">Base Fare</div>
+                  <div class="ft-value">Fixed rate</div>
+                </div>
+                <span class="formula-op">+</span>
+                <div class="formula-term">
+                  <div class="ft-label">Distance</div>
+                  <div class="ft-value">Rate × km</div>
+                </div>
+                <span class="formula-op">+</span>
+                <div class="formula-term">
+                  <div class="ft-label">Waiting Time</div>
+                  <div class="ft-value">If applicable</div>
+                </div>
+                <span class="formula-op">=</span>
+                <div class="formula-result-term">
+                  <div class="ft-label">Your Fare</div>
+                  <div class="ft-value">Locked at booking</div>
+                </div>
+              </div>
+              <div class="formula-note">
+                Your fare is calculated at the time of booking based on the estimated route. The final charge may differ
+                slightly if your actual trip varies, but Vaia avoids unexpected surge pricing wherever possible — so
+                what you see is very close to what you pay.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /Zone 2 -->
+
+      <!-- Zone 3: Why Transparent Pricing — surface -->
+      <div class="pricing-zone surface-zone">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="eyebrow">Why Transparent Pricing?</span>
+            <h2 class="section-title">Because trust is built before you get in the car.</h2>
+            <p class="section-lede">The industry norm is to show you a price estimate only after you've downloaded an
+              app. Vaia thinks that's backwards.</p>
+          </div>
+          <div class="why-grid reveal-stagger">
+            <div class="why-card reveal" style="--i:0">
+              <div class="why-num">01</div>
+              <h3>Know before you download</h3>
+              <p>Estimate your fare from this page. No app, no sign-up, no commitment — just clear information upfront.
+              </p>
+            </div>
+            <div class="why-card reveal" style="--i:1">
+              <div class="why-num">02</div>
+              <h3>Fair and predictable, always</h3>
+              <p>Pricing that follows consistent rules — not an algorithm that adjusts when you're most likely to accept
+                it.</p>
+            </div>
+            <div class="why-card reveal" style="--i:2">
+              <div class="why-num">03</div>
+              <h3>No unnecessary surprises</h3>
+              <p>The fare you're quoted at booking is the fare you pay. No detour fees, no silent peak-hour multipliers
+                mid-trip.</p>
+            </div>
+            <div class="why-card reveal" style="--i:3">
+              <div class="why-num">04</div>
+              <h3>Built around trust</h3>
+              <p>Customers who feel respected by pricing are customers who come back. That's the Vaia philosophy — not a
+                marketing line.</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /Zone 3 -->
+
+      <!-- Zone 4: Pricing FAQ — white -->
+      <div class="pricing-zone">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="eyebrow">Pricing FAQ</span>
+            <h2 class="section-title">Pricing questions, answered plainly.</h2>
+          </div>
+          <div class="faq-list reveal" style="max-width:760px;margin-inline:auto;">
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Does Vaia use surge pricing?<svg class="chev"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Vaia avoids unexpected surge pricing wherever possible. During periods of high
+                  demand, any demand-based adjustment is shown to you transparently before you confirm — never applied
+                  after you've already agreed to a fare.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">How accurate are estimated fares?<svg class="chev"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">The estimator on this page uses distance as a guide and is meant to give you a
+                  general ballpark before you even open the app. The fare quoted in-app at booking is more precise —
+                  based on your exact pickup, destination, and current conditions — and that is the fare you pay.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Are toll fees included in the fare?<svg class="chev"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Where a route requires toll roads, the applicable toll fees are shown as a
+                  separate line item in your fare breakdown before you confirm. You'll always know what toll costs are
+                  being added and why — nothing is rolled silently into the total.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">What happens if traffic increases my travel time?<svg
+                  class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Your fare is locked at the time of booking based on the estimated route. If
+                  traffic is unexpectedly heavy, you won't be charged extra for additional time beyond what was already
+                  factored into your quote when you confirmed.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Can I book rides in advance?<svg class="chev"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes. Vaia lets you schedule a ride up to 7 days in advance. Your fare is
+                  estimated at booking and confirmed when the driver is dispatched — you'll receive a notification if
+                  anything changes before pickup, so there are no last-minute surprises.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /Zone 4 -->
+
+      <!-- Zone 5: Ready to Ride CTA -->
+      <div class="pricing-cta-band">
+        <h2>Ready to ride?</h2>
+        <p>Download Vaia and experience transparent pricing built around trust, safety and convenience.</p>
+        <div class="store-row">
+          <a href="#download" class="store-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z" />
+            </svg>
+            <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a href="#" class="store-btn outline">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z" />
+              <path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7" />
+              <path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85" />
+              <path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55" />
+            </svg>
+            <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+      </div><!-- /Zone 5 -->
+
+    </section>
+
+    <!-- ============ LIVE TRACKING ============ -->
+    <section class="section surface" id="tracking">
+      <div class="container tracking-row">
+        <div class="reveal">
+          <span class="eyebrow">Live Tracking</span>
+          <h2 class="section-title">Know exactly where your ride is. Always.</h2>
+          <p class="section-lede">From the moment you book to the moment you arrive, Vaia shows precisely where your
+            driver is for pickup — and where you are along the way.</p>
+          <div class="pricing-points" style="margin-top:34px;">
+            <div class="point">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0" />
+                </svg></div>
+              <div>
+                <h3>Pickup, tracked in real time</h3>
+                <p>Watch your driver approach on the map, with an ETA that updates as traffic changes.</p>
+              </div>
+            </div>
+            <div class="point">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z" />
+                </svg></div>
+              <div>
+                <h3>Shareable with anyone you choose</h3>
+                <p>Send a live link to a friend or family member so they can follow your trip too.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="map-card">
+            <svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" id="trackingMap">
+              <g stroke="#E2E8F0" stroke-width="2">
+                <line x1="0" y1="70" x2="560" y2="70" />
+                <line x1="0" y1="150" x2="560" y2="150" />
+                <line x1="0" y1="230" x2="560" y2="230" />
+                <line x1="0" y1="310" x2="560" y2="310" />
+                <line x1="100" y1="0" x2="100" y2="380" />
+                <line x1="240" y1="0" x2="240" y2="380" />
+                <line x1="380" y1="0" x2="380" y2="380" />
+                <line x1="480" y1="0" x2="480" y2="380" />
+              </g>
+              <path id="routePath" d="M70 300 C 140 300, 130 230, 200 230 S 300 150, 320 150 S 420 90, 480 80"
+                fill="none" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round" />
+              <circle cx="70" cy="300" r="9" fill="#0B0F19" />
+              <path d="M480 65 c10 0 18 8 18 18 0 13-18 28-18 28s-18-15-18-28c0-10 8-18 18-18z" fill="#0A5CFF" />
+              <circle id="carDot" cx="70" cy="300" r="9" fill="#FFFFFF" stroke="#0A5CFF" stroke-width="4" />
+            </svg>
+            <div class="map-eta-card">
+              <div class="left"><span class="dot"></span>
+                <p>Driver arriving</p>
+              </div>
+              <span>6 min · 2.1 km away</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GOOGLE SIGN IN ============ -->
+    <section class="section" id="signin">
+      <div class="container signin-row">
+        <div class="reveal">
+          <span class="eyebrow">Google Sign In</span>
+          <h2 class="section-title">One tap. You're in.</h2>
+          <p class="section-lede">Sign in with the Google account you already use. No new password to invent, no
+            verification code to wait for — just open the app and book.</p>
+          <div class="pricing-points" style="margin-top:34px;">
+            <div class="point">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="10" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg></div>
+              <div>
+                <h3>Nothing new to remember</h3>
+                <p>One identity, already secured by Google's own account protection.</p>
+              </div>
+            </div>
+            <div class="point">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2 3 14h7l-1 8 11-12h-7z" />
+                </svg></div>
+              <div>
+                <h3>From download to first ride in under a minute</h3>
+                <p>Skip the signup form entirely. Sign in, confirm your number, book.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="signin-card">
+            <div class="signin-sheet">
+              <h4>Sign in to Vaia</h4>
+              <p class="sub">Continue with the account you already trust.</p>
+              <button class="google-btn"><span class="gdot"></span>Continue with Google</button>
+              <div class="divider-row"><span class="line"></span><span>or</span><span class="line"></span></div>
+              <input class="phone-input" type="text" placeholder="Continue with phone number" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VAIA XPRESS ============ -->
+    <section class="section surface" id="xpress">
       <div class="container">
-        <div class="formula-block reveal">
-          <div class="formula-inner">
-            <div class="formula-head">
-              <span class="eyebrow on-dark">How Vaia Calculates Fares</span>
-              <h2>The formula is simple.<br>And it doesn't change on you.</h2>
-              <p>No black box. Vaia uses a straightforward calculation you can verify before every trip.</p>
+        <div class="xpress-card reveal">
+          <div class="xpress-row">
+            <div>
+              <span class="xpress-badge"><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13 2 3 14h7l-1 8 11-12h-7z" />
+                </svg>VAIA XPRESS</span>
+              <h2>When every minute counts, <span>go Xpress.</span></h2>
+              <p class="lede">Priority matching with the nearest available driver and a faster pickup window — for the
+                rides that can't wait.</p>
+              <ul class="xpress-list">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>Matched with the nearest driver first</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>Average pickup under 4 minutes</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>Dedicated queue, even during peak hours</li>
+              </ul>
             </div>
-            <div class="formula-eq">
-              <div class="formula-term">
-                <div class="ft-label">Base Fare</div>
-                <div class="ft-value">Fixed rate</div>
-              </div>
-              <span class="formula-op">+</span>
-              <div class="formula-term">
-                <div class="ft-label">Distance</div>
-                <div class="ft-value">Rate × km</div>
-              </div>
-              <span class="formula-op">+</span>
-              <div class="formula-term">
-                <div class="ft-label">Waiting Time</div>
-                <div class="ft-value">If applicable</div>
-              </div>
-              <span class="formula-op">=</span>
-              <div class="formula-result-term">
-                <div class="ft-label">Your Fare</div>
-                <div class="ft-value">Locked at booking</div>
-              </div>
-            </div>
-            <div class="formula-note">
-              Your fare is calculated at the time of booking based on the estimated route. The final charge may differ slightly if your actual trip varies, but Vaia avoids unexpected surge pricing wherever possible — so what you see is very close to what you pay.
+            <div class="xpress-visual">
+              <div class="xpress-compare-row"><span class="label">Standard pickup</span><span class="val">9–12
+                  min</span></div>
+              <div class="xpress-compare-row"><span class="label">Xpress pickup</span><span class="val hi">3–4
+                  min</span></div>
+              <div class="xpress-compare-row"><span class="label">Driver priority</span><span class="val hi">Nearest
+                  available</span></div>
+              <div class="xpress-compare-row"><span class="label">Peak-hour queue</span><span
+                  class="val hi">Dedicated</span></div>
             </div>
           </div>
         </div>
       </div>
-    </div><!-- /Zone 2 -->
+    </section>
 
-    <!-- Zone 3: Why Transparent Pricing — surface -->
-    <div class="pricing-zone surface-zone">
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
       <div class="container">
         <div class="section-head center reveal">
-          <span class="eyebrow">Why Transparent Pricing?</span>
-          <h2 class="section-title">Because trust is built before you get in the car.</h2>
-          <p class="section-lede">The industry norm is to show you a price estimate only after you've downloaded an app. Vaia thinks that's backwards.</p>
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title">Questions, answered plainly.</h2>
         </div>
-        <div class="why-grid reveal-stagger">
-          <div class="why-card reveal" style="--i:0">
-            <div class="why-num">01</div>
-            <h3>Know before you download</h3>
-            <p>Estimate your fare from this page. No app, no sign-up, no commitment — just clear information upfront.</p>
-          </div>
-          <div class="why-card reveal" style="--i:1">
-            <div class="why-num">02</div>
-            <h3>Fair and predictable, always</h3>
-            <p>Pricing that follows consistent rules — not an algorithm that adjusts when you're most likely to accept it.</p>
-          </div>
-          <div class="why-card reveal" style="--i:2">
-            <div class="why-num">03</div>
-            <h3>No unnecessary surprises</h3>
-            <p>The fare you're quoted at booking is the fare you pay. No detour fees, no silent peak-hour multipliers mid-trip.</p>
-          </div>
-          <div class="why-card reveal" style="--i:3">
-            <div class="why-num">04</div>
-            <h3>Built around trust</h3>
-            <p>Customers who feel respected by pricing are customers who come back. That's the Vaia philosophy — not a marketing line.</p>
-          </div>
-        </div>
-      </div>
-    </div><!-- /Zone 3 -->
 
-    <!-- Zone 4: Pricing FAQ — white -->
-    <div class="pricing-zone">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Pricing FAQ</span>
-          <h2 class="section-title">Pricing questions, answered plainly.</h2>
-        </div>
         <div class="faq-list reveal" style="max-width:760px;margin-inline:auto;">
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Does Vaia use surge pricing?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Vaia avoids unexpected surge pricing wherever possible. During periods of high demand, any demand-based adjustment is shown to you transparently before you confirm — never applied after you've already agreed to a fare.</div></div>
+            <button class="faq-q" aria-expanded="false">How do I pay for a ride?<svg class="chev" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></button>
+            <div class="faq-a">
+              <div class="faq-a-inner">Add a card once when you set up your account. Your fare is charged automatically
+                the moment your trip ends — no cash needed, no action required from you.</div>
+            </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">How accurate are estimated fares?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">The estimator on this page uses distance as a guide and is meant to give you a general ballpark before you even open the app. The fare quoted in-app at booking is more precise — based on your exact pickup, destination, and current conditions — and that is the fare you pay.</div></div>
+            <button class="faq-q" aria-expanded="false">What happens if my driver cancels?<svg class="chev"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></button>
+            <div class="faq-a">
+              <div class="faq-a-inner">Vaia automatically rematches you with the next available driver nearby. You don't
+                need to rebook or re-enter your destination.</div>
+            </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Are toll fees included in the fare?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Where a route requires toll roads, the applicable toll fees are shown as a separate line item in your fare breakdown before you confirm. You'll always know what toll costs are being added and why — nothing is rolled silently into the total.</div></div>
+            <button class="faq-q" aria-expanded="false">Is my trip information private?<svg class="chev"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></button>
+            <div class="faq-a">
+              <div class="faq-a-inner">Your trip and location data is only shared with people you explicitly choose to
+                share it with, and is used internally to keep rides safe — never sold to advertisers.</div>
+            </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">What happens if traffic increases my travel time?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Your fare is locked at the time of booking based on the estimated route. If traffic is unexpectedly heavy, you won't be charged extra for additional time beyond what was already factored into your quote when you confirmed.</div></div>
+            <button class="faq-q" aria-expanded="false">Which cities is Vaia available in?<svg class="chev"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></button>
+            <div class="faq-a">
+              <div class="faq-a-inner">Vaia currently operates in Johannesburg, Cape Town, Durban, and Pretoria, with
+                more cities being added as driver coverage grows.</div>
+            </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can I book rides in advance?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Yes. Vaia lets you schedule a ride up to 7 days in advance. Your fare is estimated at booking and confirmed when the driver is dispatched — you'll receive a notification if anything changes before pickup, so there are no last-minute surprises.</div></div>
+            <button class="faq-q" aria-expanded="false">Can I schedule a ride in advance?<svg class="chev"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></button>
+            <div class="faq-a">
+              <div class="faq-a-inner">Yes. Schedule a pickup up to 7 days ahead directly from the app, and you'll get a
+                reminder before your driver is dispatched.</div>
+            </div>
           </div>
         </div>
       </div>
-    </div><!-- /Zone 4 -->
+    </section>
 
-    <!-- Zone 5: Ready to Ride CTA -->
-    <div class="pricing-cta-band">
-      <h2>Ready to ride?</h2>
-      <p>Download Vaia and experience transparent pricing built around trust, safety and convenience.</p>
-      <div class="store-row">
-        <a href="#download" class="store-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z"/></svg>
-          <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-        </a>
-        <a href="#" class="store-btn outline">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z"/><path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7"/><path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85"/><path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55"/></svg>
-          <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
-        </a>
-      </div>
-    </div><!-- /Zone 5 -->
-
-  </section>
-
-  <!-- ============ LIVE TRACKING ============ -->
-  <section class="section surface" id="tracking">
-    <div class="container tracking-row">
-      <div class="reveal">
-        <span class="eyebrow">Live Tracking</span>
-        <h2 class="section-title">Know exactly where your ride is. Always.</h2>
-        <p class="section-lede">From the moment you book to the moment you arrive, Vaia shows precisely where your driver is for pickup — and where you are along the way.</p>
-        <div class="pricing-points" style="margin-top:34px;">
-          <div class="point">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0"/></svg></div>
-            <div><h3>Pickup, tracked in real time</h3><p>Watch your driver approach on the map, with an ETA that updates as traffic changes.</p></div>
-          </div>
-          <div class="point">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg></div>
-            <div><h3>Shareable with anyone you choose</h3><p>Send a live link to a friend or family member so they can follow your trip too.</p></div>
-          </div>
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="download-section" id="download">
+      <div class="container">
+        <h2>Get moving.</h2>
+        <p>Free to download. Pay only for the rides you take.</p>
+        <div class="store-row">
+          <a href="#" class="store-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z" />
+            </svg>
+            <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a href="#" class="store-btn outline">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z" />
+              <path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7" />
+              <path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85" />
+              <path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55" />
+            </svg>
+            <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
         </div>
+        <p class="download-note">Available on iOS 15+ and Android 9+</p>
       </div>
+    </section>
 
-      <div class="reveal">
-        <div class="map-card">
-          <svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" id="trackingMap">
-            <g stroke="#E2E8F0" stroke-width="2">
-              <line x1="0" y1="70" x2="560" y2="70"/>
-              <line x1="0" y1="150" x2="560" y2="150"/>
-              <line x1="0" y1="230" x2="560" y2="230"/>
-              <line x1="0" y1="310" x2="560" y2="310"/>
-              <line x1="100" y1="0" x2="100" y2="380"/>
-              <line x1="240" y1="0" x2="240" y2="380"/>
-              <line x1="380" y1="0" x2="380" y2="380"/>
-              <line x1="480" y1="0" x2="480" y2="380"/>
-            </g>
-            <path id="routePath" d="M70 300 C 140 300, 130 230, 200 230 S 300 150, 320 150 S 420 90, 480 80" fill="none" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round"/>
-            <circle cx="70" cy="300" r="9" fill="#0B0F19"/>
-            <path d="M480 65 c10 0 18 8 18 18 0 13-18 28-18 28s-18-15-18-28c0-10 8-18 18-18z" fill="#0A5CFF"/>
-            <circle id="carDot" cx="70" cy="300" r="9" fill="#FFFFFF" stroke="#0A5CFF" stroke-width="4"/>
-          </svg>
-          <div class="map-eta-card">
-            <div class="left"><span class="dot"></span><p>Driver arriving</p></div>
-            <span>6 min · 2.1 km away</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- ============ GOOGLE SIGN IN ============ -->
-  <section class="section" id="signin">
-    <div class="container signin-row">
-      <div class="reveal">
-        <span class="eyebrow">Google Sign In</span>
-        <h2 class="section-title">One tap. You're in.</h2>
-        <p class="section-lede">Sign in with the Google account you already use. No new password to invent, no verification code to wait for — just open the app and book.</p>
-        <div class="pricing-points" style="margin-top:34px;">
-          <div class="point">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            <div><h3>Nothing new to remember</h3><p>One identity, already secured by Google's own account protection.</p></div>
-          </div>
-          <div class="point">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-12h-7z"/></svg></div>
-            <div><h3>From download to first ride in under a minute</h3><p>Skip the signup form entirely. Sign in, confirm your number, book.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="signin-card">
-          <div class="signin-sheet">
-            <h4>Sign in to Vaia</h4>
-            <p class="sub">Continue with the account you already trust.</p>
-            <button class="google-btn"><span class="gdot"></span>Continue with Google</button>
-            <div class="divider-row"><span class="line"></span><span>or</span><span class="line"></span></div>
-            <input class="phone-input" type="text" placeholder="Continue with phone number" disabled>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ VAIA XPRESS ============ -->
-  <section class="section surface" id="xpress">
+  <footer>
     <div class="container">
-      <div class="xpress-card reveal">
-        <div class="xpress-row">
-          <div>
-            <span class="xpress-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-12h-7z"/></svg>VAIA XPRESS</span>
-            <h2>When every minute counts, <span>go Xpress.</span></h2>
-            <p class="lede">Priority matching with the nearest available driver and a faster pickup window — for the rides that can't wait.</p>
-            <ul class="xpress-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Matched with the nearest driver first</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Average pickup under 4 minutes</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dedicated queue, even during peak hours</li>
-            </ul>
+      <div class="footer-row">
+        <div class="footer-brand">
+          <a href="#main" class="logo">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect width="64" height="64" rx="16" fill="#0B0F19" />
+              <path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            Vaia
+          </a>
+          <p>Reliable rides designed around people. Built for South African cities.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#safety">Safety</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#xpress">Xpress</a>
           </div>
-          <div class="xpress-visual">
-            <div class="xpress-compare-row"><span class="label">Standard pickup</span><span class="val">9–12 min</span></div>
-            <div class="xpress-compare-row"><span class="label">Xpress pickup</span><span class="val hi">3–4 min</span></div>
-            <div class="xpress-compare-row"><span class="label">Driver priority</span><span class="val hi">Nearest available</span></div>
-            <div class="xpress-compare-row"><span class="label">Peak-hour queue</span><span class="val hi">Dedicated</span></div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ FAQ ============ -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">FAQ</span>
-        <h2 class="section-title">Questions, answered plainly.</h2>
-      </div>
-
-      <div class="faq-list reveal" style="max-width:760px;margin-inline:auto;">
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">How do I pay for a ride?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner">Add a card once when you set up your account. Your fare is charged automatically the moment your trip ends — no cash needed, no action required from you.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">What happens if my driver cancels?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner">Vaia automatically rematches you with the next available driver nearby. You don't need to rebook or re-enter your destination.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Is my trip information private?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner">Your trip and location data is only shared with people you explicitly choose to share it with, and is used internally to keep rides safe — never sold to advertisers.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Which cities is Vaia available in?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner">Vaia currently operates in Johannesburg, Cape Town, Durban, and Pretoria, with more cities being added as driver coverage grows.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Can I schedule a ride in advance?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner">Yes. Schedule a pickup up to 7 days ahead directly from the app, and you'll get a reminder before your driver is dispatched.</div></div>
-        </div>
+      <div class="footer-bottom">
+        <span id="year"></span>
+        <span>Made for moving smarter.</span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ============ DOWNLOAD ============ -->
-  <section class="download-section" id="download">
-    <div class="container">
-      <h2>Get moving.</h2>
-      <p>Free to download. Pay only for the rides you take.</p>
-      <div class="store-row">
-        <a href="#" class="store-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1.1-.3 2.2-1 3-.8.9-1.9 1.6-3 1.5-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 2.9-1.5zM20.6 17.2c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.2-4 3.2-1.5 0-1.9-1-3.9-1s-2.5 1-4 1c-1.7 0-3-1.7-4-3.1-2.7-3.9-3-8.5-1.3-10.9 1.2-1.7 3-2.7 4.7-2.7 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.2 1.4 8.6z"/></svg>
-          <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-        </a>
-        <a href="#" class="store-btn outline">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5z"/><path d="M16.8 9.2 13.7 12l3.1 3.1 3.5-2c1-.6 1-1.9 0-2.5z" opacity="0.7"/><path d="M13 12 3.7 21.5c.2.1.5.2.7.2.3 0 .6-.1.9-.2l9.8-5.6z" opacity="0.85"/><path d="M13 12l3.8-3.8-9.8-5.6c-.3-.1-.6-.2-.9-.2-.2 0-.5.1-.7.2z" opacity="0.55"/></svg>
-          <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
-        </a>
-      </div>
-      <p class="download-note">Available on iOS 15+ and Android 9+</p>
-    </div>
-  </section>
+  <script src="js/vaia.js" type="module"></script>
+  <script>
 
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-row">
-      <div class="footer-brand">
-        <a href="#main" class="logo">
-          <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#0B0F19"/><path d="M16 18 L32 46 L48 18" stroke="#0A5CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Vaia
-        </a>
-        <p>Reliable rides designed around people. Built for South African cities.</p>
-      </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="#features">Features</a>
-          <a href="#safety">Safety</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#xpress">Xpress</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span id="year"></span>
-      <span>Made for moving smarter.</span>
-    </div>
-  </div>
-</footer>
-
-    <script src="js/studx.js" type="module"></script>
-<script>
-
-</script>
+  </script>
 
 </body>
+
 </html>

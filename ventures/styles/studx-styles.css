@@ -2199,3 +2199,208 @@ footer {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   STUDX LEGAL PAGES
+   ============================================================ */
+.studx-legal-page {
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 36rem),
+    linear-gradient(180deg, var(--off-white) 0%, var(--white) 42%, var(--off-white) 100%);
+}
+
+.studx-legal-nav-inner { gap: 24px; }
+
+.studx-legal-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.studx-legal-nav-links a,
+.studx-back-link,
+.studx-policy-switcher a {
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.studx-legal-nav-links a {
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.studx-legal-nav-links a:hover,
+.studx-legal-nav-links a:focus-visible {
+  background: var(--blue-tint);
+  color: var(--blue-deeper);
+}
+
+.studx-legal-main {
+  padding: 112px 0 72px;
+}
+
+.studx-back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--blue-deeper);
+  font-weight: 700;
+}
+
+.studx-back-link:hover,
+.studx-back-link:focus-visible { color: var(--blue); }
+
+.studx-policy-card {
+  max-width: 920px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(28px, 5vw, 56px);
+  overflow: hidden;
+}
+
+.studx-policy-hero {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.studx-policy-hero h1 {
+  max-width: 760px;
+  font-size: clamp(36px, 7vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--text);
+  margin: 4px 0 16px;
+}
+
+.studx-policy-hero .effective-date {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.studx-policy-intro {
+  max-width: 720px;
+  color: var(--text-2);
+  font-size: 18px;
+}
+
+.studx-policy-intro p + p,
+.studx-framework-note p + p,
+.policy-section p + p { margin-top: 12px; }
+
+.studx-framework-note,
+.studx-policy-switcher {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--off-white);
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.studx-framework-note h2,
+.studx-policy-switcher h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.studx-framework-note p { color: var(--text-2); }
+
+.studx-policy-switcher div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.studx-policy-switcher a {
+  display: inline-flex;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.studx-policy-switcher a:hover,
+.studx-policy-switcher a:focus-visible,
+.studx-policy-switcher a[aria-current="page"] {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: var(--blue-tint);
+  color: var(--blue-deeper);
+  transform: translateY(-1px);
+}
+
+.studx-policy-content {
+  max-width: 760px;
+}
+
+.policy-section {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.policy-section:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.policy-section h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.policy-section p,
+.policy-section li {
+  color: var(--text-2);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.policy-section ul {
+  margin: 12px 0 16px 1.2rem;
+  padding-left: 0.8rem;
+}
+
+.policy-section li + li { margin-top: 6px; }
+
+.studx-legal-page footer { padding-top: 36px; }
+
+@media (max-width: 768px) {
+  .studx-legal-nav-inner {
+    height: auto;
+    min-height: 64px;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    flex-direction: column;
+  }
+
+  .studx-legal-nav-links { justify-content: flex-start; }
+
+  .studx-legal-main { padding-top: 144px; }
+
+  .studx-policy-card { border-radius: var(--radius-lg); }
+}
+
+@media (max-width: 480px) {
+  .studx-legal-nav-links a,
+  .studx-policy-switcher a { width: 100%; justify-content: center; }
+
+  .studx-policy-card { padding: 24px 18px; }
+
+  .studx-policy-hero .effective-date { display: flex; }
+}

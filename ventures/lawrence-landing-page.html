@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lawrence: Legal, Governance & Operations | Horizon Synergy</title>
+<meta name="description" content="Lawrence develops the legal, governance, compliance and operational infrastructure for Horizon Synergy and its ventures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root{
+  --bg: #0B0D0F;
+  --bg-raised: #101316;
+  --surface: #15181C;
+  --surface-2: #1A1E23;
+  --border: rgba(242,241,236,0.09);
+  --border-strong: rgba(242,241,236,0.16);
+  --text-primary: #F2F1EC;
+  --text-secondary: #A7ACB0;
+  --text-tertiary: #6E7377;
+  --brass: #C4A063;
+  --brass-dim: #8A754A;
+  --sage: #6E8F82;
+  --sage-dim: #3E5049;
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+  --container: 1180px;
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg{ display:block; max-width:100%; }
+
+a{ color:inherit; text-decoration:none; }
+
+ul{ list-style:none; }
+
+button{ font-family:inherit; cursor:pointer; }
+
+:focus-visible{
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px){
+  .container{ padding: 0 20px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* background grain / texture */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* eyebrow / label */
+.eyebrow{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before{
+  content:"";
+  width: 16px;
+  height: 1px;
+  background: var(--brass);
+}
+
+.section-heading{
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.section-tag{
+  display:flex;
+  align-items:baseline;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.section-tag .index{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+}
+
+.section{
+  padding: 120px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+@media (max-width: 780px){
+  .section{ padding: 80px 0; }
+}
+
+.lede{
+  color: var(--text-secondary);
+  font-size: 17px;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11,13,15,0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  height: 76px;
+}
+.brand{
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.01em;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.brand-mark{
+  width: 22px;
+  height: 22px;
+  flex-shrink:0;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap: 40px;
+}
+.nav-links a{
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  transition: color 0.2s var(--ease);
+  position: relative;
+}
+.nav-links a:hover{ color: var(--text-primary); }
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-6px;
+  width:0; height:1px;
+  background: var(--brass);
+  transition: width 0.25s var(--ease);
+}
+.nav-links a:hover::after{ width:100%; }
+
+.nav-cta{
+  display: inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-s);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.nav-cta:hover{ border-color: var(--brass); background: rgba(196,160,99,0.08); }
+
+.nav-right{ display:flex; align-items:center; gap: 28px; }
+
+.nav-toggle{
+  display:none;
+  background:none;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-s);
+  width: 40px;
+  height: 40px;
+  align-items:center;
+  justify-content:center;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+  content:"";
+  display:block;
+  width: 16px;
+  height: 1.5px;
+  background: var(--text-primary);
+  position: relative;
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+.nav-toggle span::before{ position:absolute; top:-5px; }
+.nav-toggle span::after{ position:absolute; top:5px; }
+.nav-toggle.open span{ background: transparent; }
+.nav-toggle.open span::before{ top:0; transform: rotate(45deg); }
+.nav-toggle.open span::after{ top:0; transform: rotate(-45deg); }
+
+.mobile-menu{
+  display:none;
+  flex-direction:column;
+  gap: 4px;
+  padding: 8px 0 24px;
+  border-top: 1px solid var(--border);
+}
+.mobile-menu a{
+  padding: 14px 4px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.mobile-menu .nav-cta{ margin-top: 14px; text-align:center; justify-content:center; }
+
+@media (max-width: 860px){
+  .nav-links{ display:none; }
+  .nav-cta{ display:none; }
+  .nav-toggle{ display:flex; }
+  .mobile-menu.open{ display:flex; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  padding: 100px 0 110px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items:center;
+}
+@media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; gap: 56px; }
+}
+
+.hero-eyebrow{ margin-bottom: 26px; }
+
+.hero h1{
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(38px, 5.4vw, 66px);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  max-width: 640px;
+}
+
+.hero-lede{
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 520px;
+}
+
+.hero-ctas{
+  display:flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: var(--radius-s);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.btn-primary{
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.btn-primary:hover{ transform: translateY(-1px); background: var(--brass); }
+.btn-secondary{
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+}
+.btn-secondary:hover{ border-color: var(--brass); color: var(--brass); }
+.btn-arrow{ transition: transform 0.2s var(--ease); }
+.btn:hover .btn-arrow{ transform: translateX(3px); }
+
+/* Hero signature mark: layered infrastructure planes */
+.hero-mark{
+  position: relative;
+  height: 420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.layer-stack{
+  width: 100%;
+  max-width: 380px;
+}
+.layer{
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0));
+  padding: 20px 24px;
+  margin-bottom: -1px;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: layerIn 0.8s var(--ease) forwards;
+}
+.layer:nth-child(1){ animation-delay: 0.15s; }
+.layer:nth-child(2){ animation-delay: 0.32s; margin-left: 20px; margin-right: -20px; }
+.layer:nth-child(3){ animation-delay: 0.49s; margin-left: 40px; margin-right: -40px; }
+@keyframes layerIn{
+  to{ opacity:1; transform: translateY(0); }
+}
+.layer-row{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+}
+.layer-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.layer-ref{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+.layer-name{
+  font-family: var(--serif);
+  font-size: 20px;
+  margin-top: 8px;
+  color: var(--text-primary);
+}
+.layer:nth-child(1){ border-color: rgba(196,160,99,0.35); }
+.layer:nth-child(1) .layer-label{ color: var(--brass); }
+
+/* ============================================================
+   INTRO
+   ============================================================ */
+.intro-inner{
+  display:grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+}
+@media (max-width: 860px){
+  .intro-inner{ grid-template-columns: 1fr; gap: 32px; }
+}
+.intro-copy p{
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+.intro-copy p:last-child{
+  color: var(--text-primary);
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   CAPABILITIES
+   ============================================================ */
+.cap-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  margin-top: 48px;
+}
+@media (max-width: 860px){
+  .cap-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .cap-grid{ grid-template-columns: 1fr; }
+}
+.cap-card{
+  background: var(--surface);
+  padding: 36px 30px;
+  transition: background 0.25s var(--ease);
+}
+.cap-card:hover{ background: var(--surface-2); }
+.cap-ref{
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--brass);
+  letter-spacing: 0.08em;
+}
+.cap-card h3{
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 21px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+.cap-card p{
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   VENTURES
+   ============================================================ */
+.venture-list{
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+}
+.venture-row{
+  display:grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+@media (max-width: 640px){
+  .venture-row{ grid-template-columns: 1fr; gap: 10px; }
+}
+.venture-name{
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.venture-name::before{
+  content:"";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+.venture-desc{
+  color: var(--text-secondary);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 620px;
+}
+.venture-note{
+  margin-top: 28px;
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ============================================================
+   APPROACH
+   ============================================================ */
+.approach-statement{
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 4.6vw, 48px);
+  line-height: 1.28;
+  color: var(--text-primary);
+  margin: 8px 0 28px;
+}
+.approach-statement span{ display:block; color: var(--text-tertiary); }
+.approach-statement span:nth-of-type(1){ color: var(--brass); }
+
+.principles{
+  margin-top: 64px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 860px){
+  .principles{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .principles{ grid-template-columns: 1fr; }
+}
+.principle{
+  padding: 32px 28px 32px 0;
+  border-right: 1px solid var(--border);
+}
+.principle:last-child{ border-right: none; }
+@media (max-width: 860px){
+  .principle:nth-child(2n){ border-right: none; }
+}
+.principle-ref{
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--brass);
+}
+.principle h4{
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  margin: 14px 0 10px;
+}
+.principle p{
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   CURRENT STATE
+   ============================================================ */
+.state-grid{
+  margin-top: 56px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+@media (max-width: 700px){
+  .state-grid{ grid-template-columns: 1fr; }
+}
+.state-panel{
+  padding: 40px 36px;
+  background: var(--surface);
+}
+.state-panel.current{
+  background: linear-gradient(180deg, rgba(196,160,99,0.06), transparent 60%), var(--surface);
+}
+.state-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+.state-title{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.state-panel.current .state-title{ color: var(--brass); }
+.state-panel.future .state-title{ color: var(--text-tertiary); }
+.state-dot{ width: 7px; height: 7px; border-radius: 50%; }
+.state-panel.current .state-dot{ background: var(--brass); }
+.state-panel.future .state-dot{ background: var(--text-tertiary); }
+.state-panel ul li{
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.state-panel.future ul li{ color: var(--text-secondary); }
+.state-panel ul li:first-child{ border-top: none; }
+
+/* ============================================================
+   RELATIONSHIP DIAGRAM
+   ============================================================ */
+.relationship{
+  margin-top: 56px;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  text-align:center;
+}
+.rel-node{
+  padding: 20px 36px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-s);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.rel-connector{
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(180deg, var(--border-strong), var(--brass));
+  margin: 4px 0;
+}
+.rel-main{
+  padding: 26px 48px;
+  border: 1px solid var(--brass-dim);
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, rgba(196,160,99,0.08), transparent);
+}
+.rel-main .rel-title{
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--text-primary);
+}
+.rel-main .rel-sub{
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+.rel-branches{
+  margin-top: 44px;
+  display:flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+.rel-branch{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 10px;
+}
+.rel-branch-line{
+  width: 1px;
+  height: 26px;
+  background: var(--border-strong);
+}
+.rel-branch-name{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+}
+
+/* ============================================================
+   FUTURE DIRECTION
+   ============================================================ */
+.future-inner{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items:center;
+}
+@media (max-width: 860px){
+  .future-inner{ grid-template-columns: 1fr; gap: 36px; }
+}
+.future-copy p{
+  color: var(--text-secondary);
+  font-size: 16.5px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  max-width: 540px;
+}
+.future-visual{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 36px;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+.future-visual::before{
+  content:"";
+  position:absolute;
+  top:-40%; right:-20%;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(196,160,99,0.14), transparent 70%);
+}
+.future-line{
+  display:flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  position: relative;
+}
+.future-line:last-child{ border-bottom: none; }
+.future-line span:first-child{ color: var(--text-tertiary); font-family: var(--mono); font-size: 12px; }
+.future-line span:last-child{ color: var(--text-secondary); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-section{
+  padding: 130px 0;
+  text-align:center;
+  border-top: 1px solid var(--border);
+}
+.contact-section .section-heading{
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+.contact-section .lede{
+  margin: 0 auto 42px;
+  max-width: 560px;
+}
+.contact-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 18px;
+}
+.contact-email{
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+.contact-email a{
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-strong);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.contact-email a:hover{ color: var(--brass); border-color: var(--brass); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 64px 0 40px;
+}
+.footer-top{
+  display:flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-bottom: 48px;
+}
+.footer-brand .brand{ margin-bottom: 14px; }
+.footer-tagline{
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.footer-note{
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+.footer-links{
+  display:flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.footer-col h5{
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+.footer-col a{
+  display:block;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  transition: color 0.2s var(--ease);
+}
+.footer-col a:hover{ color: var(--text-primary); }
+.footer-bottom{
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  font-family: var(--mono);
+}
+
+/* scroll reveal */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="Lawrence home">
+      <svg class="brand-mark" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="1" y="13" width="20" height="7.5" rx="1.5" stroke="#C4A063" stroke-width="1.2"/>
+        <rect x="4" y="7" width="14" height="7.5" rx="1.5" stroke="#A7ACB0" stroke-width="1.2" fill="#0B0D0F"/>
+        <rect x="7" y="1" width="8" height="7.5" rx="1.5" stroke="#6E7377" stroke-width="1.2" fill="#0B0D0F"/>
+      </svg>
+      Lawrence
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#approach">Approach</a>
+      <a href="#horizon">Horizon Synergy</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Contact Horizon Synergy</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+      <a href="#about">About</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#approach">Approach</a>
+      <a href="#horizon">Horizon Synergy</a>
+      <a href="#contact" class="nav-cta">Contact Horizon Synergy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow hero-eyebrow">Horizon Synergy Venture</div>
+        <h1>The infrastructure behind responsible businesses.</h1>
+        <p class="hero-lede">Lawrence develops the legal, governance, compliance and operational systems that help businesses build responsibly, manage risk and grow with structure.</p>
+        <div class="hero-ctas">
+          <a href="#capabilities" class="btn btn-primary">Explore our capabilities <span class="btn-arrow">→</span></a>
+          <a href="#about" class="btn btn-secondary">About Lawrence</a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <div class="layer-stack">
+          <div class="layer">
+            <div class="layer-row">
+              <span class="layer-label">Legal</span>
+              <span class="layer-ref">§ 01</span>
+            </div>
+            <div class="layer-name">Infrastructure</div>
+          </div>
+          <div class="layer">
+            <div class="layer-row">
+              <span class="layer-label">Governance</span>
+              <span class="layer-ref">§ 02</span>
+            </div>
+            <div class="layer-name">Structure</div>
+          </div>
+          <div class="layer">
+            <div class="layer-row">
+              <span class="layer-label">Operations</span>
+              <span class="layer-ref">§ 03</span>
+            </div>
+            <div class="layer-name">Systems</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INTRODUCTION
+       ============================================================ -->
+  <section class="section reveal" id="about">
+    <div class="container intro-inner">
+      <div>
+        <div class="section-tag"><span class="index">§ 01</span></div>
+        <h2 class="section-heading">Businesses need more than good ideas.</h2>
+      </div>
+      <div class="intro-copy">
+        <p>Building a company is not only about creating products. As organisations grow, they need agreements, policies, governance structures, compliance processes, operational systems and clear frameworks for making decisions.</p>
+        <p>Lawrence exists to help build that infrastructure.</p>
+        <p>Within Horizon Synergy, Lawrence is being developed as the capability responsible for creating and maintaining the systems that allow ventures to operate with greater clarity, accountability and resilience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CAPABILITIES
+       ============================================================ -->
+  <section class="section reveal" id="capabilities">
+    <div class="container">
+      <div class="section-tag"><span class="index">§ 02</span></div>
+      <h2 class="section-heading">What we build</h2>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-ref">01</div>
+          <h3>Legal Infrastructure</h3>
+          <p>Policies, agreements, terms, documentation and frameworks that establish how organisations operate.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ref">02</div>
+          <h3>Governance</h3>
+          <p>Structures, responsibilities and decision-making frameworks that create accountability as organisations grow.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ref">03</div>
+          <h3>Compliance</h3>
+          <p>Processes and documentation designed to help ventures understand and meet the requirements relevant to their operations.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ref">04</div>
+          <h3>Risk &amp; Policy</h3>
+          <p>Practical frameworks for identifying operational risks, defining acceptable behaviour and responding to issues.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ref">05</div>
+          <h3>Corporate Operations</h3>
+          <p>Systems and documentation that turn informal processes into repeatable organisational infrastructure.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ref">06</div>
+          <h3>Documentation</h3>
+          <p>Clear, structured documentation that gives teams a shared understanding of responsibilities, processes and expectations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BUILT FOR REAL VENTURES
+       ============================================================ -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-tag"><span class="index">§ 03</span></div>
+      <h2 class="section-heading">Built for the businesses we build.</h2>
+      <p class="lede" style="margin-top:20px;">Lawrence exists partly because Horizon Synergy's ventures increasingly require more sophisticated operational infrastructure. The examples below are internal infrastructure and development work within the group, not external client engagements.</p>
+
+      <div class="venture-list">
+        <div class="venture-row">
+          <div class="venture-name">StudX</div>
+          <div class="venture-desc">Marketplace policies, seller requirements, acceptable-use rules, fulfilment processes, refunds and dispute frameworks.</div>
+        </div>
+        <div class="venture-row">
+          <div class="venture-name">Vaia</div>
+          <div class="venture-desc">Future operational, governance and compliance infrastructure for a mobility-focused venture.</div>
+        </div>
+        <div class="venture-row">
+          <div class="venture-name">Horizon Synergy</div>
+          <div class="venture-desc">Corporate documentation, governance, policies and operational frameworks for the group.</div>
+        </div>
+      </div>
+      <p class="venture-note">These examples describe internal infrastructure development, not services provided to external clients.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       APPROACH
+       ============================================================ -->
+  <section class="section reveal" id="approach">
+    <div class="container">
+      <div class="section-tag"><span class="index">§ 04</span></div>
+      <h2 class="section-heading">Structure before scale.</h2>
+      <div class="approach-statement">
+        <span>Move deliberately.</span>
+        <span>Document clearly.</span>
+        <span>Build responsibly.</span>
+      </div>
+      <p class="lede">Lawrence approaches organisational infrastructure as something that should be designed alongside the business rather than added after problems appear.</p>
+
+      <div class="principles">
+        <div class="principle">
+          <div class="principle-ref">§ 01</div>
+          <h4>Clarity</h4>
+          <p>People should understand how decisions, responsibilities and processes work.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">§ 02</div>
+          <h4>Accountability</h4>
+          <p>Responsibilities should be defined before they become points of conflict.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">§ 03</div>
+          <h4>Adaptability</h4>
+          <p>Frameworks should be capable of evolving as the organisation changes.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">§ 04</div>
+          <h4>Responsibility</h4>
+          <p>Growth should not come at the expense of compliance, trust or good governance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CURRENT STATE
+       ============================================================ -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-tag"><span class="index">§ 05</span></div>
+      <h2 class="section-heading">An organisation in development.</h2>
+      <p class="lede" style="margin-top:20px;">Lawrence is currently an emerging internal capability within Horizon Synergy. Its initial focus is supporting Horizon Synergy and its ventures as they develop increasingly sophisticated legal, governance and operational requirements. Over time, Lawrence may evolve into a dedicated organisation serving a broader range of businesses and organisations.</p>
+
+      <div class="state-grid">
+        <div class="state-panel current">
+          <div class="state-head">
+            <span class="state-title">Current</span>
+            <span class="state-dot"></span>
+          </div>
+          <ul>
+            <li>Internal infrastructure</li>
+            <li>Horizon Synergy ventures</li>
+            <li>Policy development</li>
+            <li>Governance development</li>
+            <li>Operational systems</li>
+          </ul>
+        </div>
+        <div class="state-panel future">
+          <div class="state-head">
+            <span class="state-title">Future</span>
+            <span class="state-dot"></span>
+          </div>
+          <ul>
+            <li>Dedicated organisation</li>
+            <li>Broader business support</li>
+            <li>Expanded capabilities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RELATIONSHIP WITH HORIZON SYNERGY
+       ============================================================ -->
+  <section class="section reveal" id="horizon">
+    <div class="container">
+      <div class="section-tag"><span class="index">§ 06</span></div>
+      <h2 class="section-heading">Part of Horizon Synergy.</h2>
+      <p class="lede" style="margin-top:20px;">Lawrence is being developed within Horizon Synergy alongside the group's other ventures and capabilities.</p>
+
+      <div class="relationship">
+        <div class="rel-node">Horizon Synergy</div>
+        <div class="rel-connector"></div>
+        <div class="rel-main">
+          <div class="rel-title">Lawrence</div>
+          <div class="rel-sub">Legal · Governance · Operations</div>
+        </div>
+        <div class="rel-branches">
+          <div class="rel-branch">
+            <div class="rel-branch-line"></div>
+            <div class="rel-branch-name">StudX</div>
+          </div>
+          <div class="rel-branch">
+            <div class="rel-branch-line"></div>
+            <div class="rel-branch-name">Vaia</div>
+          </div>
+          <div class="rel-branch">
+            <div class="rel-branch-line"></div>
+            <div class="rel-branch-name">Future Ventures</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FUTURE DIRECTION
+       ============================================================ -->
+  <section class="section reveal">
+    <div class="container future-inner">
+      <div class="future-copy">
+        <div class="section-tag"><span class="index">§ 07</span></div>
+        <h2 class="section-heading">Built for what comes next.</h2>
+        <p style="margin-top:24px;">As Horizon Synergy grows, the complexity behind each venture grows with it. Lawrence exists to ensure that growth is supported by the systems, structures and documentation required to operate responsibly.</p>
+        <p>Where Lawrence ultimately goes will depend on how the capability develops.</p>
+        <a href="#contact" class="btn btn-secondary" style="margin-top:12px;">Follow the development</a>
+      </div>
+      <div class="future-visual">
+        <div class="future-line"><span>01</span><span>Internal capability</span></div>
+        <div class="future-line"><span>02</span><span>Ventures supported</span></div>
+        <div class="future-line"><span>03</span><span>Frameworks in development</span></div>
+        <div class="future-line"><span>→</span><span>Dedicated organisation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section class="contact-section reveal" id="contact">
+    <div class="container">
+      <div class="eyebrow" style="justify-content:center; margin-bottom:22px;">Contact</div>
+      <h2 class="section-heading">Building something that needs structure?</h2>
+      <p class="lede">Lawrence is currently focused on Horizon Synergy and its ventures. For enquiries regarding Horizon Synergy, contact the group directly.</p>
+      <div class="contact-actions">
+        <a href="mailto:horizonsynergyx@gmail.com" class="btn btn-primary">Contact Horizon Synergy</a>
+        <span class="contact-email">or write to <a href="mailto:horizonsynergyx@gmail.com">horizonsynergyx@gmail.com</a></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="13" width="20" height="7.5" rx="1.5" stroke="#C4A063" stroke-width="1.2"/>
+            <rect x="4" y="7" width="14" height="7.5" rx="1.5" stroke="#A7ACB0" stroke-width="1.2" fill="#0B0D0F"/>
+            <rect x="7" y="1" width="8" height="7.5" rx="1.5" stroke="#6E7377" stroke-width="1.2" fill="#0B0D0F"/>
+          </svg>
+          Lawrence
+        </div>
+        <div class="footer-tagline">Legal · Governance · Operations</div>
+        <div class="footer-note">An emerging capability within Horizon Synergy.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Group</h5>
+          <a href="#horizon">Horizon Synergy</a>
+          <a href="#horizon">Ventures</a>
+        </div>
+        <div class="footer-col">
+          <h5>Lawrence</h5>
+          <a href="#about">About</a>
+          <a href="#capabilities">Capabilities</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Horizon Synergy. All rights reserved.</span>
+      <span>Lawrence is not currently a law firm.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Mobile menu toggle
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', function(){
+    var isOpen = menu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>

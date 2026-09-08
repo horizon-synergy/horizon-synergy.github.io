@@ -2136,3 +2136,60 @@ body.light-mode .venture-product {
 body.light-mode .venture-product small {
   color: rgba(47, 47, 47, 0.62);
 }
+
+/* Ventures follow-up: navigation, seven-division bento rhythm, and link clarity */
+.ventures-hero .legal-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto 1.75rem;
+  padding: 0.75rem 1.1rem;
+  color: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  background: var(--neo-surface);
+  box-shadow: var(--neo-soft);
+  transition: color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.ventures-hero .legal-home-link:hover,
+.ventures-hero .legal-home-link:focus-visible {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--neo-inset);
+  outline: none;
+}
+
+.venture-card--vaia,
+.venture-card--lawrence {
+  grid-column: span 5;
+}
+
+.venture-card--ovio {
+  grid-column: span 7;
+}
+
+.venture-card--likhaia {
+  grid-column: span 7;
+}
+
+.venture-card--labs .venture-link,
+.venture-card--vaia .venture-link,
+.venture-card--lawrence .venture-link {
+  margin-top: auto;
+}
+
+body.light-mode .ventures-hero .legal-home-link {
+  color: var(--dark-text);
+}
+
+@media (max-width: 900px) {
+  .venture-card--vaia,
+  .venture-card--ovio,
+  .venture-card--lawrence,
+  .venture-card--likhaia {
+    grid-column: span 12;
+  }
+}
